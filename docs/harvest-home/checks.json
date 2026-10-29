@@ -1,0 +1,317 @@
+{
+  "timestamp": "2026-10-29T08:54:25.450Z",
+  "results": [
+    {
+      "name": "Six visible photographic category links",
+      "passed": true
+    },
+    {
+      "name": "One headline, Arabic and RTL",
+      "passed": true
+    },
+    {
+      "name": "about: no horizontal overflow at 1440",
+      "passed": true
+    },
+    {
+      "name": "about: images render at 1440",
+      "passed": true
+    },
+    {
+      "name": "categories: no horizontal overflow at 1440",
+      "passed": true
+    },
+    {
+      "name": "categories: images render at 1440",
+      "passed": true
+    },
+    {
+      "name": "products: no horizontal overflow at 1440",
+      "passed": true
+    },
+    {
+      "name": "products: images render at 1440",
+      "passed": true
+    },
+    {
+      "name": "story: no horizontal overflow at 1440",
+      "passed": true
+    },
+    {
+      "name": "story: images render at 1440",
+      "passed": true
+    },
+    {
+      "name": "season: no horizontal overflow at 1440",
+      "passed": true
+    },
+    {
+      "name": "season: images render at 1440",
+      "passed": true
+    },
+    {
+      "name": "films: no horizontal overflow at 1440",
+      "passed": true
+    },
+    {
+      "name": "films: images render at 1440",
+      "passed": true
+    },
+    {
+      "name": "delivery: no horizontal overflow at 1440",
+      "passed": true
+    },
+    {
+      "name": "delivery: images render at 1440",
+      "passed": true
+    },
+    {
+      "name": "contact: no horizontal overflow at 1440",
+      "passed": true
+    },
+    {
+      "name": "contact: images render at 1440",
+      "passed": true
+    },
+    {
+      "name": "about: no horizontal overflow at 768",
+      "passed": true
+    },
+    {
+      "name": "about: images render at 768",
+      "passed": true
+    },
+    {
+      "name": "categories: no horizontal overflow at 768",
+      "passed": true
+    },
+    {
+      "name": "categories: images render at 768",
+      "passed": true
+    },
+    {
+      "name": "products: no horizontal overflow at 768",
+      "passed": true
+    },
+    {
+      "name": "products: images render at 768",
+      "passed": true
+    },
+    {
+      "name": "story: no horizontal overflow at 768",
+      "passed": true
+    },
+    {
+      "name": "story: images render at 768",
+      "passed": true
+    },
+    {
+      "name": "season: no horizontal overflow at 768",
+      "passed": true
+    },
+    {
+      "name": "season: images render at 768",
+      "passed": true
+    },
+    {
+      "name": "films: no horizontal overflow at 768",
+      "passed": true
+    },
+    {
+      "name": "films: images render at 768",
+      "passed": true
+    },
+    {
+      "name": "delivery: no horizontal overflow at 768",
+      "passed": true
+    },
+    {
+      "name": "delivery: images render at 768",
+      "passed": true
+    },
+    {
+      "name": "contact: no horizontal overflow at 768",
+      "passed": true
+    },
+    {
+      "name": "contact: images render at 768",
+      "passed": true
+    },
+    {
+      "name": "about: no horizontal overflow at 390",
+      "passed": true
+    },
+    {
+      "name": "about: images render at 390",
+      "passed": true
+    },
+    {
+      "name": "categories: no horizontal overflow at 390",
+      "passed": true
+    },
+    {
+      "name": "categories: images render at 390",
+      "passed": true
+    },
+    {
+      "name": "products: no horizontal overflow at 390",
+      "passed": true
+    },
+    {
+      "name": "products: images render at 390",
+      "passed": true
+    },
+    {
+      "name": "story: no horizontal overflow at 390",
+      "passed": true
+    },
+    {
+      "name": "story: images render at 390",
+      "passed": true
+    },
+    {
+      "name": "season: no horizontal overflow at 390",
+      "passed": true
+    },
+    {
+      "name": "season: images render at 390",
+      "passed": true
+    },
+    {
+      "name": "films: no horizontal overflow at 390",
+      "passed": true
+    },
+    {
+      "name": "films: images render at 390",
+      "passed": true
+    },
+    {
+      "name": "delivery: no horizontal overflow at 390",
+      "passed": true
+    },
+    {
+      "name": "delivery: images render at 390",
+      "passed": true
+    },
+    {
+      "name": "contact: no horizontal overflow at 390",
+      "passed": true
+    },
+    {
+      "name": "contact: images render at 390",
+      "passed": true
+    },
+    {
+      "name": "about: no horizontal overflow at 320",
+      "passed": true
+    },
+    {
+      "name": "about: images render at 320",
+      "passed": true
+    },
+    {
+      "name": "categories: no horizontal overflow at 320",
+      "passed": true
+    },
+    {
+      "name": "categories: images render at 320",
+      "passed": true
+    },
+    {
+      "name": "products: no horizontal overflow at 320",
+      "passed": true
+    },
+    {
+      "name": "products: images render at 320",
+      "passed": true
+    },
+    {
+      "name": "story: no horizontal overflow at 320",
+      "passed": true
+    },
+    {
+      "name": "story: images render at 320",
+      "passed": true
+    },
+    {
+      "name": "season: no horizontal overflow at 320",
+      "passed": true
+    },
+    {
+      "name": "season: images render at 320",
+      "passed": true
+    },
+    {
+      "name": "films: no horizontal overflow at 320",
+      "passed": true
+    },
+    {
+      "name": "films: images render at 320",
+      "passed": true
+    },
+    {
+      "name": "delivery: no horizontal overflow at 320",
+      "passed": true
+    },
+    {
+      "name": "delivery: images render at 320",
+      "passed": true
+    },
+    {
+      "name": "contact: no horizontal overflow at 320",
+      "passed": true
+    },
+    {
+      "name": "contact: images render at 320",
+      "passed": true
+    },
+    {
+      "name": "Category selects matching products",
+      "passed": true
+    },
+    {
+      "name": "All products reset",
+      "passed": true
+    },
+    {
+      "name": "Product details open",
+      "passed": true
+    },
+    {
+      "name": "Product adds to cart",
+      "passed": true
+    },
+    {
+      "name": "Cart contains chosen item",
+      "passed": true
+    },
+    {
+      "name": "Season scene responds to downward scrolling",
+      "passed": true
+    },
+    {
+      "name": "Season scene reverses when scrolling upward",
+      "passed": true
+    },
+    {
+      "name": "Film stays unloaded until requested",
+      "passed": true
+    },
+    {
+      "name": "Film plays on request",
+      "passed": true
+    },
+    {
+      "name": "Reduced motion skips hero video",
+      "passed": true
+    },
+    {
+      "name": "Reduced motion disables seasonal transforms",
+      "passed": true
+    },
+    {
+      "name": "No uncaught browser exceptions",
+      "passed": true
+    }
+  ]
+}

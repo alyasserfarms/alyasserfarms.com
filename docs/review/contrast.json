@@ -1,0 +1,32 @@
+[
+  {
+    "foreground": "forest",
+    "background": "ivory",
+    "ratio": 10.71
+  },
+  {
+    "foreground": "forest",
+    "background": "harvest",
+    "ratio": 5.14
+  },
+  {
+    "foreground": "deep",
+    "background": "sun",
+    "ratio": 9.28
+  },
+  {
+    "foreground": "forest",
+    "background": "sage",
+    "ratio": 9.79
+  },
+  {
+    "foreground": "sun",
+    "background": "deep",
+    "ratio": 9.28
+  },
+  {
+    "foreground": "ivory",
+    "background": "brightest pixel under 64% scrim",
+    "ratio": 4.94
+  }
+]

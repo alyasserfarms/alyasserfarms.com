@@ -1,0 +1,173 @@
+{
+  "timestamp": "2026-10-25T06:10:21.197Z",
+  "results": [
+    {
+      "name": "Arabic RTL document",
+      "passed": true
+    },
+    {
+      "name": "Exactly one page heading and main landmark",
+      "passed": true
+    },
+    {
+      "name": "All navigation anchors resolve",
+      "passed": true
+    },
+    {
+      "name": "Six product categories",
+      "passed": true
+    },
+    {
+      "name": "No obsolete client name",
+      "passed": true
+    },
+    {
+      "name": "Approved supplied logo is rendered and loaded",
+      "passed": true
+    },
+    {
+      "name": "Search opens a modal",
+      "passed": true
+    },
+    {
+      "name": "Search filters to an actual match",
+      "passed": true
+    },
+    {
+      "name": "Search result selects matching category",
+      "passed": true
+    },
+    {
+      "name": "Add updates the bag count",
+      "passed": true
+    },
+    {
+      "name": "Cart shows the selected product",
+      "passed": true
+    },
+    {
+      "name": "Quantity increment updates count and total",
+      "passed": true
+    },
+    {
+      "name": "Remove restores empty-cart state",
+      "passed": true
+    },
+    {
+      "name": "Escape closes the dialog",
+      "passed": true
+    },
+    {
+      "name": "Dialog restores keyboard focus to its trigger",
+      "passed": true
+    },
+    {
+      "name": "Product detail dialog opens",
+      "passed": true
+    },
+    {
+      "name": "Hero video loaded and plays",
+      "passed": true
+    },
+    {
+      "name": "Hero pause control stops playback",
+      "passed": true
+    },
+    {
+      "name": "Manual pause persists after leaving and re-entering hero",
+      "passed": true
+    },
+    {
+      "name": "No horizontal overflow at 1440",
+      "passed": true
+    },
+    {
+      "name": "No horizontal overflow at 768",
+      "passed": true
+    },
+    {
+      "name": "No horizontal overflow at 390",
+      "passed": true
+    },
+    {
+      "name": "No horizontal overflow at 320",
+      "passed": true
+    },
+    {
+      "name": "Mobile menu opens",
+      "passed": true
+    },
+    {
+      "name": "Mobile navigation closes the menu",
+      "passed": true
+    },
+    {
+      "name": "Reduced motion does not fetch hero video",
+      "passed": true
+    },
+    {
+      "name": "No uncaught browser errors",
+      "passed": true
+    },
+    {
+      "name": "No uncaught browser errors with reduced motion",
+      "passed": true
+    }
+  ],
+  "performance": {
+    "lcp": 1980,
+    "cls": 0.0005942328726476765,
+    "navigation": {
+      "name": "http://127.0.0.1:3001/",
+      "entryType": "navigation",
+      "startTime": 0,
+      "duration": 270.80000000004657,
+      "navigationId": 6242,
+      "initiatorType": "navigation",
+      "deliveryType": "",
+      "nextHopProtocol": "http/1.1",
+      "renderBlockingStatus": "non-blocking",
+      "contentType": "text/html",
+      "contentEncoding": "gzip",
+      "workerStart": 0,
+      "workerRouterEvaluationStart": 0,
+      "workerCacheLookupStart": 0,
+      "workerMatchedSourceType": "",
+      "workerFinalSourceType": "",
+      "redirectStart": 0,
+      "redirectEnd": 0,
+      "fetchStart": 0.8000000000465661,
+      "domainLookupStart": 0.8000000000465661,
+      "domainLookupEnd": 0.8000000000465661,
+      "connectStart": 0.8000000000465661,
+      "secureConnectionStart": 0,
+      "connectEnd": 0.8000000000465661,
+      "requestStart": 1.6999999999534339,
+      "responseStart": 25.300000000046566,
+      "firstInterimResponseStart": 0,
+      "finalResponseHeadersStart": 25.300000000046566,
+      "responseEnd": 28.899999999906868,
+      "transferSize": 13415,
+      "encodedBodySize": 13115,
+      "decodedBodySize": 102513,
+      "responseStatus": 200,
+      "serverTiming": [],
+      "unloadEventStart": 0,
+      "unloadEventEnd": 0,
+      "domInteractive": 242.69999999995343,
+      "domContentLoadedEventStart": 242.69999999995343,
+      "domContentLoadedEventEnd": 242.89999999990687,
+      "domComplete": 270.69999999995343,
+      "loadEventStart": 270.80000000004657,
+      "loadEventEnd": 270.80000000004657,
+      "type": "navigate",
+      "redirectCount": 0,
+      "activationStart": 0,
+      "criticalCHRestart": 0,
+      "notRestoredReasons": null,
+      "confidence": {}
+    },
+    "conditions": "Local Chrome, unthrottled desktop; not field data or a mobile performance audit"
+  },
+  "browserErrors": []
+}

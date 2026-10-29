@@ -1,0 +1,197 @@
+/* Approved Living Farm direction, extended from the hero to the entire home. */
+.living-home { --button-radius: 40px; }
+.living-home h2 { font-weight: 700; line-height: 1.5; }
+.harvest-eyebrow { display: flex; align-items: center; gap: 9px; font-size: 13px; font-weight: 600; margin-bottom: 18px; color: var(--muted); }
+.harvest-accent { color: var(--natural); }
+.harvest-intro-heading { grid-column: 1 / 8; align-self: center; }
+.harvest-intro-heading h2 { font-size: clamp(42px, 5.4vw, 76px); }
+.living-intro .intro-inset { transform: translateY(30px); }
+.living-intro { padding-bottom: 20px; margin-bottom: 110px; }
+.living-home .living-section-title { align-items: end; margin-bottom: 48px; }
+.living-home .living-section-title > p { color: var(--muted); }
+
+/* A photographic index: six distinct windows into the proposed collection. */
+.living-categories { background: var(--forest); padding-block: 88px 92px; position: relative; border-radius: 64px 64px 0 0; }
+.living-categories .harvest-eyebrow, .living-categories .living-section-title > p { color: #dce6cd; }
+.living-categories .harvest-accent { color: var(--sun); }
+.harvest-category-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 42px 30px; align-items: start; }
+.harvest-category { display: block; min-width: 0; animation-delay: var(--item-delay, 0ms) !important; }
+.harvest-category:nth-child(3n + 2) { padding-top: 42px; }
+.harvest-category-photo { position: relative; overflow: hidden; border-radius: 28px; }
+.harvest-category:nth-child(3n + 1) .harvest-category-photo { border-start-start-radius: 110px; }
+.harvest-category:nth-child(3n) .harvest-category-photo { border-start-end-radius: 110px; }
+.harvest-category .photo { aspect-ratio: 1.35; }
+.harvest-category-arrow { position: absolute; bottom: 16px; inset-inline-end: 16px; display: grid; place-items: center; width: 46px; height: 46px; border-radius: 50%; background: var(--ivory); color: var(--forest); transition: background 200ms, transform 300ms; }
+.harvest-category-label { padding: 17px 2px 0; }
+.harvest-category-label h3 { font-size: 25px; font-weight: 700; }
+.harvest-category-label p { color: #dce6cd; font-size: 14px; margin-top: 3px; }
+.harvest-category:hover .photo img { transform: scale(1.055); }
+.harvest-category:hover .harvest-category-arrow, .harvest-category.is-selected .harvest-category-arrow { background: var(--sun); transform: rotate(-8deg); }
+.harvest-category.is-selected h3 { color: var(--sun); }
+.harvest-category-note { font-size: 12px; color: #dce6cd; margin-top: 42px; }
+
+/* Product imagery leads; controls and prices remain in the natural reading order. */
+.living-home .products-section { margin-block: 96px; }
+.living-home .product-filters { gap: 8px; margin-bottom: 36px; flex-wrap: wrap; }
+.living-home .product-filters button { border-radius: 40px; padding: 10px 20px; min-height: 44px; }
+.living-home .product-grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 36px; align-items: start; }
+.living-home .product-grid > .product { grid-column: span 5; min-width: 0; }
+.living-home .product-grid > .product-featured { grid-column: span 7; grid-row: span 2; }
+.living-home .product-featured .photo { aspect-ratio: .86; border-radius: 100px 24px 24px 24px; }
+.living-home .product:not(.product-featured) .photo { aspect-ratio: 1.9; border-radius: 24px; }
+.living-home .product-info { padding-top: 18px; }
+.living-home .product-name h3, .living-home .product-featured .product-name h3 { font-size: clamp(21px, 2vw, 29px); font-weight: 700; }
+.living-home .price > bdi { font-size: 30px; }
+.living-home .add-button { border-radius: 50%; width: 48px; height: 48px; }
+.living-home .product-grid > .product:last-child:not(.product-featured) { grid-column: 1 / -1; padding: 30px; border-radius: 28px; grid-template-columns: 1fr 1fr; gap: 0 36px; background: #e9e9dc; }
+.living-home .product-grid > .product:last-child:not(.product-featured) .photo { aspect-ratio: 2.2; }
+.living-home .product-grid.is-filtered { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.living-home .product-grid.is-filtered > .product, .living-home .product-grid.is-filtered > .product:last-child { grid-column: auto; grid-row: auto; padding: 0; background: none; display: block; }
+.living-home .product-grid.is-filtered .photo, .living-home .product-grid.is-filtered > .product:last-child .photo { aspect-ratio: 1.1; border-radius: 24px; }
+.living-home .photo-action { border-radius: 50%; }
+.living-home .product-photo-button { border-radius: 24px; }
+
+/* One full-bleed scroll scene. Native sticky, with a reversible crop-to-harvest dissolve. */
+.origin-scene { height: 155svh; }
+.origin-stage { top: 76px; height: calc(100svh - 76px); min-height: 560px; }
+.origin-shade { background: linear-gradient(90deg, rgb(10 32 20 / 68%), rgb(10 32 20 / 56%)); }
+.origin-words .harvest-eyebrow { color: #f1db9f; margin: 0 0 14px; }
+.origin-words h2 { font-size: clamp(64px, 8vw, 116px); line-height: 1.35; transform: translateY(calc(var(--story-progress) * -22px)); }
+.origin-words h2 span { color: var(--sun); }
+.origin-words > p:not(.harvest-eyebrow) { margin-block: 18px 26px; }
+.origin-credit { font-size: 12px; color: #f0eadf; }
+
+.harvest-season { padding-block: 112px 128px; background: #eee9dc; overflow: hidden; }
+.harvest-season-layout { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 7vw; }
+.harvest-season-copy { min-width: 0; }
+.harvest-season-copy h2 { font-size: clamp(46px, 5.5vw, 80px); }
+.harvest-season-copy h2 span { color: var(--natural); }
+.harvest-season-copy > p:not(.harvest-eyebrow):not(.harvest-fineprint) { font-size: 18px; line-height: 1.95; margin-block: 24px 28px; }
+.harvest-fineprint { font-size: 12px; color: var(--muted); margin-top: 16px; }
+.harvest-season-art { position: relative; padding: 0 0 80px 38px; min-width: 0; }
+.harvest-season-main { overflow: hidden; border-radius: 46% 46% 24px 24px; }
+.harvest-season-main .photo { aspect-ratio: .96; }
+.harvest-season-seal { position: absolute; top: 9%; inset-inline-start: -36px; display: flex; flex-direction: column; align-items: center; justify-content: center; width: 124px; height: 124px; border-radius: 50%; background: var(--sun); color: var(--forest); gap: 4px; text-align: center; font-size: 17px; font-weight: 700; line-height: 1.6; }
+.harvest-season-detail { position: absolute; width: 46%; bottom: 0; left: 0; padding: 7px; background: var(--ivory); box-shadow: 0 12px 35px rgb(18 59 41 / 10%); transform: rotate(-4deg); border-radius: 18px; }
+.harvest-season-detail .photo { aspect-ratio: 1.2; border-radius: 12px; }
+.harvest-season-detail figcaption { font-size: 12px; padding: 8px 4px 2px; }
+.harvest-films { margin-block: 96px; }
+.harvest-cinema { border-radius: 48px; overflow: hidden; background: var(--forest); position: relative; }
+.harvest-cinema .film-video { aspect-ratio: 2.25; }
+.harvest-cinema .film-play { border-radius: 50%; width: 108px; height: 108px; background: var(--ivory); color: var(--forest); display: flex; flex-direction: column; gap: 4px; font-size: 12px; }
+.harvest-cinema .film-play:hover { background: var(--sun); }
+.harvest-cinema-caption { background: var(--forest); color: var(--ivory); display: flex; align-items: center; justify-content: space-between; padding: 18px 30px; font-size: 18px; }
+.harvest-cinema-caption span[lang] { font-size: 13px; color: #dce6cd; }
+
+.harvest-delivery { background: var(--forest); color: var(--ivory); padding-block: 88px 64px; border-radius: 64px 64px 0 0; }
+.harvest-delivery .harvest-eyebrow { color: #dce6cd; }
+.harvest-delivery .harvest-accent { color: var(--sun); }
+.harvest-delivery :focus-visible { outline-color: var(--sun); }
+.harvest-steps { --route-progress: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 5vw; list-style: none; padding: 0; margin: 56px 0 0; position: relative; }
+.harvest-steps::before { content: ""; position: absolute; inset-inline: 0; top: 36px; height: 1px; background: #63805d; }
+.harvest-steps::after { content: ""; position: absolute; inset-inline: 0; top: 36px; height: 2px; background: var(--sun); transform: scaleX(var(--route-progress)); transform-origin: right; }
+.harvest-steps li { position: relative; z-index: 1; animation-delay: var(--item-delay, 0ms); }
+.harvest-step-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 25px; }
+.harvest-step-icon { width: 74px; height: 74px; border-radius: 50%; display: grid; place-items: center; background: var(--forest); color: var(--sun); border: 1px solid #63805d; }
+.harvest-step-number { background: var(--forest); padding-inline: 12px; font-size: 20px; color: #cbd8ba; }
+.harvest-steps h3 { font-size: 27px; margin-bottom: 12px; font-weight: 700; }
+.harvest-steps li > p { max-width: 340px; color: #dce6cd; font-size: 16px; line-height: 1.9; }
+.harvest-delivery-note { margin-top: 50px; font-size: 12px; color: #dce6cd; }
+.harvest-closing { padding-block: 80px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 24px; }
+.harvest-closing > svg { color: var(--natural); }
+.harvest-closing > p { font-size: clamp(38px, 5vw, 74px); line-height: 1.5; font-weight: 700; }
+.harvest-closing > p span { color: var(--natural); }
+.living-footer { background: var(--forest-deep); border-top: 5px solid var(--sun); }
+.living-footer .footer-wordmark { color: var(--field); font-weight: 700; font-size: clamp(42px, 10.5vw, 150px); margin-block: 44px; }
+.living-footer .footer-top nav a:hover { color: var(--sun); }
+
+@media (max-width: 1000px) {
+ .harvest-category-grid { gap: 30px 22px; }
+ .harvest-category .photo { aspect-ratio: 1; }
+ .harvest-season-layout { gap: 40px; }
+ .harvest-season-seal { width: 100px; height: 100px; font-size: 15px; inset-inline-start: -20px; }
+ .harvest-steps { gap: 26px; }
+ .harvest-steps h3 { font-size: 23px; }
+}
+@media (max-width: 700px) {
+ .living-home h2 { font-size: clamp(32px, 9vw, 48px); line-height: 1.5; }
+ .harvest-eyebrow { font-size: 12px; margin-bottom: 12px; }
+ .living-intro { grid-template-columns: 1fr 1fr; margin-bottom: 64px; padding-bottom: 0; }
+ .harvest-intro-heading, .intro-note { grid-column: 1 / -1; }
+ .intro-main { grid-column: 1 / -1; }
+ .living-intro .intro-inset { transform: none; }
+ .living-home .living-section-title { display: block; margin-bottom: 28px; }
+ .living-home .living-section-title > p { font-size: 15px; margin-top: 16px; }
+ .living-categories { border-radius: 36px 36px 0 0; padding-block: 48px; }
+ .harvest-category-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 26px 16px; }
+ .harvest-category:nth-child(3n + 2) { padding-top: 0; }
+ .harvest-category:nth-child(even) { padding-top: 25px; }
+ .harvest-category-photo, .harvest-category:nth-child(n) .harvest-category-photo { border-radius: 20px; }
+ .harvest-category:nth-child(odd) .harvest-category-photo { border-start-start-radius: 60px; }
+ .harvest-category:nth-child(even) .harvest-category-photo { border-start-end-radius: 60px; }
+ .harvest-category .photo { aspect-ratio: .95; }
+ .harvest-category-arrow { width: 36px; height: 36px; bottom: 10px; inset-inline-end: 10px; }
+ .harvest-category-arrow svg { width: 19px; }
+ .harvest-category-label { padding-top: 12px; }
+ .harvest-category-label h3 { font-size: clamp(18px, 5vw, 23px); }
+ .harvest-category-label p { font-size: 12px; line-height: 1.8; }
+ .harvest-category-note { margin-top: 28px; }
+ .living-home .products-section { margin-block: 60px; }
+ .living-home .product-filters { margin-bottom: 26px; gap: 8px; }
+ .living-home .product-filters button { font-size: 13px; padding: 8px 14px; }
+ .living-home .product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 16px; }
+ .living-home .product-grid > .product { grid-column: span 1; }
+ .living-home .product-grid > .product-featured { grid-column: 1 / -1; grid-row: auto; }
+ .living-home .product-featured .photo { aspect-ratio: 1.15; border-radius: 64px 20px 20px 20px; }
+ .living-home .product:not(.product-featured) .photo { aspect-ratio: .9; border-radius: 18px; }
+ .living-home .product-name h3 { font-size: 17px; }
+ .living-home .product-featured .product-name h3 { font-size: 23px; }
+ .living-home .product-info { padding-top: 14px; }
+ .living-home .add-button { width: 44px; height: 44px; }
+ .living-home .price > bdi { font-size: 27px; }
+ .living-home .product-grid > .product:last-child:not(.product-featured) { padding: 18px; border-radius: 22px; display: block; }
+ .living-home .product-grid > .product:last-child:not(.product-featured) .photo { aspect-ratio: 1.65; }
+ .living-home .product-grid.is-filtered { grid-template-columns: 1fr; }
+ .living-home .product-grid.is-filtered > .product:last-child { padding: 0; }
+ .living-home .product-grid.is-filtered .photo, .living-home .product-grid.is-filtered > .product:last-child .photo { aspect-ratio: 1.25; }
+ .origin-scene { height: 125svh; }
+ .origin-stage { top: 68px; min-height: 520px; height: calc(100svh - 68px); }
+ .living-home .origin-words h2 { font-size: clamp(51px, 14vw, 76px); }
+ .origin-words > .harvest-eyebrow { font-size: 12px; }
+ .origin-words { padding-block: 50px 72px; }
+ .harvest-season { padding-block: 56px 64px; }
+ .harvest-season-layout { grid-template-columns: 1fr; gap: 36px; }
+ .harvest-season-copy > p:not(.harvest-eyebrow):not(.harvest-fineprint) { font-size: 16px; margin-block: 18px 24px; }
+ .harvest-season-art { padding: 0 0 65px 22px; margin-inline-start: 20px; }
+ .harvest-season-main .photo { aspect-ratio: 1.12; }
+ .harvest-season-seal { width: 90px; height: 90px; font-size: 14px; inset-inline-start: -20px; }
+ .harvest-season-seal svg { width: 22px; height: 22px; }
+ .harvest-season-detail { width: 49%; }
+ .harvest-season-detail figcaption { font-size: 11px; }
+ .harvest-films { margin-block: 60px; }
+ .harvest-cinema { border-radius: 28px; }
+ .harvest-cinema .film-video { aspect-ratio: 1.2; }
+ .harvest-cinema .film-play { width: 92px; height: 92px; }
+ .harvest-cinema-caption { padding: 14px 18px; font-size: 15px; }
+ .harvest-cinema-caption span[lang] { font-size: 10px; }
+ .harvest-delivery { border-radius: 36px 36px 0 0; padding-block: 48px; }
+ .harvest-delivery .living-section-title > .text-link { margin-top: 18px; }
+ .harvest-steps { grid-template-columns: 1fr; gap: 36px; margin-top: 36px; padding-inline-start: 22px; }
+ .harvest-steps::before, .harvest-steps::after { inset-inline-start: 0; inset-inline-end: auto; top: 0; width: 1px; height: 100%; }
+ .harvest-steps::after { width: 2px; transform: scaleY(var(--route-progress)); transform-origin: top; }
+ .harvest-step-top { margin-bottom: 14px; }
+ .harvest-step-icon { width: 60px; height: 60px; }
+ .harvest-steps h3 { font-size: 24px; margin-bottom: 8px; }
+ .harvest-steps li > p { font-size: 15px; }
+ .harvest-delivery-note { margin-top: 32px; }
+ .harvest-closing { padding-block: 56px; gap: 20px; }
+ .harvest-closing > p { font-size: clamp(32px, 9vw, 46px); }
+}
+@media (prefers-reduced-motion: reduce) {
+ .origin-scene { height: auto; }
+ .origin-stage { position: relative; top: auto; height: auto; min-height: 520px; }
+ .origin-words { min-height: 520px; }
+ .origin-words h2 { transform: none; }
+ .harvest-steps { --route-progress: 1; }
+ .harvest-season-detail { transform: none; }
+}

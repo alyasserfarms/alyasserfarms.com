@@ -1,0 +1,137 @@
+[
+  {
+    "file": "hero.jpg",
+    "creator": "Rulo Davila",
+    "title": "Aerial view of palm trees",
+    "source": "https://www.pexels.com/video/aerial-view-of-palm-trees-4791868/",
+    "license": "Pexels License",
+    "licenseUrl": "https://www.pexels.com/license/",
+    "use": "Representative demo media; not client documentation"
+  },
+  {
+    "file": "fields.jpg",
+    "creator": "Matthew De Zen",
+    "title": "Rice farm near Puerto Princesa",
+    "source": "https://unsplash.com/photos/z_CaJXLGw54",
+    "license": "Unsplash License",
+    "licenseUrl": "https://unsplash.com/license",
+    "use": "Representative demo media; not client documentation"
+  },
+  {
+    "file": "vegetables.jpg",
+    "creator": "Yuliia Laptieva",
+    "title": "Fresh vegetables including tomatoes and lettuce",
+    "source": "https://www.pexels.com/photo/36936000/",
+    "license": "Pexels License",
+    "licenseUrl": "https://www.pexels.com/license/",
+    "use": "Representative demo media; not client documentation"
+  },
+  {
+    "file": "tomatoes.jpg",
+    "creator": "Engin Akyurt",
+    "title": "Red tomatoes and fresh vegetables",
+    "source": "https://www.pexels.com/photo/13981434/",
+    "license": "Pexels License",
+    "licenseUrl": "https://www.pexels.com/license/",
+    "use": "Representative demo media; not client documentation"
+  },
+  {
+    "file": "beef.jpg",
+    "creator": "Javon Swaby",
+    "title": "Raw meat on brown wooden chopping board",
+    "source": "https://www.pexels.com/photo/5313882/",
+    "license": "Pexels License",
+    "licenseUrl": "https://www.pexels.com/license/",
+    "use": "Representative demo media; not client documentation"
+  },
+  {
+    "file": "chicken.jpg",
+    "creator": "alleksana",
+    "title": "Close-up photo of raw chicken meat",
+    "source": "https://www.pexels.com/photo/6107734/",
+    "license": "Pexels License",
+    "licenseUrl": "https://www.pexels.com/license/",
+    "use": "Representative demo media; not client documentation"
+  },
+  {
+    "file": "oranges.jpg",
+    "creator": "Dmitry Demidov",
+    "title": "Close-up photo of orange fruits",
+    "source": "https://www.pexels.com/photo/3903202/",
+    "license": "Pexels License",
+    "licenseUrl": "https://www.pexels.com/license/",
+    "use": "Representative demo media; not client documentation"
+  },
+  {
+    "file": "milk.jpg",
+    "creator": "Charlotte May",
+    "title": "Bottle and glass of milk on desk",
+    "source": "https://www.pexels.com/photo/5946733/",
+    "license": "Pexels License",
+    "licenseUrl": "https://www.pexels.com/license/",
+    "use": "Representative demo media; not client documentation"
+  },
+  {
+    "file": "dates.jpg",
+    "creator": "hello aesthe",
+    "title": "A bowl with dried dates",
+    "source": "https://www.pexels.com/photo/15707374/",
+    "license": "Pexels License",
+    "licenseUrl": "https://www.pexels.com/license/",
+    "use": "Representative demo media; not client documentation"
+  },
+  {
+    "file": "palms.mp4",
+    "creator": "Rulo Davila",
+    "title": "Aerial view of palm trees",
+    "source": "https://www.pexels.com/video/aerial-view-of-palm-trees-4791868/",
+    "license": "Pexels License",
+    "licenseUrl": "https://www.pexels.com/license/",
+    "use": "Shortened and compressed representative stock video; not client documentation"
+  },
+  {
+    "file": "harvest.jpg",
+    "creator": "Kampus Production",
+    "title": "A person holding a basket of vegetables",
+    "source": "https://www.pexels.com/photo/a-person-holding-a-basket-of-vegetables-7658789/",
+    "license": "Pexels License",
+    "licenseUrl": "https://www.pexels.com/license/",
+    "use": "Representative demo photography; not the client, their staff, their farms, or their actual products"
+  },
+  {
+    "file": "basket.jpg",
+    "creator": "Kampus Production",
+    "title": "A close-up shot of a basket of vegetables",
+    "source": "https://www.pexels.com/photo/a-close-up-shot-of-a-basket-of-vegetables-7658815/",
+    "license": "Pexels License",
+    "licenseUrl": "https://www.pexels.com/license/",
+    "use": "Representative demo photography; not the client, their staff, their farms, or their actual products"
+  },
+  {
+    "file": "egypt-sunset.jpg",
+    "creator": "Kareem Abo el magd",
+    "title": "Golden Hour Agricultural Scene in Egyptian Fields",
+    "source": "https://www.pexels.com/photo/golden-hour-agricultural-scene-in-egyptian-fields-32894097/",
+    "license": "Pexels License",
+    "licenseUrl": "https://www.pexels.com/license/",
+    "use": "Representative Egyptian stock photography, not client documentation"
+  },
+  {
+    "file": "egypt-fields.jpg",
+    "creator": "Mohamed Saber",
+    "title": "Farm fields under blue sky, Egypt",
+    "source": "https://www.pexels.com/photo/farm-fields-under-blue-sky-12858737/",
+    "license": "Pexels License",
+    "licenseUrl": "https://www.pexels.com/license/",
+    "use": "Representative Egyptian stock photography, not client documentation"
+  },
+  {
+    "file": "egypt-palms.jpg",
+    "creator": "Ömer Evren",
+    "title": "Serene palm tree pathway in Egyptian fields",
+    "source": "https://www.pexels.com/photo/serene-palm-tree-pathway-in-egyptian-fields-34570037/",
+    "license": "Pexels License",
+    "licenseUrl": "https://www.pexels.com/license/",
+    "use": "Representative Egyptian stock photography, not client documentation"
+  }
+]

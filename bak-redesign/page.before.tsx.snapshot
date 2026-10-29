@@ -1,0 +1,49 @@
+import { ArrowDown, ArrowLeft, ArrowUpLeft, Check, Leaf, PackageCheck, ShoppingBag, Truck } from "lucide-react";
+import { getBrandLogo } from "@/lib/brand";
+import { ArrowLink, Photo, SectionHeading } from "@/components/ui";
+import { FarmVideo } from "@/components/farm-video";
+import { Reveal } from "@/components/reveal";
+import { Storefront } from "@/components/storefront";
+import { SiteFooter } from "@/components/site-footer";
+
+// Read added brand files on each request, including in the local production preview.
+export const dynamic = "force-dynamic";
+
+export default async function Home() {
+  const logo = await getBrandLogo();
+  return <>
+    <Reveal />
+    <Storefront logo={logo} afterProducts={<>
+    <section className="story-section" id="story" aria-labelledby="story-title"><div className="story-inner frame"><div className="story-copy" data-reveal><h2 id="story-title">من أرضنا<br />إلى مائدتك</h2><p>لكل مائدة حكاية. تبدأ بمكوّن، وتكبر بوصفة، وتكتمل بمن نحب.</p><ArrowLink href="#products" className="link-light">ابدأ حكاية مائدتك</ArrowLink></div><Photo name="vegetables" alt="ألوان خضروات في ضوء طبيعي، تصوير تمثيلي" className="story-photo" sizes="(max-width: 700px) 100vw, 60vw" /><div className="story-caption"><Leaf size={24} aria-hidden="true" /><p>الخير في تفاصيله.</p></div></div></section>
+
+    <section className="films-section section frame" id="films" aria-labelledby="films-title"><SectionHeading text="وقفة قصيرة مع هدوء الطبيعة.">للحياة هنا إيقاع</SectionHeading><div className="film-layout" data-reveal><FarmVideo /><div className="film-copy"><h3>بين النخيل</h3><p>مشهد جوي يقترب من خضرة الأشجار، ويترك للطبيعة مساحة لتحكي.</p><p className="demo-note">فيديو تمثيلي مرخص، تصوير Rulo Davila. سيحلّ تصوير المزارع المعتمد محلّه.</p><a href="https://www.pexels.com/video/aerial-view-of-palm-trees-4791868/" className="text-link" target="_blank" rel="noreferrer">مصدر المقطع<ArrowUpLeft size={18} aria-hidden="true" /></a></div></div></section>
+
+    <section className="delivery-section section frame" id="delivery" aria-labelledby="delivery-title"><SectionHeading text="نخطط لتجربة شراء واضحة، من أول اختيار إلى بابك.">لمائدة عامرة، ببساطة</SectionHeading><ol className="delivery-steps"><li data-reveal><ShoppingBag size={32} strokeWidth={1.3} aria-hidden="true" /><h3>اختر ما تحب</h3><p>تصفّح الفئات، وتعرّف على المنتجات، واجمع اختياراتك في سلتك.</p></li><li data-reveal><PackageCheck size={32} strokeWidth={1.3} aria-hidden="true" /><h3>راجع تفاصيلك</h3><p>راجع الكميات والأسعار وتفاصيل العنوان قبل تأكيد الطلب.</p></li><li data-reveal><Truck size={32} strokeWidth={1.3} aria-hidden="true" /><h3>واستقبل الخير</h3><p>ستظهر خيارات التوصيل ورسومه ومواعيده بعد اعتماد مناطق الخدمة.</p></li></ol><p className="delivery-note"><Check size={18} aria-hidden="true" />المتاح الآن سلة معاينة فقط. الطلب والتوصيل يُفعّلان في مرحلة لاحقة.</p></section>
+
+    <section className="season-section frame" id="season" aria-labelledby="season-title"><Photo name="oranges" alt="برتقال في لقطة قريبة، صورة موسمية تمثيلية" className="season-photo" /><div className="season-copy" data-reveal><h2 id="season-title">للخير موسم</h2><p className="statement">ألوان تتجدّد.<br />ومائدتك تنتظر الاكتشاف.</p><p>مساحة لاختيارات الموسم وعروضه، تُحدّث بعد اعتماد المنتجات والأسعار. اكتشف الآن نموذج تشكيلة الفواكه.</p><a href="#categories" className="button">اكتشف الفئات<ArrowLeft size={20} aria-hidden="true" /></a><p className="demo-note">تصوّر موسمي تجريبي، وليس عرض بيع ساريًا.</p></div></section>
+
+    </>}>
+      <>
+        <section className="hero" id="home" aria-labelledby="hero-title">
+          <Photo name="hero" alt="مشهد جوي تمثيلي لحقول تحيط بها أشجار النخيل" className="hero-photo" priority sizes="100vw" />
+          <FarmVideo hero />
+          <div className="hero-scrim" />
+          <div className="hero-content frame">
+            <h1 id="hero-title">الخير له أصل</h1>
+            <p>مزارع آل ياسر. متجر خيرات الأرض،<br className="desktop-break" /> وتفاصيل تجمعنا حول المائدة.</p>
+            <a className="button button-sun" href="#products">اكتشف المنتجات<ArrowUpLeft size={22} aria-hidden="true" /></a>
+          </div>
+          <div className="hero-bottom frame"><span>من الأرض تبدأ الحكاية.</span><a href="#about" aria-label="انتقل إلى حكايتنا"><ArrowDown size={22} aria-hidden="true" /></a></div>
+        </section>
+        <div className="preview-note frame"><Leaf size={17} aria-hidden="true" /><p>نسخة معاينة، الصور والمشاهد مرخصة للعرض التجريبي، وليست توثيقًا لمزارع آل ياسر.</p></div>
+
+        <section id="about" className="about-section section frame" aria-labelledby="about-title">
+          <div className="about-copy" data-reveal><h2 id="about-title">أصل الحكاية… أرض</h2><p className="statement">نحبّ المائدة التي تجمعنا. <br />ونؤمن أن بدايتها، <br />اختيار يستحق العناية.</p><p>في مزارع آل ياسر، نرسم تجربة تجمع خيرات المزرعة في مكان واحد. من الخضروات والفواكه إلى اللحوم والدواجن والألبان، اختيارات تلهم وجبتك القادمة.</p><ArrowLink href="#categories">تعرّف على خيراتنا</ArrowLink></div>
+          <figure className="about-image" data-reveal><Photo name="fields" alt="حقول أرز وأشجار نخيل في بالاوان، صورة تمثيلية مرخصة" /><figcaption>أرض، وضوء، وحياة. مشهد تمثيلي من الطبيعة.</figcaption></figure>
+        </section>
+      </>
+    </Storefront>
+
+    <SiteFooter logo={logo} />
+  </>;
+}

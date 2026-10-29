@@ -1,0 +1,109 @@
+"use client";
+
+import { ArrowLeft, ArrowUpLeft, Check, Menu, Minus, Plus, Search, Phone, Globe, ShoppingBag, Trash2, X } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { useEffect, useRef, useState, type ReactNode } from "react";
+import { usePathname, useRouter } from "next/navigation";
+import { MAX_QUANTITY, useCart } from "@/lib/cart-store";
+import { brand, categories, displayPrice, navigation, products, type Product } from "@/data/content";
+import { BrandName, Photo } from "./ui";
+import { LivingCategories } from "./farm-experience";
+
+const homeNavigation = [
+  { href: "/", label: "الرئيسية" },
+  { href: "#categories", label: "منتجاتنا" },
+  { href: "#about", label: "عن المزارع" },
+  { href: "#eid", label: "العيد والأضحية" },
+  { href: "#wholesale", label: "الجملة والباقات" },
+  { href: "#delivery", label: "كيف تطلب" },
+  { href: "#contact", label: "تواصل معنا" },
+];
+
+function Modal({ dialogRef, title, children, className = "" }: { dialogRef: React.RefObject<HTMLDialogElement | null>; title: string; children: ReactNode; className?: string }) {
+  return <dialog ref={dialogRef} className={`modal ${className}`} aria-label={title} onClick={(event) => { if (event.target === event.currentTarget) dialogRef.current?.close(); }}><div className="modal-inner"><div className="modal-heading"><h2>{title}</h2><button className="icon-button" type="button" onClick={() => dialogRef.current?.close()} aria-label="إغلاق"><X aria-hidden="true" /></button></div>{children}</div></dialog>;
+}
+
+export function Storefront({ logo, children, afterProducts, catalogue = true, showCatalogue = true }: { logo: string | null; children: ReactNode; afterProducts?: ReactNode; catalogue?: boolean; showCatalogue?: boolean }) {
+  const router = useRouter();
+  const pathname = usePathname();
+  const searchRef = useRef<HTMLDialogElement>(null);
+  const cartRef = useRef<HTMLDialogElement>(null);
+  const menuRef = useRef<HTMLDialogElement>(null);
+  const productRef = useRef<HTMLDialogElement>(null);
+  const [query, setQuery] = useState("");
+  const [category, setCategory] = useState("all");
+  const { cart, count: cartCount, add: addToCart, setQuantity, remove } = useCart();
+  const [selected, setSelected] = useState<Product | null>(null);
+  const [notice, setNotice] = useState("");
+  const navigationItems = catalogue ? homeNavigation : navigation;
+  const visibleProducts = category === "all" ? products.slice(0, 4) : products.filter((product) => product.category === category);
+  const searchResults = query.trim() ? products.filter((product) => `${product.name} ${categories.find((item) => item.id === product.category)?.name}`.includes(query.trim())) : products;
+
+  useEffect(() => {
+    if (!notice) return;
+    const timer = window.setTimeout(() => setNotice(""), 8000);
+    return () => window.clearTimeout(timer);
+  }, [notice]);
+
+  function add(product: Product) {
+    if (!addToCart(product.id)) { setNotice("وصلت إلى حد كمية المعاينة لهذا الصنف."); return; }
+    setNotice(`أضيف ${product.name} إلى سلة المعاينة. عدد المنتجات ${displayPrice(cartCount + 1)}.`);
+  }
+
+  function changeQuantity(id: string, delta: number) {
+    setQuantity(id, (cart[id] ?? 0) + delta);
+  }
+
+  function openProduct(product: Product) { setSelected(product); productRef.current?.showModal(); }
+
+  return <>
+    {catalogue && <div className="reference-topbar"><div className="frame"><a href="#contact"><Phone size={14} aria-hidden="true" />تواصل معنا</a><span className="reference-locale"><Globe size={14} aria-hidden="true" /><span lang="en">AL Yasser Farms</span><span>العربية</span></span></div></div>}
+    <header className={`site-header ${catalogue ? "reference-header" : ""}`}>
+      <div className="header-inner frame">
+        <BrandName logo={logo} />
+        <nav className="desktop-nav" aria-label="التنقل الرئيسي">{navigationItems.map((item) => <Link key={item.href} href={item.href}>{item.label}</Link>)}</nav>
+        <div className="header-actions">
+          <button type="button" className={`icon-button ${catalogue ? "reference-search" : ""}`} onClick={() => searchRef.current?.showModal()} aria-label="البحث عن منتج"><Search size={22} aria-hidden="true" />{catalogue && <span>ابحث عن منتج</span>}</button>
+          <button type="button" className="cart-button" onClick={() => cartRef.current?.showModal()} aria-label={`سلة المعاينة، ${cartCount} منتجات`}><ShoppingBag size={21} aria-hidden="true" /><span className="desktop-cart-label">السلة</span><span className="cart-count" aria-hidden="true">{displayPrice(cartCount)}</span></button>
+          <button type="button" className="icon-button mobile-menu-button" onClick={() => menuRef.current?.showModal()} aria-label="فتح القائمة"><Menu aria-hidden="true" /></button>
+        </div>
+      </div>
+    </header>
+
+    <main id="main" className={catalogue ? "living-home" : undefined}>
+    {children}
+
+    {catalogue && showCatalogue && <>
+    <LivingCategories category={category} onSelect={setCategory} />
+
+    <section id="products" className="products-section section frame" aria-labelledby="products-title">
+      <div className="section-heading" data-reveal="type"><div><p className="harvest-eyebrow">اختيارات لمائدة عامرة</p><h2 id="products-title">أشياء بسيطة.<br /><span className="harvest-accent">ومذاق يستحق.</span></h2></div><p className="demo-note">منتجات وأسعار تجريبية للعرض<br />العملة والأسعار النهائية للاعتماد</p></div>
+      <div className="product-filters" role="group" aria-label="تصفية المنتجات حسب الفئة"><button type="button" aria-pressed={category === "all"} onClick={() => setCategory("all")}>الكل</button>{categories.map((item) => <button type="button" key={item.id} aria-pressed={category === item.id} onClick={() => setCategory(item.id)}>{item.name}</button>)}</div>
+      <div className={`product-grid ${category !== "all" ? "is-filtered" : ""}`}>
+        {visibleProducts.map((product, index) => <article key={product.id} data-ui className={`product ${index === 0 && category === "all" ? "product-featured" : ""}`} data-reveal>
+          <button className="product-photo-button" type="button" onClick={() => openProduct(product)} aria-label={`تفاصيل ${product.name}`}><Photo name={product.image} alt={`صورة تجريبية: ${product.name}`} sizes={index === 0 && category === "all" ? "(max-width: 700px) 90vw, 48vw" : "(max-width: 700px) 45vw, 25vw"} /><span className="photo-action"><ArrowUpLeft aria-hidden="true" size={20} /></span></button>
+          <div className="product-info"><div><button type="button" className="product-name" onClick={() => openProduct(product)}><h3>{product.name}</h3></button><p>{product.unit}</p></div><button type="button" className="add-button" onClick={() => add(product)} aria-label={`إضافة ${product.name} إلى سلة المعاينة`}><Plus size={22} aria-hidden="true" /></button></div>
+          <p className="price"><bdi>{displayPrice(product.price)}</bdi><span>وحدة سعرية تجريبية</span></p>
+        </article>)}
+      </div>
+      <p className="catalogue-status" role="status">{category !== "all" ? `عرض ${categories.find((item) => item.id === category)?.name}، كتالوج تجريبي` : "الصور تمثيلية مرخصة، وسيُعتمد الكتالوج قبل إطلاق البيع."}</p>
+    </section>
+
+    </>}
+    {afterProducts}
+    </main>
+    <Modal dialogRef={menuRef} title="القائمة" className="menu-modal"><nav aria-label="قائمة الجوال">{navigationItems.map((item) => <Link key={item.href} href={item.href} onClick={() => menuRef.current?.close()}>{item.label}<ArrowUpLeft aria-hidden="true" /></Link>)}{!catalogue && <Link href="/delivery" onClick={() => menuRef.current?.close()}>الطلب والتوصيل<ArrowUpLeft aria-hidden="true" /></Link>}</nav><p>{brand.tagline}</p></Modal>
+    <Modal dialogRef={searchRef} title="عمّ تبحث؟"><label className="search-label" htmlFor="product-search">ابحث في المنتجات التجريبية</label><div className="search-input"><Search aria-hidden="true" size={20} /><input id="product-search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="خضروات، برتقال، حليب…" type="search" /></div><div className="search-results" aria-live="polite">{searchResults.length === 0 ? <p>لم نجد منتجًا بهذا الاسم. جرّب اسمًا آخر.</p> : searchResults.map((product) => <button type="button" key={product.id} onClick={() => { searchRef.current?.close(); if (pathname !== "/" || !showCatalogue) { router.push(`/products/${product.id}`); return; } setCategory(product.category); document.getElementById("products")?.scrollIntoView({ behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth" }); }}><Image src={`/media/${product.image}.jpg`} alt="" width={64} height={64} /><span>{product.name}<small>{product.unit}</small></span><ArrowUpLeft aria-hidden="true" size={18} /></button>)}</div></Modal>
+    <Modal dialogRef={cartRef} title="سلة المعاينة" className="cart-modal">
+      <p className="modal-description">جرّب الاختيار وتعديل الكميات. هذه السلة للمعاينة، ولا تنشئ طلبًا فعليًا.</p>
+      {cartCount === 0 ? <div className="empty-cart"><ShoppingBag size={44} aria-hidden="true" /><h3>لم تبدأ حكاية مائدتك بعد</h3><p>أضف ما يعجبك من الاختيارات التجريبية.</p><button type="button" className="button" onClick={() => { cartRef.current?.close(); if (!catalogue) router.push("/shop"); else document.getElementById("products")?.scrollIntoView(); }}>اكتشف المنتجات<ArrowLeft size={18} aria-hidden="true" /></button></div> : <><ul className="cart-items">{products.filter((product) => cart[product.id]).map((product) => <li key={product.id}><Image src={`/media/${product.image}.jpg`} alt="" width={76} height={88} /><div className="cart-item-details"><h3>{product.name}</h3><p>{product.unit}</p><div className="quantity-controls"><button type="button" onClick={() => changeQuantity(product.id, -1)} aria-label={`تقليل كمية ${product.name}`}><Minus size={16} aria-hidden="true" /></button><span aria-live="polite" aria-label="الكمية">{displayPrice(cart[product.id])}</span><button type="button" disabled={cart[product.id] >= MAX_QUANTITY} onClick={() => changeQuantity(product.id, 1)} aria-label={`زيادة كمية ${product.name}`}><Plus size={16} aria-hidden="true" /></button></div></div><div className="cart-item-end"><bdi>{displayPrice(product.price * cart[product.id])}</bdi><button type="button" className="icon-button" onClick={() => remove(product.id)} aria-label={`حذف ${product.name}`}><Trash2 size={18} aria-hidden="true" /></button></div></li>)}</ul><div className="cart-summary"><span>إجمالي تجريبي</span><strong><bdi>{displayPrice(products.reduce((sum, product) => sum + product.price * (cart[product.id] ?? 0), 0))}</bdi></strong></div><p className="demo-note">بوحدات سعرية للعرض. لا تشمل رسوم توصيل، ولا تمثل أسعار بيع معتمدة.</p><Link href="/cart" className="button" onClick={() => cartRef.current?.close()}>عرض السلة كاملة<ArrowLeft size={18} aria-hidden="true" /></Link></>}
+    </Modal>
+    <Modal dialogRef={productRef} title={selected?.name ?? "تفاصيل المنتج"}>{selected && <div className="product-detail"><Photo name={selected.image} alt={`صورة تمثيلية: ${selected.name}`} /><p>{selected.description}</p><p>{selected.unit}</p><p className="price"><bdi>{displayPrice(selected.price)}</bdi><span>وحدة سعرية تجريبية</span></p><p className="demo-note">بيانات وصورة تجريبية. تفاصيل المنتج والأسعار تحتاج اعتمادًا قبل البيع.</p><button type="button" className="button" onClick={() => { add(selected); productRef.current?.close(); }}>أضف إلى سلة المعاينة<Plus size={20} aria-hidden="true" /></button><Link href={`/products/${selected.id}`} className="text-link">صفحة المنتج<ArrowUpLeft size={18} aria-hidden="true" /></Link></div>}</Modal>
+    <div className="toast-region" role="status" aria-live="polite" aria-atomic="true">{notice && <div className="toast"><Check size={18} aria-hidden="true" /><span>{notice}</span><button type="button" onClick={() => setNotice("")} aria-label="إغلاق التنبيه"><X size={18} aria-hidden="true" /></button></div>}</div>
+  </>;
+}
+
+
+
+

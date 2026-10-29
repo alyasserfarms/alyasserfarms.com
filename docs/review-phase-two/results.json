@@ -1,0 +1,1140 @@
+{
+  "timestamp": "2026-10-25T06:13:48.895Z",
+  "checks": [
+    {
+      "name": "Shop renders all six sample products",
+      "passed": true
+    },
+    {
+      "name": "Search has a meaningful empty state",
+      "passed": true
+    },
+    {
+      "name": "Reset restores all products",
+      "passed": true
+    },
+    {
+      "name": "Ascending price sort is correct",
+      "passed": true
+    },
+    {
+      "name": "A shareable category URL filters products",
+      "passed": true
+    },
+    {
+      "name": "Category matches the right product",
+      "passed": true
+    },
+    {
+      "name": "Product route has a named heading",
+      "passed": true
+    },
+    {
+      "name": "Adding chosen quantity updates the shared bag",
+      "passed": true
+    },
+    {
+      "name": "The full cart shows the selected quantity",
+      "passed": true
+    },
+    {
+      "name": "The full cart total is correct",
+      "passed": true
+    },
+    {
+      "name": "Cart survives a full page reload",
+      "passed": true
+    },
+    {
+      "name": "Changing quantity updates the total",
+      "passed": true
+    },
+    {
+      "name": "Removing the last item exposes the empty state",
+      "passed": true
+    },
+    {
+      "name": "Undo restores the item and quantity",
+      "passed": true
+    },
+    {
+      "name": "Cart synchronizes across browser tabs",
+      "passed": true
+    },
+    {
+      "name": "Invalid delivery fields get four inline errors",
+      "passed": true
+    },
+    {
+      "name": "Failed submit focuses the error summary",
+      "passed": true
+    },
+    {
+      "name": "Error links focus the related field",
+      "passed": true
+    },
+    {
+      "name": "Valid local address opens the review",
+      "passed": true
+    },
+    {
+      "name": "Review explicitly confirms no real order was submitted",
+      "passed": true
+    },
+    {
+      "name": "Delivery details are absent from local storage",
+      "passed": true
+    },
+    {
+      "name": "Editing retains the entered address",
+      "passed": true
+    },
+    {
+      "name": "Corrupt stored cart safely becomes empty",
+      "passed": true
+    },
+    {
+      "name": "Delivery cannot continue with an empty cart",
+      "passed": true
+    },
+    {
+      "name": "Saved quantities are clamped and invalid items are ignored",
+      "passed": true
+    },
+    {
+      "name": "Increment is disabled at the preview quantity limit",
+      "passed": true
+    },
+    {
+      "name": "Unknown products have a usable not-found page",
+      "passed": true
+    },
+    {
+      "name": "A blocked localStorage still allows adding to the session bag",
+      "passed": true
+    },
+    {
+      "name": "Session-only bag survives client navigation when storage is blocked",
+      "passed": true
+    },
+    {
+      "name": "Unavailable storage is explained to the user",
+      "passed": true
+    },
+    {
+      "name": "No uncaught errors with blocked localStorage",
+      "passed": true
+    },
+    {
+      "name": "shop: no overflow at 1440px",
+      "passed": true
+    },
+    {
+      "name": "shop: one main and h1 at 1440px",
+      "passed": true
+    },
+    {
+      "name": "shop: no overflow at 768px",
+      "passed": true
+    },
+    {
+      "name": "shop: one main and h1 at 768px",
+      "passed": true
+    },
+    {
+      "name": "shop: no overflow at 390px",
+      "passed": true
+    },
+    {
+      "name": "shop: one main and h1 at 390px",
+      "passed": true
+    },
+    {
+      "name": "shop: no overflow at 320px",
+      "passed": true
+    },
+    {
+      "name": "shop: one main and h1 at 320px",
+      "passed": true
+    },
+    {
+      "name": "product: no overflow at 1440px",
+      "passed": true
+    },
+    {
+      "name": "product: one main and h1 at 1440px",
+      "passed": true
+    },
+    {
+      "name": "product: no overflow at 768px",
+      "passed": true
+    },
+    {
+      "name": "product: one main and h1 at 768px",
+      "passed": true
+    },
+    {
+      "name": "product: no overflow at 390px",
+      "passed": true
+    },
+    {
+      "name": "product: one main and h1 at 390px",
+      "passed": true
+    },
+    {
+      "name": "product: no overflow at 320px",
+      "passed": true
+    },
+    {
+      "name": "product: one main and h1 at 320px",
+      "passed": true
+    },
+    {
+      "name": "cart: no overflow at 1440px",
+      "passed": true
+    },
+    {
+      "name": "cart: one main and h1 at 1440px",
+      "passed": true
+    },
+    {
+      "name": "cart: no overflow at 768px",
+      "passed": true
+    },
+    {
+      "name": "cart: one main and h1 at 768px",
+      "passed": true
+    },
+    {
+      "name": "cart: no overflow at 390px",
+      "passed": true
+    },
+    {
+      "name": "cart: one main and h1 at 390px",
+      "passed": true
+    },
+    {
+      "name": "cart: no overflow at 320px",
+      "passed": true
+    },
+    {
+      "name": "cart: one main and h1 at 320px",
+      "passed": true
+    },
+    {
+      "name": "delivery: no overflow at 1440px",
+      "passed": true
+    },
+    {
+      "name": "delivery: one main and h1 at 1440px",
+      "passed": true
+    },
+    {
+      "name": "delivery: no overflow at 768px",
+      "passed": true
+    },
+    {
+      "name": "delivery: one main and h1 at 768px",
+      "passed": true
+    },
+    {
+      "name": "delivery: no overflow at 390px",
+      "passed": true
+    },
+    {
+      "name": "delivery: one main and h1 at 390px",
+      "passed": true
+    },
+    {
+      "name": "delivery: no overflow at 320px",
+      "passed": true
+    },
+    {
+      "name": "delivery: one main and h1 at 320px",
+      "passed": true
+    },
+    {
+      "name": "Mobile errors do not cause horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "No uncaught browser errors",
+      "passed": true
+    }
+  ],
+  "visuals": [
+    {
+      "name": "shop",
+      "width": 1440,
+      "height": 2685,
+      "performance": {
+        "lcp": 56,
+        "cls": 0
+      },
+      "performanceConditions": "Local Chrome, unthrottled, no field INP measurement",
+      "profile": "public-commerce-page",
+      "rawFindings": [
+        {
+          "level": "WARN",
+          "id": "palette-cream",
+          "width": 1440,
+          "message": "Yellow-cream background (page background #f6f1e7, text #f6f1e7).",
+          "fix": "Use the drawn palette. If you want warmth, take a low-chroma stone or bone, not a yellow cream."
+        },
+        {
+          "level": "WARN",
+          "id": "no-footage",
+          "width": 1440,
+          "message": "No video anywhere on the page.",
+          "fix": "Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject."
+        },
+        {
+          "level": "WARN",
+          "id": "measure",
+          "width": 1440,
+          "message": "Longest paragraph runs about 113 characters per line.",
+          "fix": "Cap paragraphs at 45–75 characters (max-width: 60ch)."
+        }
+      ],
+      "findings": [
+        {
+          "level": "WARN",
+          "id": "palette-cream",
+          "width": 1440,
+          "message": "Yellow-cream background (page background #f6f1e7, text #f6f1e7).",
+          "fix": "Use the drawn palette. If you want warmth, take a low-chroma stone or bone, not a yellow cream."
+        },
+        {
+          "level": "WARN",
+          "id": "no-footage",
+          "width": 1440,
+          "message": "No video anywhere on the page.",
+          "fix": "Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject."
+        },
+        {
+          "level": "WARN",
+          "id": "measure",
+          "width": 1440,
+          "message": "Longest paragraph runs about 113 characters per line.",
+          "fix": "Cap paragraphs at 45–75 characters (max-width: 60ch)."
+        }
+      ],
+      "image": "shop-1440-fold.jpg"
+    },
+    {
+      "name": "shop",
+      "width": 768,
+      "height": 3001,
+      "performance": {
+        "lcp": 68,
+        "cls": 0
+      },
+      "performanceConditions": "Local Chrome, unthrottled, no field INP measurement",
+      "profile": "public-commerce-page",
+      "rawFindings": [
+        {
+          "level": "WARN",
+          "id": "palette-cream",
+          "width": 768,
+          "message": "Yellow-cream background (page background #f6f1e7, text #f6f1e7).",
+          "fix": "Use the drawn palette. If you want warmth, take a low-chroma stone or bone, not a yellow cream."
+        },
+        {
+          "level": "WARN",
+          "id": "measure",
+          "width": 768,
+          "message": "Longest paragraph runs about 89 characters per line.",
+          "fix": "Cap paragraphs at 45–75 characters (max-width: 60ch)."
+        },
+        {
+          "level": "WARN",
+          "id": "ragged-edges",
+          "width": 768,
+          "message": "Left-aligned text starts at 8 different lines (175px, 217px, 252px, 267px, 438px, 562px, 628px); the three most used hold only 38% of it.",
+          "fix": "Pick two or three anchor lines from the grid and start every heading and paragraph on one of them."
+        }
+      ],
+      "findings": [
+        {
+          "level": "WARN",
+          "id": "palette-cream",
+          "width": 768,
+          "message": "Yellow-cream background (page background #f6f1e7, text #f6f1e7).",
+          "fix": "Use the drawn palette. If you want warmth, take a low-chroma stone or bone, not a yellow cream."
+        },
+        {
+          "level": "WARN",
+          "id": "measure",
+          "width": 768,
+          "message": "Longest paragraph runs about 89 characters per line.",
+          "fix": "Cap paragraphs at 45–75 characters (max-width: 60ch)."
+        },
+        {
+          "level": "WARN",
+          "id": "ragged-edges",
+          "width": 768,
+          "message": "Left-aligned text starts at 8 different lines (175px, 217px, 252px, 267px, 438px, 562px, 628px); the three most used hold only 38% of it.",
+          "fix": "Pick two or three anchor lines from the grid and start every heading and paragraph on one of them."
+        }
+      ],
+      "image": "shop-768-fold.jpg"
+    },
+    {
+      "name": "shop",
+      "width": 390,
+      "height": 2781,
+      "performance": {
+        "lcp": 68,
+        "cls": 0
+      },
+      "performanceConditions": "Local Chrome, unthrottled, no field INP measurement",
+      "profile": "public-commerce-page",
+      "rawFindings": [
+        {
+          "level": "WARN",
+          "id": "palette-cream",
+          "width": 390,
+          "message": "Yellow-cream background (page background #f6f1e7, text #f6f1e7).",
+          "fix": "Use the drawn palette. If you want warmth, take a low-chroma stone or bone, not a yellow cream."
+        }
+      ],
+      "findings": [
+        {
+          "level": "WARN",
+          "id": "palette-cream",
+          "width": 390,
+          "message": "Yellow-cream background (page background #f6f1e7, text #f6f1e7).",
+          "fix": "Use the drawn palette. If you want warmth, take a low-chroma stone or bone, not a yellow cream."
+        }
+      ],
+      "image": "shop-390-fold.jpg"
+    },
+    {
+      "name": "shop",
+      "width": 320,
+      "height": 2835,
+      "performance": {
+        "lcp": 60,
+        "cls": 0
+      },
+      "performanceConditions": "Local Chrome, unthrottled, no field INP measurement",
+      "profile": "public-commerce-page",
+      "rawFindings": [
+        {
+          "level": "WARN",
+          "id": "palette-cream",
+          "width": 320,
+          "message": "Yellow-cream background (page background #f6f1e7, text #f6f1e7).",
+          "fix": "Use the drawn palette. If you want warmth, take a low-chroma stone or bone, not a yellow cream."
+        }
+      ],
+      "findings": [
+        {
+          "level": "WARN",
+          "id": "palette-cream",
+          "width": 320,
+          "message": "Yellow-cream background (page background #f6f1e7, text #f6f1e7).",
+          "fix": "Use the drawn palette. If you want warmth, take a low-chroma stone or bone, not a yellow cream."
+        }
+      ],
+      "image": "shop-320-fold.jpg"
+    },
+    {
+      "name": "product",
+      "width": 1440,
+      "height": 2514,
+      "performance": {
+        "lcp": 76,
+        "cls": 0
+      },
+      "performanceConditions": "Local Chrome, unthrottled, no field INP measurement",
+      "profile": "public-commerce-page",
+      "rawFindings": [
+        {
+          "level": "WARN",
+          "id": "palette-cream",
+          "width": 1440,
+          "message": "Yellow-cream background (page background #f6f1e7, text #f6f1e7).",
+          "fix": "Use the drawn palette. If you want warmth, take a low-chroma stone or bone, not a yellow cream."
+        },
+        {
+          "level": "WARN",
+          "id": "no-footage",
+          "width": 1440,
+          "message": "No video anywhere on the page.",
+          "fix": "Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject."
+        },
+        {
+          "level": "WARN",
+          "id": "measure",
+          "width": 1440,
+          "message": "Longest paragraph runs about 113 characters per line.",
+          "fix": "Cap paragraphs at 45–75 characters (max-width: 60ch)."
+        },
+        {
+          "level": "WARN",
+          "id": "name-only-title",
+          "width": 1440,
+          "message": "The h1 is a bare name (\"سلة خضروات متنوعة\") and nothing else on the first screen says what this is.",
+          "fix": "Keep the name if it leads, and give the line under it (18px or more) the plain words: what it is, for whom, where or when. In the study of 97 Sites of the Day, first screens that named nothing lost usability and content points."
+        },
+        {
+          "level": "WARN",
+          "id": "ragged-edges",
+          "width": 1440,
+          "message": "Left-aligned text starts at 7 different lines (170px, 69px, 82px, 325px, 821px, 1138px, 1270px); the three most used hold only 50% of it.",
+          "fix": "Pick two or three anchor lines from the grid and start every heading and paragraph on one of them."
+        }
+      ],
+      "findings": [
+        {
+          "level": "WARN",
+          "id": "palette-cream",
+          "width": 1440,
+          "message": "Yellow-cream background (page background #f6f1e7, text #f6f1e7).",
+          "fix": "Use the drawn palette. If you want warmth, take a low-chroma stone or bone, not a yellow cream."
+        },
+        {
+          "level": "WARN",
+          "id": "no-footage",
+          "width": 1440,
+          "message": "No video anywhere on the page.",
+          "fix": "Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject."
+        },
+        {
+          "level": "WARN",
+          "id": "measure",
+          "width": 1440,
+          "message": "Longest paragraph runs about 113 characters per line.",
+          "fix": "Cap paragraphs at 45–75 characters (max-width: 60ch)."
+        },
+        {
+          "level": "WARN",
+          "id": "name-only-title",
+          "width": 1440,
+          "message": "The h1 is a bare name (\"سلة خضروات متنوعة\") and nothing else on the first screen says what this is.",
+          "fix": "Keep the name if it leads, and give the line under it (18px or more) the plain words: what it is, for whom, where or when. In the study of 97 Sites of the Day, first screens that named nothing lost usability and content points."
+        },
+        {
+          "level": "WARN",
+          "id": "ragged-edges",
+          "width": 1440,
+          "message": "Left-aligned text starts at 7 different lines (170px, 69px, 82px, 325px, 821px, 1138px, 1270px); the three most used hold only 50% of it.",
+          "fix": "Pick two or three anchor lines from the grid and start every heading and paragraph on one of them."
+        }
+      ],
+      "image": "product-1440-fold.jpg"
+    },
+    {
+      "name": "product",
+      "width": 768,
+      "height": 3357,
+      "performance": {
+        "lcp": 52,
+        "cls": 0
+      },
+      "performanceConditions": "Local Chrome, unthrottled, no field INP measurement",
+      "profile": "public-commerce-page",
+      "rawFindings": [
+        {
+          "level": "WARN",
+          "id": "palette-cream",
+          "width": 768,
+          "message": "Yellow-cream background (page background #f6f1e7, text #f6f1e7).",
+          "fix": "Use the drawn palette. If you want warmth, take a low-chroma stone or bone, not a yellow cream."
+        },
+        {
+          "level": "WARN",
+          "id": "measure",
+          "width": 768,
+          "message": "Longest paragraph runs about 89 characters per line.",
+          "fix": "Cap paragraphs at 45–75 characters (max-width: 60ch)."
+        },
+        {
+          "level": "WARN",
+          "id": "name-only-title",
+          "width": 768,
+          "message": "The h1 is a bare name (\"سلة خضروات متنوعة\") and nothing else on the first screen says what this is.",
+          "fix": "Keep the name if it leads, and give the line under it (18px or more) the plain words: what it is, for whom, where or when. In the study of 97 Sites of the Day, first screens that named nothing lost usability and content points."
+        },
+        {
+          "level": "WARN",
+          "id": "ragged-edges",
+          "width": 768,
+          "message": "Left-aligned text starts at 7 different lines (587px, 88px, 99px, 175px, 258px, 419px, 622px); the three most used hold only 50% of it.",
+          "fix": "Pick two or three anchor lines from the grid and start every heading and paragraph on one of them."
+        }
+      ],
+      "findings": [
+        {
+          "level": "WARN",
+          "id": "palette-cream",
+          "width": 768,
+          "message": "Yellow-cream background (page background #f6f1e7, text #f6f1e7).",
+          "fix": "Use the drawn palette. If you want warmth, take a low-chroma stone or bone, not a yellow cream."
+        },
+        {
+          "level": "WARN",
+          "id": "measure",
+          "width": 768,
+          "message": "Longest paragraph runs about 89 characters per line.",
+          "fix": "Cap paragraphs at 45–75 characters (max-width: 60ch)."
+        },
+        {
+          "level": "WARN",
+          "id": "name-only-title",
+          "width": 768,
+          "message": "The h1 is a bare name (\"سلة خضروات متنوعة\") and nothing else on the first screen says what this is.",
+          "fix": "Keep the name if it leads, and give the line under it (18px or more) the plain words: what it is, for whom, where or when. In the study of 97 Sites of the Day, first screens that named nothing lost usability and content points."
+        },
+        {
+          "level": "WARN",
+          "id": "ragged-edges",
+          "width": 768,
+          "message": "Left-aligned text starts at 7 different lines (587px, 88px, 99px, 175px, 258px, 419px, 622px); the three most used hold only 50% of it.",
+          "fix": "Pick two or three anchor lines from the grid and start every heading and paragraph on one of them."
+        }
+      ],
+      "image": "product-768-fold.jpg"
+    },
+    {
+      "name": "product",
+      "width": 390,
+      "height": 3059,
+      "performance": {
+        "lcp": 60,
+        "cls": 0
+      },
+      "performanceConditions": "Local Chrome, unthrottled, no field INP measurement",
+      "profile": "public-commerce-page",
+      "rawFindings": [
+        {
+          "level": "WARN",
+          "id": "palette-cream",
+          "width": 390,
+          "message": "Yellow-cream background (page background #f6f1e7, text #f6f1e7).",
+          "fix": "Use the drawn palette. If you want warmth, take a low-chroma stone or bone, not a yellow cream."
+        },
+        {
+          "level": "WARN",
+          "id": "name-only-title",
+          "width": 390,
+          "message": "The h1 is a bare name (\"سلة خضروات متنوعة\") and nothing else on the first screen says what this is.",
+          "fix": "Keep the name if it leads, and give the line under it (18px or more) the plain words: what it is, for whom, where or when. In the study of 97 Sites of the Day, first screens that named nothing lost usability and content points."
+        }
+      ],
+      "findings": [
+        {
+          "level": "WARN",
+          "id": "palette-cream",
+          "width": 390,
+          "message": "Yellow-cream background (page background #f6f1e7, text #f6f1e7).",
+          "fix": "Use the drawn palette. If you want warmth, take a low-chroma stone or bone, not a yellow cream."
+        },
+        {
+          "level": "WARN",
+          "id": "name-only-title",
+          "width": 390,
+          "message": "The h1 is a bare name (\"سلة خضروات متنوعة\") and nothing else on the first screen says what this is.",
+          "fix": "Keep the name if it leads, and give the line under it (18px or more) the plain words: what it is, for whom, where or when. In the study of 97 Sites of the Day, first screens that named nothing lost usability and content points."
+        }
+      ],
+      "image": "product-390-fold.jpg"
+    },
+    {
+      "name": "product",
+      "width": 320,
+      "height": 3004,
+      "performance": {
+        "lcp": 64,
+        "cls": 0
+      },
+      "performanceConditions": "Local Chrome, unthrottled, no field INP measurement",
+      "profile": "public-commerce-page",
+      "rawFindings": [
+        {
+          "level": "WARN",
+          "id": "palette-cream",
+          "width": 320,
+          "message": "Yellow-cream background (page background #f6f1e7, text #f6f1e7).",
+          "fix": "Use the drawn palette. If you want warmth, take a low-chroma stone or bone, not a yellow cream."
+        },
+        {
+          "level": "WARN",
+          "id": "name-only-title",
+          "width": 320,
+          "message": "The h1 is a bare name (\"سلة خضروات متنوعة\") and nothing else on the first screen says what this is.",
+          "fix": "Keep the name if it leads, and give the line under it (18px or more) the plain words: what it is, for whom, where or when. In the study of 97 Sites of the Day, first screens that named nothing lost usability and content points."
+        }
+      ],
+      "findings": [
+        {
+          "level": "WARN",
+          "id": "palette-cream",
+          "width": 320,
+          "message": "Yellow-cream background (page background #f6f1e7, text #f6f1e7).",
+          "fix": "Use the drawn palette. If you want warmth, take a low-chroma stone or bone, not a yellow cream."
+        },
+        {
+          "level": "WARN",
+          "id": "name-only-title",
+          "width": 320,
+          "message": "The h1 is a bare name (\"سلة خضروات متنوعة\") and nothing else on the first screen says what this is.",
+          "fix": "Keep the name if it leads, and give the line under it (18px or more) the plain words: what it is, for whom, where or when. In the study of 97 Sites of the Day, first screens that named nothing lost usability and content points."
+        }
+      ],
+      "image": "product-320-fold.jpg"
+    },
+    {
+      "name": "cart",
+      "width": 1440,
+      "height": 1892,
+      "performance": {
+        "lcp": 64,
+        "cls": 0.004524891643759645
+      },
+      "performanceConditions": "Local Chrome, unthrottled, no field INP measurement",
+      "profile": "functional-app",
+      "rawFindings": [
+        {
+          "level": "FAIL",
+          "id": "eyebrow",
+          "width": 1440,
+          "message": "1 eyebrow/kicker label(s) above headings: \"24\" above \"69\"",
+          "fix": "Delete them. If the label carried real information, fold it into the headline or the supporting sentence."
+        },
+        {
+          "level": "WARN",
+          "id": "palette-cream",
+          "width": 1440,
+          "message": "Yellow-cream background (page background #f6f1e7, text #f6f1e7).",
+          "fix": "Use the drawn palette. If you want warmth, take a low-chroma stone or bone, not a yellow cream."
+        },
+        {
+          "level": "FAIL",
+          "id": "few-pictures",
+          "width": 1440,
+          "message": "Only 2 picture(s) on the page (2 photographs, footage or raster images, 0 interface fragments). Drawings in SVG do not count.",
+          "fix": "Find real pictures of the subject's world with scripts/assets.mjs (photographs, archival images, maps, engravings, footage), download them to assets/ and give them room: a hero picture, one per section that has a subject, a full-width band. At least four, usually six to twelve."
+        },
+        {
+          "level": "WARN",
+          "id": "no-footage",
+          "width": 1440,
+          "message": "No video anywhere on the page.",
+          "fix": "Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject."
+        },
+        {
+          "level": "WARN",
+          "id": "measure",
+          "width": 1440,
+          "message": "Longest paragraph runs about 113 characters per line.",
+          "fix": "Cap paragraphs at 45–75 characters (max-width: 60ch)."
+        },
+        {
+          "level": "FAIL",
+          "id": "focal-point",
+          "width": 1440,
+          "message": "The first screen has no dominant element: the largest type is 36px (2.5vw) and no single picture holds a third of the viewport.",
+          "fix": "Make one thing lead: the headline at display size, or one large picture. A grid of many small pictures is not one thing; in blind tests jurors marked a first screen without a headline down every time. On the strongest studied sites the largest type has a median of 8.4vw."
+        },
+        {
+          "level": "WARN",
+          "id": "off-centre",
+          "width": 1440,
+          "message": "The margins differ: 84px on the left, 52px on the right, at 1440px.",
+          "fix": "Put the navigation and the content on one pair of margins; check for padding on one side only, a scrollbar gutter, or a header on another inset than the page."
+        },
+        {
+          "level": "WARN",
+          "id": "name-only-title",
+          "width": 1440,
+          "message": "The h1 is a bare name (\"سلة المائدة\") and nothing else on the first screen says what this is.",
+          "fix": "Keep the name if it leads, and give the line under it (18px or more) the plain words: what it is, for whom, where or when. In the study of 97 Sites of the Day, first screens that named nothing lost usability and content points."
+        }
+      ],
+      "findings": [
+        {
+          "level": "WARN",
+          "id": "palette-cream",
+          "width": 1440,
+          "message": "Yellow-cream background (page background #f6f1e7, text #f6f1e7).",
+          "fix": "Use the drawn palette. If you want warmth, take a low-chroma stone or bone, not a yellow cream."
+        }
+      ],
+      "image": "cart-1440-fold.jpg"
+    },
+    {
+      "name": "cart",
+      "width": 768,
+      "height": 2347,
+      "performance": {
+        "lcp": 44,
+        "cls": 0.023731064232092335
+      },
+      "performanceConditions": "Local Chrome, unthrottled, no field INP measurement",
+      "profile": "functional-app",
+      "rawFindings": [
+        {
+          "level": "FAIL",
+          "id": "eyebrow",
+          "width": 768,
+          "message": "1 eyebrow/kicker label(s) above headings: \"24\" above \"69\"",
+          "fix": "Delete them. If the label carried real information, fold it into the headline or the supporting sentence."
+        },
+        {
+          "level": "WARN",
+          "id": "palette-cream",
+          "width": 768,
+          "message": "Yellow-cream background (page background #f6f1e7, text #f6f1e7).",
+          "fix": "Use the drawn palette. If you want warmth, take a low-chroma stone or bone, not a yellow cream."
+        },
+        {
+          "level": "WARN",
+          "id": "measure",
+          "width": 768,
+          "message": "Longest paragraph runs about 89 characters per line.",
+          "fix": "Cap paragraphs at 45–75 characters (max-width: 60ch)."
+        },
+        {
+          "level": "FAIL",
+          "id": "focal-point",
+          "width": 768,
+          "message": "The first screen has no dominant element: the largest type is 32px (4.2vw) and no single picture holds a third of the viewport.",
+          "fix": "Make one thing lead: the headline at display size, or one large picture. A grid of many small pictures is not one thing; in blind tests jurors marked a first screen without a headline down every time. On the strongest studied sites the largest type has a median of 8.4vw."
+        },
+        {
+          "level": "WARN",
+          "id": "name-only-title",
+          "width": 768,
+          "message": "The h1 is a bare name (\"سلة المائدة\") and nothing else on the first screen says what this is.",
+          "fix": "Keep the name if it leads, and give the line under it (18px or more) the plain words: what it is, for whom, where or when. In the study of 97 Sites of the Day, first screens that named nothing lost usability and content points."
+        }
+      ],
+      "findings": [
+        {
+          "level": "WARN",
+          "id": "palette-cream",
+          "width": 768,
+          "message": "Yellow-cream background (page background #f6f1e7, text #f6f1e7).",
+          "fix": "Use the drawn palette. If you want warmth, take a low-chroma stone or bone, not a yellow cream."
+        }
+      ],
+      "image": "cart-768-fold.jpg"
+    },
+    {
+      "name": "cart",
+      "width": 390,
+      "height": 2618,
+      "performance": {
+        "lcp": 60,
+        "cls": 0
+      },
+      "performanceConditions": "Local Chrome, unthrottled, no field INP measurement",
+      "profile": "functional-app",
+      "rawFindings": [
+        {
+          "level": "FAIL",
+          "id": "eyebrow",
+          "width": 390,
+          "message": "1 eyebrow/kicker label(s) above headings: \"24\" above \"69\"",
+          "fix": "Delete them. If the label carried real information, fold it into the headline or the supporting sentence."
+        },
+        {
+          "level": "WARN",
+          "id": "palette-cream",
+          "width": 390,
+          "message": "Yellow-cream background (page background #f6f1e7, text #f6f1e7).",
+          "fix": "Use the drawn palette. If you want warmth, take a low-chroma stone or bone, not a yellow cream."
+        },
+        {
+          "level": "WARN",
+          "id": "name-only-title",
+          "width": 390,
+          "message": "The h1 is a bare name (\"سلة المائدة\") and nothing else on the first screen says what this is.",
+          "fix": "Keep the name if it leads, and give the line under it (18px or more) the plain words: what it is, for whom, where or when. In the study of 97 Sites of the Day, first screens that named nothing lost usability and content points."
+        }
+      ],
+      "findings": [
+        {
+          "level": "WARN",
+          "id": "palette-cream",
+          "width": 390,
+          "message": "Yellow-cream background (page background #f6f1e7, text #f6f1e7).",
+          "fix": "Use the drawn palette. If you want warmth, take a low-chroma stone or bone, not a yellow cream."
+        }
+      ],
+      "image": "cart-390-fold.jpg"
+    },
+    {
+      "name": "cart",
+      "width": 320,
+      "height": 2690,
+      "performance": {
+        "lcp": 36,
+        "cls": 0
+      },
+      "performanceConditions": "Local Chrome, unthrottled, no field INP measurement",
+      "profile": "functional-app",
+      "rawFindings": [
+        {
+          "level": "FAIL",
+          "id": "eyebrow",
+          "width": 320,
+          "message": "1 eyebrow/kicker label(s) above headings: \"24\" above \"69\"",
+          "fix": "Delete them. If the label carried real information, fold it into the headline or the supporting sentence."
+        },
+        {
+          "level": "WARN",
+          "id": "palette-cream",
+          "width": 320,
+          "message": "Yellow-cream background (page background #f6f1e7, text #f6f1e7).",
+          "fix": "Use the drawn palette. If you want warmth, take a low-chroma stone or bone, not a yellow cream."
+        },
+        {
+          "level": "WARN",
+          "id": "name-only-title",
+          "width": 320,
+          "message": "The h1 is a bare name (\"سلة المائدة\") and nothing else on the first screen says what this is.",
+          "fix": "Keep the name if it leads, and give the line under it (18px or more) the plain words: what it is, for whom, where or when. In the study of 97 Sites of the Day, first screens that named nothing lost usability and content points."
+        }
+      ],
+      "findings": [
+        {
+          "level": "WARN",
+          "id": "palette-cream",
+          "width": 320,
+          "message": "Yellow-cream background (page background #f6f1e7, text #f6f1e7).",
+          "fix": "Use the drawn palette. If you want warmth, take a low-chroma stone or bone, not a yellow cream."
+        }
+      ],
+      "image": "cart-320-fold.jpg"
+    },
+    {
+      "name": "delivery",
+      "width": 1440,
+      "height": 2167,
+      "performance": {
+        "lcp": 48,
+        "cls": 0
+      },
+      "performanceConditions": "Local Chrome, unthrottled, no field INP measurement",
+      "profile": "functional-app",
+      "rawFindings": [
+        {
+          "level": "FAIL",
+          "id": "eyebrow",
+          "width": 1440,
+          "message": "1 eyebrow/kicker label(s) above headings: \"24\" above \"69\"",
+          "fix": "Delete them. If the label carried real information, fold it into the headline or the supporting sentence."
+        },
+        {
+          "level": "WARN",
+          "id": "palette-cream",
+          "width": 1440,
+          "message": "Yellow-cream background (page background #f6f1e7, text #f6f1e7).",
+          "fix": "Use the drawn palette. If you want warmth, take a low-chroma stone or bone, not a yellow cream."
+        },
+        {
+          "level": "FAIL",
+          "id": "few-pictures",
+          "width": 1440,
+          "message": "Only 0 picture(s) on the page (0 photographs, footage or raster images, 0 interface fragments). Drawings in SVG do not count.",
+          "fix": "Find real pictures of the subject's world with scripts/assets.mjs (photographs, archival images, maps, engravings, footage), download them to assets/ and give them room: a hero picture, one per section that has a subject, a full-width band. At least four, usually six to twelve."
+        },
+        {
+          "level": "WARN",
+          "id": "no-footage",
+          "width": 1440,
+          "message": "No video anywhere on the page.",
+          "fix": "Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject."
+        },
+        {
+          "level": "WARN",
+          "id": "measure",
+          "width": 1440,
+          "message": "Longest paragraph runs about 113 characters per line.",
+          "fix": "Cap paragraphs at 45–75 characters (max-width: 60ch)."
+        },
+        {
+          "level": "FAIL",
+          "id": "focal-point",
+          "width": 1440,
+          "message": "The first screen has no dominant element: the largest type is 36px (2.5vw) and no single picture holds a third of the viewport.",
+          "fix": "Make one thing lead: the headline at display size, or one large picture. A grid of many small pictures is not one thing; in blind tests jurors marked a first screen without a headline down every time. On the strongest studied sites the largest type has a median of 8.4vw."
+        },
+        {
+          "level": "WARN",
+          "id": "off-centre",
+          "width": 1440,
+          "message": "The margins differ: 84px on the left, 52px on the right, at 1440px.",
+          "fix": "Put the navigation and the content on one pair of margins; check for padding on one side only, a scrollbar gutter, or a header on another inset than the page."
+        },
+        {
+          "level": "WARN",
+          "id": "name-only-title",
+          "width": 1440,
+          "message": "The h1 is a bare name (\"عنوان التوصيل\") and nothing else on the first screen says what this is.",
+          "fix": "Keep the name if it leads, and give the line under it (18px or more) the plain words: what it is, for whom, where or when. In the study of 97 Sites of the Day, first screens that named nothing lost usability and content points."
+        }
+      ],
+      "findings": [
+        {
+          "level": "WARN",
+          "id": "palette-cream",
+          "width": 1440,
+          "message": "Yellow-cream background (page background #f6f1e7, text #f6f1e7).",
+          "fix": "Use the drawn palette. If you want warmth, take a low-chroma stone or bone, not a yellow cream."
+        }
+      ],
+      "image": "delivery-1440-fold.jpg"
+    },
+    {
+      "name": "delivery",
+      "width": 768,
+      "height": 2713,
+      "performance": {
+        "lcp": 36,
+        "cls": 0.01
+      },
+      "performanceConditions": "Local Chrome, unthrottled, no field INP measurement",
+      "profile": "functional-app",
+      "rawFindings": [
+        {
+          "level": "FAIL",
+          "id": "eyebrow",
+          "width": 768,
+          "message": "1 eyebrow/kicker label(s) above headings: \"24\" above \"69\"",
+          "fix": "Delete them. If the label carried real information, fold it into the headline or the supporting sentence."
+        },
+        {
+          "level": "WARN",
+          "id": "palette-cream",
+          "width": 768,
+          "message": "Yellow-cream background (page background #f6f1e7, text #f6f1e7).",
+          "fix": "Use the drawn palette. If you want warmth, take a low-chroma stone or bone, not a yellow cream."
+        },
+        {
+          "level": "WARN",
+          "id": "measure",
+          "width": 768,
+          "message": "Longest paragraph runs about 89 characters per line.",
+          "fix": "Cap paragraphs at 45–75 characters (max-width: 60ch)."
+        },
+        {
+          "level": "FAIL",
+          "id": "focal-point",
+          "width": 768,
+          "message": "The first screen has no dominant element: the largest type is 32px (4.2vw) and no single picture holds a third of the viewport.",
+          "fix": "Make one thing lead: the headline at display size, or one large picture. A grid of many small pictures is not one thing; in blind tests jurors marked a first screen without a headline down every time. On the strongest studied sites the largest type has a median of 8.4vw."
+        },
+        {
+          "level": "WARN",
+          "id": "name-only-title",
+          "width": 768,
+          "message": "The h1 is a bare name (\"عنوان التوصيل\") and nothing else on the first screen says what this is.",
+          "fix": "Keep the name if it leads, and give the line under it (18px or more) the plain words: what it is, for whom, where or when. In the study of 97 Sites of the Day, first screens that named nothing lost usability and content points."
+        }
+      ],
+      "findings": [
+        {
+          "level": "WARN",
+          "id": "palette-cream",
+          "width": 768,
+          "message": "Yellow-cream background (page background #f6f1e7, text #f6f1e7).",
+          "fix": "Use the drawn palette. If you want warmth, take a low-chroma stone or bone, not a yellow cream."
+        }
+      ],
+      "image": "delivery-768-fold.jpg"
+    },
+    {
+      "name": "delivery",
+      "width": 390,
+      "height": 2985,
+      "performance": {
+        "lcp": 56,
+        "cls": 0
+      },
+      "performanceConditions": "Local Chrome, unthrottled, no field INP measurement",
+      "profile": "functional-app",
+      "rawFindings": [
+        {
+          "level": "FAIL",
+          "id": "eyebrow",
+          "width": 390,
+          "message": "1 eyebrow/kicker label(s) above headings: \"24\" above \"69\"",
+          "fix": "Delete them. If the label carried real information, fold it into the headline or the supporting sentence."
+        },
+        {
+          "level": "WARN",
+          "id": "palette-cream",
+          "width": 390,
+          "message": "Yellow-cream background (page background #f6f1e7, text #f6f1e7).",
+          "fix": "Use the drawn palette. If you want warmth, take a low-chroma stone or bone, not a yellow cream."
+        },
+        {
+          "level": "WARN",
+          "id": "name-only-title",
+          "width": 390,
+          "message": "The h1 is a bare name (\"عنوان التوصيل\") and nothing else on the first screen says what this is.",
+          "fix": "Keep the name if it leads, and give the line under it (18px or more) the plain words: what it is, for whom, where or when. In the study of 97 Sites of the Day, first screens that named nothing lost usability and content points."
+        }
+      ],
+      "findings": [
+        {
+          "level": "WARN",
+          "id": "palette-cream",
+          "width": 390,
+          "message": "Yellow-cream background (page background #f6f1e7, text #f6f1e7).",
+          "fix": "Use the drawn palette. If you want warmth, take a low-chroma stone or bone, not a yellow cream."
+        }
+      ],
+      "image": "delivery-390-fold.jpg"
+    },
+    {
+      "name": "delivery",
+      "width": 320,
+      "height": 3086,
+      "performance": {
+        "lcp": 44,
+        "cls": 0
+      },
+      "performanceConditions": "Local Chrome, unthrottled, no field INP measurement",
+      "profile": "functional-app",
+      "rawFindings": [
+        {
+          "level": "FAIL",
+          "id": "eyebrow",
+          "width": 320,
+          "message": "1 eyebrow/kicker label(s) above headings: \"24\" above \"69\"",
+          "fix": "Delete them. If the label carried real information, fold it into the headline or the supporting sentence."
+        },
+        {
+          "level": "WARN",
+          "id": "palette-cream",
+          "width": 320,
+          "message": "Yellow-cream background (page background #f6f1e7, text #f6f1e7).",
+          "fix": "Use the drawn palette. If you want warmth, take a low-chroma stone or bone, not a yellow cream."
+        },
+        {
+          "level": "WARN",
+          "id": "name-only-title",
+          "width": 320,
+          "message": "The h1 is a bare name (\"عنوان التوصيل\") and nothing else on the first screen says what this is.",
+          "fix": "Keep the name if it leads, and give the line under it (18px or more) the plain words: what it is, for whom, where or when. In the study of 97 Sites of the Day, first screens that named nothing lost usability and content points."
+        }
+      ],
+      "findings": [
+        {
+          "level": "WARN",
+          "id": "palette-cream",
+          "width": 320,
+          "message": "Yellow-cream background (page background #f6f1e7, text #f6f1e7).",
+          "fix": "Use the drawn palette. If you want warmth, take a low-chroma stone or bone, not a yellow cream."
+        }
+      ],
+      "image": "delivery-320-fold.jpg"
+    }
+  ],
+  "errors": []
+}

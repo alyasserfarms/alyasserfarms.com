@@ -1,0 +1,185 @@
+{
+  "timestamp": "2026-10-29T08:53:18.063Z",
+  "results": [
+    {
+      "name": "Arabic RTL",
+      "passed": true
+    },
+    {
+      "name": "Approved headline",
+      "passed": true
+    },
+    {
+      "name": "One h1",
+      "passed": true
+    },
+    {
+      "name": "Poster loaded",
+      "passed": true
+    },
+    {
+      "name": "Requested media file autoplays",
+      "passed": true
+    },
+    {
+      "name": "Video is muted, inline and looping without native controls",
+      "passed": true
+    },
+    {
+      "name": "No play overlay or video badge remains",
+      "passed": true
+    },
+    {
+      "name": "Hero has no media credit or playback text overlay",
+      "passed": true
+    },
+    {
+      "name": "Motion control relocated to footer",
+      "passed": true
+    },
+    {
+      "name": "Stock attribution remains in footer",
+      "passed": true
+    },
+    {
+      "name": "Background frames actually advance",
+      "passed": true
+    },
+    {
+      "name": "Playback wraps at the end of the clip",
+      "passed": true
+    },
+    {
+      "name": "Text pause control stops the background",
+      "passed": true
+    },
+    {
+      "name": "Manual pause is preserved after returning to hero",
+      "passed": true
+    },
+    {
+      "name": "Background can resume",
+      "passed": true
+    },
+    {
+      "name": "Hero text reacts to downward scroll",
+      "passed": true
+    },
+    {
+      "name": "Hero text returns when scrolling back up",
+      "passed": true
+    },
+    {
+      "name": "Section animates on entry",
+      "passed": true
+    },
+    {
+      "name": "Section reveal resets outside the viewport",
+      "passed": true
+    },
+    {
+      "name": "Section reveal restarts on a second visit",
+      "passed": true
+    },
+    {
+      "name": "Upward entry uses the opposite reveal direction",
+      "passed": true
+    },
+    {
+      "name": "Logo comes from supplied brand folder",
+      "passed": true
+    },
+    {
+      "name": "No horizontal overflow at 1440",
+      "passed": true
+    },
+    {
+      "name": "Headline stays inside the viewport at 1440",
+      "passed": true
+    },
+    {
+      "name": "Primary action visible at 1440",
+      "passed": true
+    },
+    {
+      "name": "No horizontal overflow at 768",
+      "passed": true
+    },
+    {
+      "name": "Headline stays inside the viewport at 768",
+      "passed": true
+    },
+    {
+      "name": "Primary action visible at 768",
+      "passed": true
+    },
+    {
+      "name": "No horizontal overflow at 390",
+      "passed": true
+    },
+    {
+      "name": "Headline stays inside the viewport at 390",
+      "passed": true
+    },
+    {
+      "name": "Primary action visible at 390",
+      "passed": true
+    },
+    {
+      "name": "Mobile hero fits within 850 pixels at 390",
+      "passed": true
+    },
+    {
+      "name": "No horizontal overflow at 320",
+      "passed": true
+    },
+    {
+      "name": "Headline stays inside the viewport at 320",
+      "passed": true
+    },
+    {
+      "name": "Primary action visible at 320",
+      "passed": true
+    },
+    {
+      "name": "Mobile hero fits within 850 pixels at 320",
+      "passed": true
+    },
+    {
+      "name": "Header search opens",
+      "passed": true
+    },
+    {
+      "name": "Header cart opens",
+      "passed": true
+    },
+    {
+      "name": "Mobile navigation opens",
+      "passed": true
+    },
+    {
+      "name": "Header compacts while scrolling",
+      "passed": true
+    },
+    {
+      "name": "Reduced motion does not fetch the background video",
+      "passed": true
+    },
+    {
+      "name": "Reduced motion keeps title readable",
+      "passed": true
+    },
+    {
+      "name": "Reduced motion keeps poster still",
+      "passed": true
+    },
+    {
+      "name": "No uncaught errors",
+      "passed": true
+    },
+    {
+      "name": "No uncaught reduced-motion errors",
+      "passed": true
+    }
+  ]
+}

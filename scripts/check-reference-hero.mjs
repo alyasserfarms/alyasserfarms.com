@@ -1,0 +1,91 @@
+import { Browser, sleep } from '../.agents/skills/design-taste-frontend/scripts/lib/cdp.mjs';
+import { mkdirSync, writeFileSync } from 'node:fs';
+import assert from 'node:assert/strict';
+const out = 'docs/reference-hero';
+mkdirSync(out, { recursive: true });
+const browser = await Browser.launch();
+const results = [];
+function check(name, value, expected = true) { assert.deepEqual(value, expected, name); results.push({ name, passed: true }); }
+try {
+ const page = await browser.newPage({ width: 1440, height: 900 });
+ await page.goto('http://127.0.0.1:3001', { settleMs: 1600 });
+ check('Arabic RTL', await page.eval(() => document.documentElement.dir === 'rtl' && document.documentElement.lang === 'ar'));
+ check('Approved headline', await page.eval(() => document.querySelector('h1').textContent), 'مزارع آل ياسر');
+ check('One h1', await page.eval(() => document.querySelectorAll('h1').length), 1);
+ check('Poster loaded', await page.eval(() => { const img = document.querySelector('.reference-landscape img'); return img.complete && img.naturalWidth > 0; }));
+ for (let i = 0; i < 20; i++) { if (await page.eval(() => { const v = document.querySelector('.reference-hero video'); return v.readyState >= 2 && !v.paused; })) break; await sleep(200); }
+ check('Requested media file autoplays', await page.eval(() => { const v = document.querySelector('.reference-hero video'); return v.currentSrc.endsWith('/media/palms.mp4') && !v.paused; }));
+ check('Video is muted, inline and looping without native controls', await page.eval(() => { const v = document.querySelector('.reference-hero video'); return v.muted && v.autoplay && v.loop && v.playsInline && !v.controls; }));
+ check('No play overlay or video badge remains', await page.eval(() => !document.querySelector('.reference-play, .reference-play-icon')));
+ check('Hero has no media credit or playback text overlay', await page.eval(() => !document.querySelector('.reference-hero .reference-media-credit, .reference-hero .background-motion-control')));
+ check('Motion control relocated to footer', await page.eval(() => !!document.querySelector('.footer-bottom .background-motion-control')));
+ check('Stock attribution remains in footer', await page.eval(() => document.querySelector('.media-credits').textContent.includes('Rulo Davila')));
+ const firstTime = await page.eval(() => document.querySelector('.reference-hero video').currentTime);
+ await sleep(350);
+ check('Background frames actually advance', await page.eval(() => document.querySelector('.reference-hero video').currentTime) > firstTime);
+ await page.eval(() => { const v = document.querySelector('.reference-hero video'); v.currentTime = v.duration - .15; });
+ await sleep(650);
+ check('Playback wraps at the end of the clip', await page.eval(() => { const v = document.querySelector('.reference-hero video'); return !v.paused && v.currentTime < v.duration / 2; }));
+ await page.eval(() => document.querySelector('.background-motion-control').click()); await sleep(100);
+ check('Text pause control stops the background', await page.eval(() => document.querySelector('.reference-hero video').paused));
+ await page.eval(() => window.scrollTo({ top: 1200, behavior: 'instant' })); await sleep(150);
+ await page.eval(() => window.scrollTo({ top: 0, behavior: 'instant' })); await sleep(150);
+ check('Manual pause is preserved after returning to hero', await page.eval(() => document.querySelector('.reference-hero video').paused));
+ await page.eval(() => document.querySelector('.background-motion-control').click()); await sleep(150);
+ check('Background can resume', await page.eval(() => !document.querySelector('.reference-hero video').paused));
+ await page.eval(() => window.scrollTo({ top: 380, behavior: 'instant' })); await sleep(900);
+ check('Hero text reacts to downward scroll', await page.eval(() => new DOMMatrixReadOnly(getComputedStyle(document.querySelector('.reference-hero-copy')).transform).m42 < -5));
+ await page.eval(() => window.scrollTo({ top: 0, behavior: 'instant' })); await sleep(900);
+ check('Hero text returns when scrolling back up', await page.eval(() => Math.abs(new DOMMatrixReadOnly(getComputedStyle(document.querySelector('.reference-hero-copy')).transform).m42) < 1));
+ await page.eval(() => document.getElementById('about-title').scrollIntoView({ behavior: 'instant', block: 'center' })); await sleep(150);
+ check('Section animates on entry', await page.eval(() => document.getElementById('about-title').closest('[data-reveal]').classList.contains('is-revealing')));
+ await page.eval(() => window.scrollTo({ top: 0, behavior: 'instant' })); await sleep(150);
+ check('Section reveal resets outside the viewport', await page.eval(() => !document.getElementById('about-title').closest('[data-reveal]').classList.contains('is-revealing')));
+ await page.eval(() => document.getElementById('about-title').scrollIntoView({ behavior: 'instant', block: 'center' })); await sleep(150);
+ check('Section reveal restarts on a second visit', await page.eval(() => document.getElementById('about-title').closest('[data-reveal]').getAnimations().some(a => a.currentTime < 500)));
+ const aboutTop = await page.eval(() => document.getElementById('about-title').getBoundingClientRect().top + scrollY);
+ await page.eval(top => window.scrollTo({ top: top + 600, behavior: 'instant' }), aboutTop); await sleep(150);
+ await page.eval(top => window.scrollTo({ top: top + 24, behavior: 'instant' }), aboutTop); await sleep(150);
+ check('Upward entry uses the opposite reveal direction', await page.eval(() => document.getElementById('about-title').closest('[data-reveal]').style.getPropertyValue('--reveal-y')), '-18px');
+ await page.eval(() => window.scrollTo({ top: 0, behavior: 'instant' })); await sleep(900);
+ check('Logo comes from supplied brand folder', await page.eval(() => document.querySelector('.site-header .brand-name img').getAttribute('src').includes('%2Fbrand%2F')));
+ for (const width of [1440, 768, 390, 320]) {
+   await page.setViewport({ width, height: width < 600 ? 844 : 900, mobile: width < 600 });
+   await page.eval(() => window.scrollTo({ top: 0, behavior: 'instant' }));
+   await sleep(1300);
+   check(`No horizontal overflow at ${width}`, await page.eval(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth));
+   check(`Headline stays inside the viewport at ${width}`, await page.eval(() => { const r = document.querySelector('h1').getBoundingClientRect(); return r.left >= 16 && r.right <= innerWidth - 16; }));
+   check(`Primary action visible at ${width}`, await page.eval(() => { const r = document.querySelector('.reference-cta').getBoundingClientRect(); return r.bottom < innerHeight && r.top > 0; }));
+   await page.screenshot({ path: `${out}/hero-${width}.jpg` });
+   if (width < 600) {
+     check(`Mobile hero fits within 850 pixels at ${width}`, await page.eval(() => document.querySelector('.reference-hero').offsetHeight <= 850));
+     await page.eval(() => window.scrollTo({ top: 420, behavior: 'instant' })); await sleep(300);
+     await page.screenshot({ path: `${out}/hero-${width}-lower.jpg` });
+   }
+ }
+ await page.setViewport({ width: 1440, height: 900 });
+ await page.eval(() => window.scrollTo({ top: 700, behavior: 'instant' })); await sleep(1000);
+ await page.screenshot({ path: `${out}/hero-section-transition.jpg` });
+ await page.setViewport({ width: 320, height: 844, mobile: true });
+ await page.eval(() => document.querySelector('[aria-label="البحث عن منتج"]').click());
+ check('Header search opens', await page.eval(() => !!document.querySelector('dialog[open] input[type="search"]')));
+ await page.eval(() => document.querySelector('dialog[open] .modal-heading button').click());
+ await page.eval(() => document.querySelector('.cart-button').click());
+ check('Header cart opens', await page.eval(() => !!document.querySelector('dialog[open] .empty-cart')));
+ await page.eval(() => document.querySelector('dialog[open] .modal-heading button').click());
+ await page.eval(() => document.querySelector('[aria-label="فتح القائمة"]').click());
+ check('Mobile navigation opens', await page.eval(() => !!document.querySelector('dialog[open].menu-modal')));
+ await page.eval(() => document.querySelector('dialog[open] .modal-heading button').click());
+ await page.eval(() => window.scrollTo({ top: 500, behavior: 'instant' })); await sleep(250);
+ check('Header compacts while scrolling', await page.eval(() => document.querySelector('.reference-header').classList.contains('is-compact')));
+ const reduced = await browser.newPage({ width: 390, height: 844, mobile: true, reducedMotion: true });
+ await reduced.goto('http://127.0.0.1:3001', { settleMs: 1100 });
+ check('Reduced motion does not fetch the background video', await reduced.eval(() => !document.querySelector('.reference-hero video').getAttribute('src')));
+ check('Reduced motion keeps title readable', await reduced.eval(() => getComputedStyle(document.querySelector('h1')).opacity === '1'));
+ check('Reduced motion keeps poster still', await reduced.eval(() => ['none', 'matrix(1, 0, 0, 1, 0, 0)'].includes(getComputedStyle(document.querySelector('.reference-landscape')).transform)));
+ await reduced.screenshot({ path: `${out}/hero-reduced.jpg` });
+ check('No uncaught errors', page.consoleErrors, []);
+ check('No uncaught reduced-motion errors', reduced.consoleErrors, []);
+ writeFileSync(`${out}/checks.json`, JSON.stringify({ timestamp: new Date().toISOString(), results }, null, 2));
+ console.log(JSON.stringify({ passed: results.length, output: out }, null, 2));
+} finally { await browser.close(); }

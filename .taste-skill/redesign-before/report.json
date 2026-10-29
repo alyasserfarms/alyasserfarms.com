@@ -1,0 +1,2571 @@
+{
+ "url": "http://127.0.0.1:3001",
+ "at": "2026-10-25T05:54:26.793Z",
+ "allow": [],
+ "viewports": [
+  {
+   "width": 1440,
+   "height": 900,
+   "load": "load",
+   "screens": 9,
+   "filled": [
+    0.3,
+    0.45,
+    0.4,
+    0.59,
+    0.84,
+    0.43,
+    0.63,
+    0.77,
+    0.83
+   ],
+   "motion": {
+    "elements": 21,
+    "css": 20,
+    "transitions": 1,
+    "scripted": 0,
+    "videos": 2,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "page": {
+     "height": 7825,
+     "screens": 8.7,
+     "words": 361,
+     "img": 22,
+     "video": 2,
+     "canvas": 0,
+     "svg": 51,
+     "sections": 8,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 1,
+     "uiAbuse": false,
+     "realPictures": 12,
+     "videoCount": 2,
+     "uiPictures": 1,
+     "pictureSamples": [
+      "image?url=%2Fmedia%2Fhero.jpg&w=1920&q=75",
+      "image?url=%2Fmedia%2Ffields.jpg&w=750&q=75",
+      "image?url=%2Fmedia%2Fbeef.jpg&w=256&q=75",
+      "image?url=%2Fmedia%2Fchicken.jpg&w=256&q=75",
+      "image?url=%2Fmedia%2Fvegetables.jpg&w=256&q=75",
+      "image?url=%2Fmedia%2Foranges.jpg&w=256&q=75",
+      "image?url=%2Fmedia%2Fmilk.jpg&w=256&q=75",
+      "image?url=%2Fmedia%2Fdates.jpg&w=256&q=75"
+     ],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "الخير له أصل",
+     "words": 3,
+     "chars": 12,
+     "lines": 1,
+     "size": 109.4,
+     "vw": 7.6,
+     "font": "arabic",
+     "weight": 650,
+     "tracking": 0,
+     "leading": 1.5,
+     "upper": false,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "center",
+     "widthRatio": 0.93,
+     "top": 267,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "الخير له أصل",
+     "words": 3,
+     "lines": 1,
+     "size": 109.4,
+     "font": "arabic"
+    },
+    "headings": [
+     {
+      "text": "الخير له أصل",
+      "words": 3,
+      "chars": 12,
+      "lines": 1,
+      "size": 109.4,
+      "vw": 7.6,
+      "font": "arabic",
+      "weight": 650,
+      "tracking": 0,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.93,
+      "top": 267,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "أصل الحكاية… أرض",
+      "words": 3,
+      "chars": 16,
+      "lines": 1,
+      "size": 51.8,
+      "vw": 3.6,
+      "font": "arabic",
+      "weight": 600,
+      "tracking": 0,
+      "leading": 1.45,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.42,
+      "top": 1211,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "كل الخير، في مكان",
+      "words": 4,
+      "chars": 17,
+      "lines": 1,
+      "size": 51.8,
+      "vw": 3.6,
+      "font": "arabic",
+      "weight": 600,
+      "tracking": 0,
+      "leading": 1.45,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.28,
+      "top": 1915,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "اختيارات لمائدتك",
+      "words": 2,
+      "chars": 16,
+      "lines": 1,
+      "size": 51.8,
+      "vw": 3.6,
+      "font": "arabic",
+      "weight": 600,
+      "tracking": 0,
+      "leading": 1.45,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.26,
+      "top": 2576,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "من أرضنا إلى مائدتك",
+      "words": 4,
+      "chars": 19,
+      "lines": 2,
+      "size": 76.3,
+      "vw": 5.3,
+      "font": "arabic",
+      "weight": 600,
+      "tracking": 0,
+      "leading": 1.4,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.34,
+      "top": 4006,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "للحياة هنا إيقاع",
+      "words": 3,
+      "chars": 16,
+      "lines": 1,
+      "size": 51.8,
+      "vw": 3.6,
+      "font": "arabic",
+      "weight": 600,
+      "tracking": 0,
+      "leading": 1.45,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.22,
+      "top": 4782,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "لمائدة عامرة، ببساطة",
+      "words": 3,
+      "chars": 20,
+      "lines": 1,
+      "size": 51.8,
+      "vw": 3.6,
+      "font": "arabic",
+      "weight": 600,
+      "tracking": 0,
+      "leading": 1.45,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.32,
+      "top": 5665,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "للخير موسم",
+      "words": 2,
+      "chars": 10,
+      "lines": 1,
+      "size": 51.8,
+      "vw": 3.6,
+      "font": "arabic",
+      "weight": 600,
+      "tracking": 0,
+      "leading": 1.45,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.18,
+      "top": 6404,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "الخير له أصل",
+      "words": 3,
+      "chars": 12,
+      "lines": 1,
+      "size": 175.7,
+      "vw": 12.2,
+      "font": "arabic",
+      "weight": 600,
+      "tracking": 0,
+      "leading": 1.7,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "center",
+      "position": "center",
+      "widthRatio": 0.93,
+      "top": 7378,
+      "tag": "p",
+      "kind": "statement"
+     }
+    ],
+    "headingSummary": {
+     "count": 9,
+     "maxLines": 2,
+     "over2Lines": 0,
+     "statements": 1,
+     "centered": 1,
+     "medianWords": 3,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "arabic",
+       "share": 1,
+       "mono": false
+      }
+     ],
+     "familyCount": 1,
+     "sizes": [
+      16,
+      24,
+      52,
+      76,
+      109,
+      176
+     ],
+     "sizeCount": 6,
+     "notLoaded": [],
+     "body": {
+      "font": "arabic",
+      "size": 16,
+      "leading": 1.8,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 9.8
+     },
+     "measureChars": 59,
+     "max": {
+      "size": 175.7,
+      "vw": 12.2,
+      "font": "arabic",
+      "text": "الخير له أصل"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0,
+     "centerShare": 0.03,
+     "smallText": 0
+    },
+    "eyebrows": [],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#f6f1e7",
+     "bodyBgHsl": {
+      "h": 40,
+      "s": 0.45,
+      "l": 0.94
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#e6e9dc",
+       "top": 100,
+       "hsl": {
+        "h": 74,
+        "s": 0.23,
+        "l": 0.89
+       }
+      },
+      {
+       "color": "#183d2b",
+       "top": 3811,
+       "hsl": {
+        "h": 151,
+        "s": 0.44,
+        "l": 0.17
+       }
+      },
+      {
+       "color": "#102b1e",
+       "top": 4940,
+       "hsl": {
+        "h": 151,
+        "s": 0.46,
+        "l": 0.12
+       }
+      },
+      {
+       "color": "#cba44d",
+       "top": 6231,
+       "hsl": {
+        "h": 41,
+        "s": 0.55,
+        "l": 0.55
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#183d2b",
+       "share": 0.57
+      },
+      {
+       "color": "#f6f1e7",
+       "share": 0.42
+      },
+      {
+       "color": "#102b1e",
+       "share": 0
+      }
+     ],
+     "button": {
+      "bg": "#183d2b",
+      "hsl": {
+       "h": 151,
+       "s": 0.44,
+       "l": 0.17
+      },
+      "fg": "#f6f1e7"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 6,
+     "inHero": 3,
+     "radius": 0,
+     "height": 53,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "تجاوز إلى المحتوى",
+      "إيقاف المشهد",
+      "اكتشف المنتجات"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 0,
+     "hairlineSamples": [],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 0,
+     "boxRadius": 0,
+     "squareMedia": 16,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [
+     {
+      "type": "img",
+      "ratio": 0.84
+     },
+     {
+      "type": "video",
+      "ratio": 0.84
+     }
+    ],
+    "nav": {
+     "links": 5,
+     "fixed": true,
+     "height": 100,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "arabic",
+     "arabic fallback"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "pageH": 7825,
+    "margins": {
+     "left": 52,
+     "right": 52
+    },
+    "sections": [
+     {
+      "sel": "section#home.hero",
+      "tag": "section",
+      "top": 100,
+      "height": 760,
+      "words": 21,
+      "media": 2,
+      "middle": 532,
+      "heading": {
+       "text": "الخير له أصل",
+       "size": 109,
+       "tag": "h1"
+      },
+      "left": 116,
+      "right": 52,
+      "textLeft": 132,
+      "textRight": 52,
+      "fullBleed": true,
+      "footer": false,
+      "hero": true,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#about.about-section.section",
+      "tag": "section",
+      "top": 1069,
+      "height": 702,
+      "words": 41,
+      "media": 1,
+      "middle": 301,
+      "heading": {
+       "text": "أصل الحكاية… أرض",
+       "size": 52,
+       "tag": "h2"
+      },
+      "left": 52,
+      "right": 52,
+      "textLeft": 963,
+      "textRight": 52,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#categories.categories-section.section",
+      "tag": "section",
+      "top": 1915,
+      "height": 517,
+      "words": 10,
+      "media": 6,
+      "middle": 20,
+      "heading": {
+       "text": "اللحوم",
+       "size": 16,
+       "tag": "h3"
+      },
+      "left": 52,
+      "right": 52,
+      "textLeft": 96,
+      "textRight": 52,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#products.products-section.section",
+      "tag": "section",
+      "top": 2576,
+      "height": 1091,
+      "words": 62,
+      "media": 4,
+      "middle": 24,
+      "heading": null,
+      "left": 52,
+      "right": 52,
+      "textLeft": 52,
+      "textRight": 52,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#story.story-section",
+      "tag": "section",
+      "top": 3811,
+      "height": 827,
+      "words": 20,
+      "media": 1,
+      "middle": 198,
+      "heading": {
+       "text": "من أرضنا",
+       "size": 76,
+       "tag": "h2"
+      },
+      "left": 52,
+      "right": 52,
+      "textLeft": 1038,
+      "textRight": 52,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#films.films-section.section",
+      "tag": "section",
+      "top": 4782,
+      "height": 676,
+      "words": 34,
+      "media": 1,
+      "middle": 48,
+      "heading": {
+       "text": "بين النخيل",
+       "size": 24,
+       "tag": "h3"
+      },
+      "left": 62,
+      "right": 52,
+      "textLeft": 62,
+      "textRight": 52,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#delivery.delivery-section.section",
+      "tag": "section",
+      "top": 5601,
+      "height": 486,
+      "words": 58,
+      "media": 0,
+      "middle": 198,
+      "heading": {
+       "text": "لمائدة عامرة، ببساطة",
+       "size": 52,
+       "tag": "h2"
+      },
+      "left": 90,
+      "right": 52,
+      "textLeft": 90,
+      "textRight": 52,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#season.season-section.frame",
+      "tag": "section",
+      "top": 6231,
+      "height": 720,
+      "words": 32,
+      "media": 1,
+      "middle": 80,
+      "heading": {
+       "text": "للخير موسم",
+       "size": 52,
+       "tag": "h2"
+      },
+      "left": 298,
+      "right": 0,
+      "textLeft": 298,
+      "textRight": 800,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "footer#contact.site-footer",
+      "tag": "footer",
+      "top": 7095,
+      "height": 730,
+      "words": 38,
+      "media": 0,
+      "middle": 63,
+      "heading": {
+       "text": "الخير له أصل",
+       "size": 176,
+       "tag": "p"
+      },
+      "left": 52,
+      "right": 52,
+      "textLeft": 52,
+      "textRight": 52,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "الخير له أصل",
+      "size": 109,
+      "top": 267,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 62,
+      "n": 1
+     },
+     {
+      "x": 153,
+      "n": 1
+     },
+     {
+      "x": 298,
+      "n": 1
+     },
+     {
+      "x": 313,
+      "n": 1
+     },
+     {
+      "x": 385,
+      "n": 1
+     },
+     {
+      "x": 443,
+      "n": 1
+     },
+     {
+      "x": 665,
+      "n": 1
+     },
+     {
+      "x": 796,
+      "n": 1
+     },
+     {
+      "x": 821,
+      "n": 1
+     },
+     {
+      "x": 866,
+      "n": 1
+     },
+     {
+      "x": 922,
+      "n": 1
+     },
+     {
+      "x": 934,
+      "n": 1
+     }
+    ],
+    "leftBlocks": 21,
+    "bodySize": 16,
+    "stage": false,
+    "explains": true,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": null,
+   "consoleErrors": []
+  },
+  {
+   "width": 768,
+   "height": 1024,
+   "load": "load",
+   "screens": 7,
+   "filled": [
+    0.41,
+    0.58,
+    0.53,
+    0.69,
+    0.66,
+    0.85,
+    0.82
+   ],
+   "motion": {
+    "elements": 21,
+    "css": 20,
+    "transitions": 1,
+    "scripted": 0,
+    "videos": 2,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "page": {
+     "height": 6735,
+     "screens": 6.6,
+     "words": 354,
+     "img": 22,
+     "video": 2,
+     "canvas": 0,
+     "svg": 51,
+     "sections": 8,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 1,
+     "uiAbuse": false,
+     "realPictures": 12,
+     "videoCount": 2,
+     "uiPictures": 1,
+     "pictureSamples": [
+      "image?url=%2Fmedia%2Fhero.jpg&w=828&q=75",
+      "image?url=%2Fmedia%2Ffields.jpg&w=384&q=75",
+      "image?url=%2Fmedia%2Fbeef.jpg&w=256&q=75",
+      "image?url=%2Fmedia%2Fchicken.jpg&w=256&q=75",
+      "image?url=%2Fmedia%2Fvegetables.jpg&w=256&q=75",
+      "image?url=%2Fmedia%2Foranges.jpg&w=256&q=75",
+      "image?url=%2Fmedia%2Fmilk.jpg&w=256&q=75",
+      "image?url=%2Fmedia%2Fdates.jpg&w=256&q=75"
+     ],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "الخير له أصل",
+     "words": 3,
+     "chars": 12,
+     "lines": 1,
+     "size": 76,
+     "vw": 9.9,
+     "font": "arabic",
+     "weight": 650,
+     "tracking": 0,
+     "leading": 1.5,
+     "upper": false,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "center",
+     "widthRatio": 0.93,
+     "top": 228,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "الخير له أصل",
+     "words": 3,
+     "lines": 1,
+     "size": 76,
+     "font": "arabic"
+    },
+    "headings": [
+     {
+      "text": "الخير له أصل",
+      "words": 3,
+      "chars": 12,
+      "lines": 1,
+      "size": 76,
+      "vw": 9.9,
+      "font": "arabic",
+      "weight": 650,
+      "tracking": 0,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.93,
+      "top": 228,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "أصل الحكاية… أرض",
+      "words": 3,
+      "chars": 16,
+      "lines": 1,
+      "size": 30,
+      "vw": 3.9,
+      "font": "arabic",
+      "weight": 600,
+      "tracking": 0,
+      "leading": 1.45,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.44,
+      "top": 900,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "كل الخير، في مكان",
+      "words": 4,
+      "chars": 17,
+      "lines": 1,
+      "size": 30,
+      "vw": 3.9,
+      "font": "arabic",
+      "weight": 600,
+      "tracking": 0,
+      "leading": 1.45,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.3,
+      "top": 1379,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "اختيارات لمائدتك",
+      "words": 2,
+      "chars": 16,
+      "lines": 1,
+      "size": 30,
+      "vw": 3.9,
+      "font": "arabic",
+      "weight": 600,
+      "tracking": 0,
+      "leading": 1.45,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.28,
+      "top": 2092,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "من أرضنا إلى مائدتك",
+      "words": 4,
+      "chars": 19,
+      "lines": 2,
+      "size": 46,
+      "vw": 6,
+      "font": "arabic",
+      "weight": 600,
+      "tracking": 0,
+      "leading": 1.4,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.34,
+      "top": 3362,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "للحياة هنا إيقاع",
+      "words": 3,
+      "chars": 16,
+      "lines": 1,
+      "size": 30,
+      "vw": 3.9,
+      "font": "arabic",
+      "weight": 600,
+      "tracking": 0,
+      "leading": 1.45,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.24,
+      "top": 3961,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "لمائدة عامرة، ببساطة",
+      "words": 3,
+      "chars": 20,
+      "lines": 1,
+      "size": 30,
+      "vw": 3.9,
+      "font": "arabic",
+      "weight": 600,
+      "tracking": 0,
+      "leading": 1.45,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.41,
+      "top": 4868,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "للخير موسم",
+      "words": 2,
+      "chars": 10,
+      "lines": 1,
+      "size": 30,
+      "vw": 3.9,
+      "font": "arabic",
+      "weight": 600,
+      "tracking": 0,
+      "leading": 1.45,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.19,
+      "top": 5452,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "الخير له أصل",
+      "words": 3,
+      "chars": 12,
+      "lines": 1,
+      "size": 93.7,
+      "vw": 12.2,
+      "font": "arabic",
+      "weight": 600,
+      "tracking": 0,
+      "leading": 1.7,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "center",
+      "position": "center",
+      "widthRatio": 0.93,
+      "top": 6427,
+      "tag": "p",
+      "kind": "statement"
+     }
+    ],
+    "headingSummary": {
+     "count": 9,
+     "maxLines": 2,
+     "over2Lines": 0,
+     "statements": 1,
+     "centered": 1,
+     "medianWords": 3,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "arabic",
+       "share": 1,
+       "mono": false
+      }
+     ],
+     "familyCount": 1,
+     "sizes": [
+      16,
+      18,
+      24,
+      30,
+      46,
+      76,
+      94
+     ],
+     "sizeCount": 7,
+     "notLoaded": [],
+     "body": {
+      "font": "arabic",
+      "size": 16,
+      "leading": 1.8,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 9.8
+     },
+     "measureChars": 42,
+     "max": {
+      "size": 93.7,
+      "vw": 12.2,
+      "font": "arabic",
+      "text": "الخير له أصل"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0,
+     "centerShare": 0.03,
+     "smallText": 0
+    },
+    "eyebrows": [],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#f6f1e7",
+     "bodyBgHsl": {
+      "h": 40,
+      "s": 0.45,
+      "l": 0.94
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#e6e9dc",
+       "top": 80,
+       "hsl": {
+        "h": 74,
+        "s": 0.23,
+        "l": 0.89
+       }
+      },
+      {
+       "color": "#183d2b",
+       "top": 3189,
+       "hsl": {
+        "h": 151,
+        "s": 0.44,
+        "l": 0.17
+       }
+      },
+      {
+       "color": "#102b1e",
+       "top": 4087,
+       "hsl": {
+        "h": 151,
+        "s": 0.46,
+        "l": 0.12
+       }
+      },
+      {
+       "color": "#cba44d",
+       "top": 5420,
+       "hsl": {
+        "h": 41,
+        "s": 0.55,
+        "l": 0.55
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#183d2b",
+       "share": 0.56
+      },
+      {
+       "color": "#f6f1e7",
+       "share": 0.43
+      },
+      {
+       "color": "#102b1e",
+       "share": 0
+      }
+     ],
+     "button": {
+      "bg": "#183d2b",
+      "hsl": {
+       "h": 151,
+       "s": 0.44,
+       "l": 0.17
+      },
+      "fg": "#f6f1e7"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 6,
+     "inHero": 3,
+     "radius": 0,
+     "height": 53,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "تجاوز إلى المحتوى",
+      "إيقاف المشهد",
+      "اكتشف المنتجات"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 0,
+     "hairlineSamples": [],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 0,
+     "boxRadius": 0,
+     "squareMedia": 14,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [
+     {
+      "type": "img",
+      "ratio": 0.63
+     },
+     {
+      "type": "video",
+      "ratio": 0.63
+     }
+    ],
+    "nav": {
+     "links": 1,
+     "fixed": true,
+     "height": 80,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "arabic",
+     "arabic fallback"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "pageH": 6735,
+    "margins": {
+     "left": 28,
+     "right": 28
+    },
+    "sections": [
+     {
+      "sel": "section#home.hero",
+      "tag": "section",
+      "top": 80,
+      "height": 650,
+      "words": 21,
+      "media": 2,
+      "middle": 89,
+      "heading": {
+       "text": "الخير له أصل",
+       "size": 76,
+       "tag": "h1"
+      },
+      "left": 92,
+      "right": 28,
+      "textLeft": 108,
+      "textRight": 28,
+      "fullBleed": true,
+      "footer": false,
+      "hero": true,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#about.about-section.section",
+      "tag": "section",
+      "top": 883,
+      "height": 408,
+      "words": 41,
+      "media": 1,
+      "middle": 58,
+      "heading": {
+       "text": "أصل الحكاية… أرض",
+       "size": 30,
+       "tag": "h2"
+      },
+      "left": 28,
+      "right": 28,
+      "textLeft": 424,
+      "textRight": 28,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#categories.categories-section.section",
+      "tag": "section",
+      "top": 1379,
+      "height": 625,
+      "words": 10,
+      "media": 6,
+      "middle": 20,
+      "heading": {
+       "text": "اللحوم",
+       "size": 16,
+       "tag": "h3"
+      },
+      "left": 28,
+      "right": 28,
+      "textLeft": 72,
+      "textRight": 28,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#products.products-section.section",
+      "tag": "section",
+      "top": 2092,
+      "height": 1009,
+      "words": 62,
+      "media": 4,
+      "middle": 0,
+      "heading": {
+       "text": "85",
+       "size": 24,
+       "tag": "bdi"
+      },
+      "left": 28,
+      "right": 28,
+      "textLeft": 28,
+      "textRight": 28,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#story.story-section",
+      "tag": "section",
+      "top": 3189,
+      "height": 683,
+      "words": 20,
+      "media": 1,
+      "middle": 73,
+      "heading": {
+       "text": "من أرضنا",
+       "size": 46,
+       "tag": "h2"
+      },
+      "left": 28,
+      "right": 28,
+      "textLeft": 524,
+      "textRight": 28,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#films.films-section.section",
+      "tag": "section",
+      "top": 3961,
+      "height": 755,
+      "words": 34,
+      "media": 1,
+      "middle": 0,
+      "heading": null,
+      "left": 28,
+      "right": 28,
+      "textLeft": 245,
+      "textRight": 28,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#delivery.delivery-section.section",
+      "tag": "section",
+      "top": 4804,
+      "height": 529,
+      "words": 58,
+      "media": 0,
+      "middle": 25,
+      "heading": {
+       "text": "لمائدة عامرة، ببساطة",
+       "size": 30,
+       "tag": "h2"
+      },
+      "left": 71,
+      "right": 28,
+      "textLeft": 71,
+      "textRight": 28,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#season.season-section.frame",
+      "tag": "section",
+      "top": 5420,
+      "height": 444,
+      "words": 32,
+      "media": 1,
+      "middle": 36,
+      "heading": {
+       "text": "للخير موسم",
+       "size": 30,
+       "tag": "h2"
+      },
+      "left": 60,
+      "right": 0,
+      "textLeft": 60,
+      "textRight": 420,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "footer#contact.site-footer",
+      "tag": "footer",
+      "top": 5953,
+      "height": 782,
+      "words": 38,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "الخير له أصل",
+       "size": 94,
+       "tag": "p"
+      },
+      "left": 28,
+      "right": 28,
+      "textLeft": 28,
+      "textRight": 28,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "الخير له أصل",
+      "size": 76,
+      "top": 228,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 174,
+      "n": 2
+     },
+     {
+      "x": 524,
+      "n": 2
+     },
+     {
+      "x": 555,
+      "n": 2
+     },
+     {
+      "x": 696,
+      "n": 2
+     },
+     {
+      "x": 60,
+      "n": 1
+     },
+     {
+      "x": 147,
+      "n": 1
+     },
+     {
+      "x": 201,
+      "n": 1
+     },
+     {
+      "x": 245,
+      "n": 1
+     },
+     {
+      "x": 274,
+      "n": 1
+     },
+     {
+      "x": 329,
+      "n": 1
+     },
+     {
+      "x": 424,
+      "n": 1
+     },
+     {
+      "x": 444,
+      "n": 1
+     }
+    ],
+    "leftBlocks": 21,
+    "bodySize": 16,
+    "stage": false,
+    "explains": true,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": null,
+   "consoleErrors": []
+  },
+  {
+   "width": 390,
+   "height": 844,
+   "load": "load",
+   "screens": 10,
+   "filled": [
+    0.54,
+    0.77,
+    0.6,
+    0.57,
+    0.61,
+    0.91,
+    0.54,
+    0.83,
+    0.83,
+    0.96
+   ],
+   "motion": {
+    "elements": 21,
+    "css": 20,
+    "transitions": 1,
+    "scripted": 0,
+    "videos": 2,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "page": {
+     "height": 8257,
+     "screens": 9.8,
+     "words": 354,
+     "img": 22,
+     "video": 2,
+     "canvas": 0,
+     "svg": 51,
+     "sections": 8,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 1,
+     "uiAbuse": false,
+     "realPictures": 12,
+     "videoCount": 2,
+     "uiPictures": 1,
+     "pictureSamples": [
+      "image?url=%2Fmedia%2Fhero.jpg&w=640&q=75",
+      "image?url=%2Fmedia%2Ffields.jpg&w=640&q=75",
+      "image?url=%2Fmedia%2Fbeef.jpg&w=256&q=75",
+      "image?url=%2Fmedia%2Fchicken.jpg&w=256&q=75",
+      "image?url=%2Fmedia%2Fvegetables.jpg&w=256&q=75",
+      "image?url=%2Fmedia%2Foranges.jpg&w=256&q=75",
+      "image?url=%2Fmedia%2Fmilk.jpg&w=256&q=75",
+      "image?url=%2Fmedia%2Fdates.jpg&w=256&q=75"
+     ],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "الخير له أصل",
+     "words": 3,
+     "chars": 12,
+     "lines": 1,
+     "size": 52.7,
+     "vw": 13.5,
+     "font": "arabic",
+     "weight": 650,
+     "tracking": 0,
+     "leading": 1.6,
+     "upper": false,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "center",
+     "widthRatio": 0.9,
+     "top": 301,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "الخير له أصل",
+     "words": 3,
+     "lines": 1,
+     "size": 52.7,
+     "font": "arabic"
+    },
+    "headings": [
+     {
+      "text": "الخير له أصل",
+      "words": 3,
+      "chars": 12,
+      "lines": 1,
+      "size": 52.7,
+      "vw": 13.5,
+      "font": "arabic",
+      "weight": 650,
+      "tracking": 0,
+      "leading": 1.6,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 301,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "أصل الحكاية… أرض",
+      "words": 3,
+      "chars": 16,
+      "lines": 1,
+      "size": 30,
+      "vw": 7.7,
+      "font": "arabic",
+      "weight": 600,
+      "tracking": 0,
+      "leading": 1.45,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 1022,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "نحبّ المائدة التي تجمعنا. ونؤمن أن بدايتها، اختيار يستحق العناية.",
+      "words": 10,
+      "chars": 65,
+      "lines": 2,
+      "size": 24,
+      "vw": 6.2,
+      "font": "arabic",
+      "weight": 450,
+      "tracking": 0,
+      "leading": 1.65,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 1085,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "كل الخير، في مكان",
+      "words": 4,
+      "chars": 17,
+      "lines": 1,
+      "size": 30,
+      "vw": 7.7,
+      "font": "arabic",
+      "weight": 600,
+      "tracking": 0,
+      "leading": 1.45,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.59,
+      "top": 1815,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "اختيارات لمائدتك",
+      "words": 2,
+      "chars": 16,
+      "lines": 1,
+      "size": 30,
+      "vw": 7.7,
+      "font": "arabic",
+      "weight": 600,
+      "tracking": 0,
+      "leading": 1.45,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.56,
+      "top": 2770,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "45",
+      "words": 1,
+      "chars": 2,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.2,
+      "font": "arabic",
+      "weight": 600,
+      "tracking": 0,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.07,
+      "top": 3495,
+      "tag": "bdi",
+      "kind": "statement"
+     },
+     {
+      "text": "85",
+      "words": 1,
+      "chars": 2,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.2,
+      "font": "arabic",
+      "weight": 600,
+      "tracking": 0,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.07,
+      "top": 3818,
+      "tag": "bdi",
+      "kind": "statement"
+     },
+     {
+      "text": "12",
+      "words": 1,
+      "chars": 2,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.2,
+      "font": "arabic",
+      "weight": 600,
+      "tracking": 0,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.07,
+      "top": 3818,
+      "tag": "bdi",
+      "kind": "statement"
+     },
+     {
+      "text": "9",
+      "words": 1,
+      "chars": 1,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.2,
+      "font": "arabic",
+      "weight": 600,
+      "tracking": 0,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.04,
+      "top": 3990,
+      "tag": "bdi",
+      "kind": "statement"
+     },
+     {
+      "text": "من أرضنا إلى مائدتك",
+      "words": 4,
+      "chars": 19,
+      "lines": 2,
+      "size": 48,
+      "vw": 12.3,
+      "font": "arabic",
+      "weight": 600,
+      "tracking": 0,
+      "leading": 1.4,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 4270,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "للحياة هنا إيقاع",
+      "words": 3,
+      "chars": 16,
+      "lines": 1,
+      "size": 30,
+      "vw": 7.7,
+      "font": "arabic",
+      "weight": 600,
+      "tracking": 0,
+      "leading": 1.45,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.48,
+      "top": 5121,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "بين النخيل",
+      "words": 2,
+      "chars": 10,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.2,
+      "font": "arabic",
+      "weight": 600,
+      "tracking": 0,
+      "leading": 1.6,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 5456,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "لمائدة عامرة، ببساطة",
+      "words": 3,
+      "chars": 20,
+      "lines": 1,
+      "size": 30,
+      "vw": 7.7,
+      "font": "arabic",
+      "weight": 600,
+      "tracking": 0,
+      "leading": 1.45,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.82,
+      "top": 5843,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "اختر ما تحب",
+      "words": 3,
+      "chars": 11,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.2,
+      "font": "arabic",
+      "weight": 600,
+      "tracking": 0,
+      "leading": 1.6,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.76,
+      "top": 5957,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "راجع تفاصيلك",
+      "words": 2,
+      "chars": 12,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.2,
+      "font": "arabic",
+      "weight": 600,
+      "tracking": 0,
+      "leading": 1.6,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.76,
+      "top": 6104,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "واستقبل الخير",
+      "words": 2,
+      "chars": 13,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.2,
+      "font": "arabic",
+      "weight": 600,
+      "tracking": 0,
+      "leading": 1.6,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.76,
+      "top": 6252,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "للخير موسم",
+      "words": 2,
+      "chars": 10,
+      "lines": 1,
+      "size": 30,
+      "vw": 7.7,
+      "font": "arabic",
+      "weight": 600,
+      "tracking": 0,
+      "leading": 1.45,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.38,
+      "top": 6895,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "ألوان تتجدّد. ومائدتك تنتظر الاكتشاف.",
+      "words": 5,
+      "chars": 37,
+      "lines": 2,
+      "size": 24,
+      "vw": 6.2,
+      "font": "arabic",
+      "weight": 450,
+      "tracking": 0,
+      "leading": 1.65,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.62,
+      "top": 6958,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "نبقى على تواصل",
+      "words": 3,
+      "chars": 14,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.2,
+      "font": "arabic",
+      "weight": 600,
+      "tracking": 0,
+      "leading": 1.45,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 7757,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "الخير له أصل",
+      "words": 3,
+      "chars": 12,
+      "lines": 1,
+      "size": 50.7,
+      "vw": 13,
+      "font": "arabic",
+      "weight": 600,
+      "tracking": 0,
+      "leading": 1.7,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "center",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 7933,
+      "tag": "p",
+      "kind": "statement"
+     }
+    ],
+    "headingSummary": {
+     "count": 20,
+     "maxLines": 2,
+     "over2Lines": 0,
+     "statements": 7,
+     "centered": 1,
+     "medianWords": 3,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "arabic",
+       "share": 1,
+       "mono": false
+      }
+     ],
+     "familyCount": 1,
+     "sizes": [
+      16,
+      18,
+      24,
+      30,
+      48,
+      51,
+      53
+     ],
+     "sizeCount": 7,
+     "notLoaded": [],
+     "body": {
+      "font": "arabic",
+      "size": 16,
+      "leading": 1.8,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 9.8
+     },
+     "measureChars": 44,
+     "max": {
+      "size": 52.7,
+      "vw": 13.5,
+      "font": "arabic",
+      "text": "الخير له أصل"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0,
+     "centerShare": 0.03,
+     "smallText": 0
+    },
+    "eyebrows": [],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#f6f1e7",
+     "bodyBgHsl": {
+      "h": 40,
+      "s": 0.45,
+      "l": 0.94
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#e6e9dc",
+       "top": 80,
+       "hsl": {
+        "h": 74,
+        "s": 0.23,
+        "l": 0.89
+       }
+      },
+      {
+       "color": "#183d2b",
+       "top": 4222,
+       "hsl": {
+        "h": 151,
+        "s": 0.44,
+        "l": 0.17
+       }
+      },
+      {
+       "color": "#cba44d",
+       "top": 6580,
+       "hsl": {
+        "h": 41,
+        "s": 0.55,
+        "l": 0.55
+       }
+      },
+      {
+       "color": "#102b1e",
+       "top": 7374,
+       "hsl": {
+        "h": 151,
+        "s": 0.46,
+        "l": 0.12
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#183d2b",
+       "share": 0.56
+      },
+      {
+       "color": "#f6f1e7",
+       "share": 0.43
+      },
+      {
+       "color": "#102b1e",
+       "share": 0
+      }
+     ],
+     "button": {
+      "bg": "#183d2b",
+      "hsl": {
+       "h": 151,
+       "s": 0.44,
+       "l": 0.17
+      },
+      "fg": "#f6f1e7"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 5,
+     "inHero": 3,
+     "radius": 0,
+     "height": 53,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "تجاوز إلى المحتوى",
+      "إيقاف المشهد",
+      "اكتشف المنتجات"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 0,
+     "hairlineSamples": [],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 0,
+     "boxRadius": 0,
+     "squareMedia": 7,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [
+     {
+      "type": "img",
+      "ratio": 0.91
+     },
+     {
+      "type": "video",
+      "ratio": 0.91
+     }
+    ],
+    "nav": {
+     "links": 1,
+     "fixed": true,
+     "height": 80,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "arabic",
+     "arabic fallback"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "pageH": 8257,
+    "margins": {
+     "left": 20,
+     "right": 20
+    },
+    "sections": [
+     {
+      "sel": "section#home.hero",
+      "tag": "section",
+      "top": 80,
+      "height": 764,
+      "words": 21,
+      "media": 2,
+      "middle": 0,
+      "heading": {
+       "text": "الخير له أصل",
+       "size": 53,
+       "tag": "h1"
+      },
+      "left": 20,
+      "right": 20,
+      "textLeft": 36,
+      "textRight": 20,
+      "fullBleed": true,
+      "footer": false,
+      "hero": true,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#about.about-section.section",
+      "tag": "section",
+      "top": 1022,
+      "height": 706,
+      "words": 38,
+      "media": 1,
+      "middle": 0,
+      "heading": {
+       "text": "نحبّ المائدة التي تجمعنا.",
+       "size": 24,
+       "tag": "p"
+      },
+      "left": 20,
+      "right": 20,
+      "textLeft": 27,
+      "textRight": 20,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#categories.categories-section.section",
+      "tag": "section",
+      "top": 1815,
+      "height": 866,
+      "words": 11,
+      "media": 6,
+      "middle": 15,
+      "heading": {
+       "text": "اللحوم",
+       "size": 16,
+       "tag": "h3"
+      },
+      "left": 20,
+      "right": 20,
+      "textLeft": 135,
+      "textRight": 20,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "div.section-heading.is-revealing",
+      "tag": "div",
+      "top": 2770,
+      "height": 162,
+      "words": 8,
+      "media": 0,
+      "middle": 0,
+      "heading": null,
+      "left": 159,
+      "right": 20,
+      "textLeft": 159,
+      "textRight": 20,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "div.product-grid",
+      "tag": "div",
+      "top": 3085,
+      "height": 963,
+      "words": 42,
+      "media": 4,
+      "middle": 0,
+      "heading": {
+       "text": "45",
+       "size": 24,
+       "tag": "bdi"
+      },
+      "left": 20,
+      "right": 20,
+      "textLeft": 29,
+      "textRight": 20,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#story.story-section",
+      "tag": "section",
+      "top": 4222,
+      "height": 811,
+      "words": 20,
+      "media": 1,
+      "middle": 0,
+      "heading": {
+       "text": "من أرضنا",
+       "size": 48,
+       "tag": "h2"
+      },
+      "left": 20,
+      "right": 20,
+      "textLeft": 51,
+      "textRight": 20,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#films.films-section.section",
+      "tag": "section",
+      "top": 5121,
+      "height": 594,
+      "words": 34,
+      "media": 1,
+      "middle": 0,
+      "heading": {
+       "text": "بين النخيل",
+       "size": 24,
+       "tag": "h3"
+      },
+      "left": 20,
+      "right": 20,
+      "textLeft": 38,
+      "textRight": 20,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#delivery.delivery-section.section",
+      "tag": "section",
+      "top": 5803,
+      "height": 689,
+      "words": 58,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "لمائدة عامرة، ببساطة",
+       "size": 30,
+       "tag": "h2"
+      },
+      "left": 28,
+      "right": 20,
+      "textLeft": 28,
+      "textRight": 20,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#season.season-section.frame",
+      "tag": "section",
+      "top": 6580,
+      "height": 706,
+      "words": 32,
+      "media": 1,
+      "middle": 0,
+      "heading": {
+       "text": "للخير موسم",
+       "size": 30,
+       "tag": "h2"
+      },
+      "left": 28,
+      "right": 20,
+      "textLeft": 28,
+      "textRight": 20,
+      "fullBleed": true,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "footer#contact.site-footer",
+      "tag": "footer",
+      "top": 7374,
+      "height": 883,
+      "words": 38,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "نبقى على تواصل",
+       "size": 24,
+       "tag": "h2"
+      },
+      "left": 60,
+      "right": 20,
+      "textLeft": 60,
+      "textRight": 20,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "الخير له أصل",
+      "size": 53,
+      "top": 301,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 54,
+      "n": 3
+     },
+     {
+      "x": 135,
+      "n": 3
+     },
+     {
+      "x": 27,
+      "n": 2
+     },
+     {
+      "x": 82,
+      "n": 2
+     },
+     {
+      "x": 150,
+      "n": 2
+     },
+     {
+      "x": 185,
+      "n": 2
+     },
+     {
+      "x": 329,
+      "n": 2
+     },
+     {
+      "x": 107,
+      "n": 1
+     },
+     {
+      "x": 124,
+      "n": 1
+     },
+     {
+      "x": 222,
+      "n": 1
+     },
+     {
+      "x": 263,
+      "n": 1
+     },
+     {
+      "x": 300,
+      "n": 1
+     }
+    ],
+    "leftBlocks": 21,
+    "bodySize": 16,
+    "stage": false,
+    "explains": true,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": null,
+   "consoleErrors": []
+  }
+ ],
+ "findings": [
+  {
+   "level": "WARN",
+   "id": "palette-cream",
+   "width": 1440,
+   "message": "Yellow-cream background (page background #f6f1e7, text #f6f1e7).",
+   "fix": "Use the drawn palette. If you want warmth, take a low-chroma stone or bone, not a yellow cream.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "ragged-edges",
+   "width": 1440,
+   "message": "Left-aligned text starts at 12 different lines (62px, 153px, 298px, 313px, 385px, 443px, 665px); the three most used hold only 14% of it.",
+   "fix": "Pick two or three anchor lines from the grid and start every heading and paragraph on one of them.",
+   "alsoAt": [
+    768
+   ]
+  }
+ ],
+ "images": [
+  {
+   "viewport": "desktop",
+   "width": 1440,
+   "fold": "D:\\programs\\editing\\alyasserfarm.com\\.taste-skill\\redesign-before\\desktop-fold.jpg",
+   "pages": [
+    "D:\\programs\\editing\\alyasserfarm.com\\.taste-skill\\redesign-before\\desktop-page-01.jpg",
+    "D:\\programs\\editing\\alyasserfarm.com\\.taste-skill\\redesign-before\\desktop-page-02.jpg",
+    "D:\\programs\\editing\\alyasserfarm.com\\.taste-skill\\redesign-before\\desktop-page-03.jpg"
+   ],
+   "film": []
+  },
+  {
+   "viewport": "tablet",
+   "width": 768,
+   "fold": "D:\\programs\\editing\\alyasserfarm.com\\.taste-skill\\redesign-before\\tablet-fold.jpg",
+   "pages": [
+    "D:\\programs\\editing\\alyasserfarm.com\\.taste-skill\\redesign-before\\tablet-page-01.jpg",
+    "D:\\programs\\editing\\alyasserfarm.com\\.taste-skill\\redesign-before\\tablet-page-02.jpg"
+   ],
+   "film": []
+  },
+  {
+   "viewport": "mobile",
+   "width": 390,
+   "fold": "D:\\programs\\editing\\alyasserfarm.com\\.taste-skill\\redesign-before\\mobile-fold.jpg",
+   "pages": [
+    "D:\\programs\\editing\\alyasserfarm.com\\.taste-skill\\redesign-before\\mobile-page-01.jpg",
+    "D:\\programs\\editing\\alyasserfarm.com\\.taste-skill\\redesign-before\\mobile-page-02.jpg"
+   ],
+   "film": []
+  }
+ ]
+}

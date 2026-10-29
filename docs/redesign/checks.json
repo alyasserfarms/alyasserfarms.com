@@ -1,0 +1,137 @@
+{
+  "timestamp": "2026-10-25T06:21:36.154Z",
+  "checks": [
+    {
+      "name": "Display font is downloaded and ready",
+      "passed": true
+    },
+    {
+      "name": "Pause control is not covered by the photographic print",
+      "passed": true
+    },
+    {
+      "name": "Pointer movement previews the fruit photograph",
+      "passed": true
+    },
+    {
+      "name": "Keyboard focus previews poultry without requiring hover",
+      "passed": true
+    },
+    {
+      "name": "Only the previewed photograph is exposed to accessibility",
+      "passed": true
+    },
+    {
+      "name": "Selecting a category changes the featured catalogue",
+      "passed": true
+    },
+    {
+      "name": "Selected category returns matching products",
+      "passed": true
+    },
+    {
+      "name": "Home reflows without horizontal overflow at 1440",
+      "passed": true
+    },
+    {
+      "name": "Video control remains clear of the photographic print at 1440",
+      "passed": true
+    },
+    {
+      "name": "Header actions meet 44px targets at 1440",
+      "passed": true
+    },
+    {
+      "name": "Story begins with the land photograph at 1440",
+      "passed": true
+    },
+    {
+      "name": "Story reaches its harvest photograph at 1440",
+      "passed": true
+    },
+    {
+      "name": "Story title stays readable and in place at 1440",
+      "passed": true
+    },
+    {
+      "name": "Home reflows without horizontal overflow at 768",
+      "passed": true
+    },
+    {
+      "name": "Video control remains clear of the photographic print at 768",
+      "passed": true
+    },
+    {
+      "name": "Header actions meet 44px targets at 768",
+      "passed": true
+    },
+    {
+      "name": "Home reflows without horizontal overflow at 390",
+      "passed": true
+    },
+    {
+      "name": "Video control remains clear of the photographic print at 390",
+      "passed": true
+    },
+    {
+      "name": "Header actions meet 44px targets at 390",
+      "passed": true
+    },
+    {
+      "name": "The primary store action is visible in the first mobile screen",
+      "passed": true
+    },
+    {
+      "name": "Intro caption is not covered by its inset photograph at 390",
+      "passed": true
+    },
+    {
+      "name": "Story begins with the land photograph at 390",
+      "passed": true
+    },
+    {
+      "name": "Story reaches its harvest photograph at 390",
+      "passed": true
+    },
+    {
+      "name": "Story title stays readable and in place at 390",
+      "passed": true
+    },
+    {
+      "name": "Home reflows without horizontal overflow at 320",
+      "passed": true
+    },
+    {
+      "name": "Video control remains clear of the photographic print at 320",
+      "passed": true
+    },
+    {
+      "name": "Header actions meet 44px targets at 320",
+      "passed": true
+    },
+    {
+      "name": "Intro caption is not covered by its inset photograph at 320",
+      "passed": true
+    },
+    {
+      "name": "Reduced motion avoids downloading the decorative video",
+      "passed": true
+    },
+    {
+      "name": "Reduced motion cancels the title entrance",
+      "passed": true
+    },
+    {
+      "name": "Reduced motion releases the sticky story",
+      "passed": true
+    },
+    {
+      "name": "No browser exceptions in the interactive page",
+      "passed": true
+    },
+    {
+      "name": "No browser exceptions with reduced motion",
+      "passed": true
+    }
+  ]
+}
