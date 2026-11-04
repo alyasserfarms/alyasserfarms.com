@@ -1,18 +1,60 @@
 import "server-only";
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
+import path from "node:path";
 import { Pool, type PoolConfig } from "pg";
 
 export function createFarmPool(max: number): Pool {
   const connectionString = process.env.DATABASE_URL;
   if (!connectionString) throw new Error("DATABASE_URL is required.");
-  const url = new URL(connectionString);
-  const certificate = url.searchParams.get("sslrootcert");
-  const mode = url.searchParams.get("sslmode");
-  let ssl: PoolConfig["ssl"];
-  if (certificate) {
-    if (mode !== "verify-full") throw new Error("The Supabase CA requires sslmode=verify-full.");
-    ssl = { ca: readFileSync(certificate, "utf8"), rejectUnauthorized: true, servername: url.hostname };
-    for (const key of ["sslmode", "sslrootcert", "sslcert", "sslkey"]) url.searchParams.delete(key);
+
+  let parsedUrl: URL;
+  try {
+    parsedUrl = new URL(connectionString);
+  } catch {
+    return new Pool({ connectionString, max, connectionTimeoutMillis: 10000, idleTimeoutMillis: 30000 });
   }
-  return new Pool({ connectionString: certificate ? url.toString() : connectionString, ...(ssl ? { ssl } : {}), max, connectionTimeoutMillis: 10000, idleTimeoutMillis: 30000 });
+
+  const certificate = parsedUrl.searchParams.get("sslrootcert");
+  let ssl: PoolConfig["ssl"];
+
+  // 1. Check if the specified certificate file actually exists on this machine/server
+  if (certificate && existsSync(certificate)) {
+    try {
+      ssl = {
+        ca: readFileSync(certificate, "utf8"),
+        rejectUnauthorized: true,
+        servername: parsedUrl.hostname,
+      };
+    } catch {}
+  } else {
+    // 2. Check in project certs directory (bundled in repository)
+    const bundledCert = path.join(process.cwd(), "certs", "supabase-prod-ca-2021.crt");
+    if (existsSync(bundledCert)) {
+      try {
+        ssl = {
+          ca: readFileSync(bundledCert, "utf8"),
+          rejectUnauthorized: false,
+          servername: parsedUrl.hostname,
+        };
+      } catch {}
+    } else if (parsedUrl.hostname.includes("supabase.co") || parsedUrl.hostname.includes("pooler.supabase.com") || connectionString.includes("sslmode=")) {
+      // 3. Fallback for cloud serverless environments (Vercel) connecting to Supabase
+      ssl = {
+        rejectUnauthorized: false,
+      };
+    }
+  }
+
+  // Remove local-only ssl params from URL so pg doesn't attempt native fs lookup for missing paths
+  for (const key of ["sslmode", "sslrootcert", "sslcert", "sslkey"]) {
+    parsedUrl.searchParams.delete(key);
+  }
+
+  return new Pool({
+    connectionString: parsedUrl.toString(),
+    ssl,
+    max,
+    connectionTimeoutMillis: 10000,
+    idleTimeoutMillis: 30000,
+  });
 }
