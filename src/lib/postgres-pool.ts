@@ -4,8 +4,8 @@ import path from "node:path";
 import { Pool, type PoolConfig } from "pg";
 
 export function createFarmPool(max: number): Pool {
-  const connectionString = process.env.DATABASE_URL;
-  if (!connectionString) throw new Error("DATABASE_URL is required.");
+  const connectionString = process.env.DATABASE_URL || process.env.POSTGRES_URL;
+  if (!connectionString) throw new Error("DATABASE_URL or POSTGRES_URL is required.");
 
   let parsedUrl: URL;
   try {

@@ -4,7 +4,7 @@ import { isAvailable, type FarmOrder, type FarmProduct, type FarmSettings, type 
 import { createFarmPool } from "./postgres-pool";
 import { collectPriceChanges } from "./farm-rules";
 
-const pool = createFarmPool(5);
+const pool = createFarmPool(2);
 
 type Queryable = Pick<PoolClient, "query">;
 type ProductRow = { id: string; name: string; category: FarmProduct["category"]; image: string; unit: string; sale: FarmProduct["sale"]; price: string; description: string; preparation: string; stock: number; minimum: number; status: FarmProduct["status"] };
