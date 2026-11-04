@@ -1,4 +1,24 @@
 /* Navigation and landscape framing from the approved desktop/mobile direction. */
+.farm-footer { padding-block: 18px 12px; background: var(--forest-deep); }
+.farm-footer-compact { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding-bottom: 14px; }
+.farm-footer-signature { display: flex; align-items: center; gap: 14px; }
+.farm-footer .farm-footer-signature .brand-name-footer img { width: 62px; height: 62px; }
+.farm-footer-signature p { color: #f1d285; font-size: 19px; font-weight: 700; }
+.farm-footer-compact nav { display: flex; flex-wrap: wrap; gap: 10px 28px; font-size: 13px; }
+.farm-footer-compact nav a { display: inline-flex; align-items: center; min-height: 44px; }
+.farm-footer-compact nav a:hover { color: var(--sun); }
+.farm-back-top { display: grid; place-items: center; width: 44px; height: 44px; flex-shrink: 0; border: 1px solid #a9b78970; border-radius: 50%; }
+.farm-back-top:hover { background: #31553d; }
+.farm-footer .footer-bottom { border-top: 1px solid #b8c39a30; padding-top: 10px; align-items: center; font-size: 11px; color: #c8d2bd; }
+@media (max-width: 700px) {
+ .farm-footer { padding-block: 16px calc(82px + env(safe-area-inset-bottom)); }
+ .farm-footer-compact { display: grid; grid-template-columns: 1fr 44px; gap: 10px 16px; padding-bottom: 10px; }
+ .farm-footer .farm-footer-signature .brand-name-footer img { width: 52px; height: 52px; }
+ .farm-footer-signature { gap: 12px; }
+ .farm-footer-signature p { font-size: 19px; }
+ .farm-footer-compact nav { grid-row: 2; grid-column: 1 / -1; display: flex; justify-content: space-between; gap: 12px; font-size: 12px; }
+ .farm-footer .footer-bottom { justify-content: space-between; gap: 4px 12px; font-size: 10px; }
+}
 body:has(.farm-experience-home) .reference-topbar { display: none; }
 .reference-header { height: 84px; margin-bottom: -84px; color: var(--ivory); }
 .reference-header::before { height: 84px; background: var(--forest-deep); border-bottom: 1px solid #91ad5540; }
@@ -18,35 +38,6 @@ body:has(.farm-experience-home) .reference-topbar { display: none; }
 .reference-header.is-compact .brand-name { padding: 0; border-radius: 0; }
 .reference-header.is-compact .brand-name img { width: 68px; height: 68px; }
 .reference-header :focus-visible { outline-color: var(--sun); }
-.farm-footer { position: relative; isolation: isolate; overflow: hidden; padding-top: 0; background: #0a271b; }
-.farm-footer::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, #0a271bf5 10%, #0a271bd9 100%), url('/media/living-about.webp') center 67% / cover; }
-.farm-footer-opening { display: flex; justify-content: space-between; align-items: center; padding-block: 22px; border-bottom: 1px solid #b8c39a30; }
-.farm-footer-opening > div { display: flex; align-items: center; gap: 12px; font-size: 15px; color: #e5d49b; }
-.farm-back-top { display: grid; place-items: center; width: 44px; height: 44px; border: 1px solid #a9b78970; border-radius: 50%; transition: background 180ms; }
-.farm-back-top:hover { background: #31553d; }
-.farm-footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1.25fr; gap: 36px; align-items: start; padding-block: 40px; }
-.farm-footer-brand { display: flex; align-items: center; gap: 20px; }
-.farm-footer .farm-footer-brand .brand-name-footer img { width: 116px; height: 116px; }
-.farm-footer-tagline { font-size: 25px; font-weight: 800; color: #f1d285; margin-bottom: 8px; }
-.farm-footer-brand p:not(.farm-footer-tagline) { font-size: 13px; line-height: 1.9; color: #d6dfca; }
-.farm-footer-brand span[lang] { display: block; font-size: 12px; color: #b9c7ad; margin-top: 10px; text-align: start; }
-.farm-footer-grid nav h2 { font-size: 16px; font-weight: 700; margin-bottom: 12px; color: #f0d89d; }
-.farm-footer-grid nav a { display: flex; align-items: center; gap: 12px; width: fit-content; min-height: 40px; font-size: 13px; color: #e3e8da; }
-.farm-footer-grid nav a:hover { color: var(--sun); }
-.farm-footer-reach > span { font-size: 14px; color: #d6dfca; }
-.farm-footer-reach > a:first-of-type { display: flex; align-items: center; gap: 12px; margin-block: 12px 8px; color: #f4d48a; }
-.farm-footer-reach bdi { font-size: clamp(20px, 1.9vw, 27px); font-weight: 700; white-space: nowrap; }
-.farm-footer-reach p { color: #d6dfca; font-size: 12px; }
-.farm-footer-reach > a:last-child { display: inline-flex; align-items: center; justify-content: space-between; gap: 30px; min-height: 44px; padding: 6px 18px; border: 1px solid #a9b78970; border-radius: 24px; font-size: 13px; margin-top: 20px; }
-.farm-footer-reach > a:last-child:hover { background: #31553d; }
-.farm-footer .footer-bottom { border-top: 1px solid #b8c39a30; padding-top: 20px; color: #c8d2bd; font-size: 12px; }
-.farm-footer .media-credits { margin-top: 4px; color: #c8d2bd; }
-.farm-footer .media-credits summary { min-height: 44px; display: flex; align-items: center; cursor: pointer; text-decoration: underline; text-underline-offset: 5px; }
-@media (max-width: 1150px) and (min-width: 701px) {
- .farm-footer-grid { grid-template-columns: 1.4fr 1fr 1fr; gap: 26px; }
- .farm-footer-reach { grid-column: 1 / -1; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
- .farm-footer-reach > a:last-child { margin-top: 0; }
-}
 @media (max-width: 700px) {
  .reference-header { height: 82px; margin-bottom: -82px; }
  .reference-header::before { height: 70px; }
@@ -81,19 +72,6 @@ body:has(.farm-experience-home) .reference-topbar { display: none; }
  .reference-values { padding-top: 30px; padding-bottom: 14px; gap: 12px 10px; }
  .reference-values p { font-size: 11px; gap: 7px; }
  .reference-values svg { width: 22px; height: 22px; }
- .farm-footer-opening { padding-block: 16px; }
- .farm-footer-opening > div { font-size: 13px; gap: 9px; }
- .farm-footer-grid { grid-template-columns: 1fr 1fr; gap: 26px 22px; padding-block: 25px; }
- .farm-footer-brand { grid-column: 1 / -1; gap: 23px; }
- .farm-footer .farm-footer-brand .brand-name-footer img { width: 104px; height: 104px; }
- .farm-footer-tagline { font-size: 27px; margin-bottom: 6px; }
- .farm-footer-grid nav h2 { font-size: 15px; margin-bottom: 7px; }
- .farm-footer-grid nav a { min-height: 44px; font-size: 13px; }
- .farm-footer-reach { grid-column: 1 / -1; padding: 20px 18px; border: 1px solid #a9b78940; border-radius: 18px; position: relative; }
- .farm-footer-reach bdi { font-size: 26px; }
- .farm-footer-reach > a:last-child { position: absolute; inset-inline-end: 15px; top: 12px; gap: 10px; padding-inline: 12px; font-size: 12px; }
- .farm-footer .footer-bottom { justify-content: space-between; gap: 8px; font-size: 11px; }
- .farm-footer .media-credits { font-size: 11px; }
 }
 @media (max-width: 360px) {
  .reference-hero-inner { padding-top: 118px; min-height: 558px; padding-bottom: 158px; }
@@ -103,6 +81,4 @@ body:has(.farm-experience-home) .reference-topbar { display: none; }
  .reference-description { font-size: 12px; }
  .reference-cta { padding-inline: 13px; }
  .reference-cta-secondary { padding-inline: 9px; }
- .farm-footer-reach > a:last-child { position: static; margin-top: 12px; }
 }
-@media (prefers-reduced-motion: reduce) { .farm-back-top { transition: none; } }

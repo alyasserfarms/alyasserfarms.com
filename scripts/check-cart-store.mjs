@@ -20,7 +20,7 @@ function createStore(initial, unavailable = false) {
     exports, window, Event,
     require(name) {
       if (name === 'react') return { useSyncExternalStore: (_subscribe, getSnapshot) => getSnapshot() };
-      if (name === '@/data/content') return { products: [{ id: 'tomatoes', price: 25 }, { id: 'beef', price: 85 }] };
+      if (name === '@/components/farm-provider') return { useFarm: () => ({ products: [{ id: 'tomatoes', price: 25, minimum: 1, stock: 99 }, { id: 'beef', price: 85, minimum: 1, stock: 99 }] }) };
       throw new Error(`Unexpected import: ${name}`);
     },
   });

@@ -4,6 +4,9 @@ out/
 *.tsbuildinfo
 .env*
 !.env.example
+/data/
+public/media/uploads/
+/docs/admin-review/test-store/
 .taste-skill/inspect/
 .taste-skill/before/
 .taste-skill/after/

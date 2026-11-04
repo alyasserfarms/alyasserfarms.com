@@ -1,4 +1,5 @@
 "use client";
+import { useFarm } from "@/components/farm-provider";
 
 import { ArrowLeft, ArrowUpLeft, Check, Menu, Minus, Plus, Search, Phone, Globe, ShoppingBag, Trash2, X } from "lucide-react";
 import Image from "next/image";
@@ -6,7 +7,7 @@ import Link from "next/link";
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { MAX_QUANTITY, useCart } from "@/lib/cart-store";
-import { brand, categories, displayPrice, navigation, products, type Product } from "@/data/content";
+import { brand, categories, displayPrice, navigation, type Product } from "@/data/content";
 import { BrandName, Photo } from "./ui";
 import { LivingCategories } from "./farm-experience";
 
@@ -25,6 +26,7 @@ function Modal({ dialogRef, title, children, className = "" }: { dialogRef: Reac
 }
 
 export function Storefront({ logo, children, afterProducts, catalogue = true, showCatalogue = true }: { logo: string | null; children: ReactNode; afterProducts?: ReactNode; catalogue?: boolean; showCatalogue?: boolean }) {
+  const { products } = useFarm();
   const router = useRouter();
   const pathname = usePathname();
   const searchRef = useRef<HTMLDialogElement>(null);

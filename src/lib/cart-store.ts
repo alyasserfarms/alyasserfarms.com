@@ -1,7 +1,7 @@
 "use client";
+import { useFarm } from "@/components/farm-provider";
 
 import { useSyncExternalStore } from "react";
-import { products } from "@/data/content";
 
 export const CART_STORAGE_KEY = "alyasser.cart.v1";
 export const MAX_QUANTITY = 99;
@@ -18,9 +18,9 @@ function parseCart(raw: string | null): Cart {
     const value: unknown = JSON.parse(raw);
     if (!value || typeof value !== "object" || Array.isArray(value)) return empty;
     const valid: Cart = {};
-    for (const product of products) {
-      const quantity = (value as Record<string, unknown>)[product.id];
-      if (typeof quantity === "number" && Number.isInteger(quantity) && quantity > 0) valid[product.id] = Math.min(quantity, MAX_QUANTITY);
+    for (const [id, quantity] of Object.entries(value)) {
+      if (!/^[a-z0-9-]{1,80}$/.test(id)) continue;
+      if (typeof quantity === "number" && Number.isInteger(quantity) && quantity > 0) valid[id] = Math.min(quantity, MAX_QUANTITY);
     }
     return valid;
   } catch { return empty; }
@@ -51,10 +51,12 @@ function update(transform: (cart: Cart) => Cart) {
 }
 
 export function useCart() {
+  const { products } = useFarm();
   const cart = useSyncExternalStore(subscribe, getSnapshot, () => empty);
   const ready = useSyncExternalStore(subscribe, () => true, () => false);
   const items = products.filter((product) => cart[product.id]).map((product) => ({ product, quantity: cart[product.id] }));
-  const count = Object.values(cart).reduce((sum, quantity) => sum + quantity, 0);
+  const invalidIds = Object.keys(cart).filter(id => !products.some(product => product.id === id));
+  const count = items.reduce((sum, item) => sum + item.quantity, 0);
   const total = items.reduce((sum, item) => sum + item.product.price * item.quantity, 0);
 
   function setQuantity(id: string, quantity: number) {
@@ -67,13 +69,16 @@ export function useCart() {
     });
   }
 
-  function add(id: string, quantity = 1) {
+  function add(id: string, quantity?: number) {
+    quantity ??= products.find(product => product.id === id)?.minimum ?? 1;
     if (!products.some((product) => product.id === id) || !Number.isInteger(quantity) || quantity < 1) return false;
+    const product = products.find(product => product.id === id)!;
+    if (quantity < product.minimum) return false;
     const previous = getSnapshot()[id] ?? 0;
-    if (previous + quantity > MAX_QUANTITY) return false;
+    if (previous + quantity > Math.min(MAX_QUANTITY, products.find(product => product.id === id)?.stock ?? MAX_QUANTITY)) return false;
     setQuantity(id, previous + quantity);
     return true;
   }
 
-  return { cart, items, count, total, ready, add, setQuantity, remove: (id: string) => setQuantity(id, 0), storageAvailable: !memoryOnly };
+  return { cart, items, invalidIds, count, total, ready, add, setQuantity, remove: (id: string) => update(current => { const next = { ...current }; delete next[id]; return next; }), storageAvailable: !memoryOnly };
 }
