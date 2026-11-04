@@ -1,10 +1,9 @@
 import "server-only";
-import { Pool, type PoolClient } from "pg";
+import { type PoolClient } from "pg";
 import { isAvailable, type FarmOrder, type FarmProduct, type FarmSettings, type FarmStore, type PublicFarm } from "@/data/farm-types";
+import { createFarmPool } from "./postgres-pool";
 
-const connectionString = process.env.DATABASE_URL;
-if (!connectionString) throw new Error("DATABASE_URL is required for the PostgreSQL adapter.");
-const pool = new Pool({ connectionString, max: 5, connectionTimeoutMillis: 10000, idleTimeoutMillis: 30000 });
+const pool = createFarmPool(5);
 
 type Queryable = Pick<PoolClient, "query">;
 type ProductRow = { id: string; name: string; category: FarmProduct["category"]; image: string; unit: string; sale: FarmProduct["sale"]; price: string; description: string; preparation: string; stock: number; minimum: number; status: FarmProduct["status"] };
@@ -50,53 +49,43 @@ async function transaction<T>(work: (client: PoolClient) => Promise<T>, readOnly
     throw error;
   } finally { client.release(); }
 }
-
-export function readPostgresFarm(): Promise<FarmStore> { return transaction(loadFarm, true); }
+export async function readPostgresFarm(): Promise<FarmStore> { return transaction(loadFarm, true); }
 export async function publicPostgresFarm(): Promise<PublicFarm> {
-  return transaction(async client => {
-    const settings = await client.query<SettingsRow>("select minimum_bulk_kg, eid, receive_orders, delivery from farm.settings where id = 1");
-    if (!settings.rows[0]) throw new Error("Farm database is not initialized.");
-    const products = await client.query<ProductRow>("select * from farm.products where status = 'available' and stock >= minimum order by sort_order, id");
-    return { settings: settingsFromRow(settings.rows[0]), products: products.rows.map(productFromRow).filter(isAvailable) };
-  }, true);
-}
-
-async function saveProduct(client: Queryable, product: FarmProduct, sortOrder: number) {
-  await client.query(`insert into farm.products (id,name,category,image,unit,sale,price,description,preparation,stock,minimum,status,sort_order)
-    values ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13)
-    on conflict (id) do update set name=excluded.name, category=excluded.category, image=excluded.image, unit=excluded.unit,
-    sale=excluded.sale, price=excluded.price, description=excluded.description, preparation=excluded.preparation,
-    stock=excluded.stock, minimum=excluded.minimum, status=excluded.status, sort_order=excluded.sort_order`,
-  [product.id, product.name, product.category, product.image, product.unit, product.sale, product.price, product.description, product.preparation, product.stock, product.minimum, product.status, sortOrder]);
-}
-async function saveOrder(client: Queryable, order: FarmOrder, isNew: boolean) {
-  await client.query(`insert into farm.orders (id,idempotency_key,created_at,status,customer_name,customer_phone,customer_city,customer_address,customer_notes,kind,total,reserved)
-    values ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12)
-    on conflict (id) do update set status=excluded.status, reserved=excluded.reserved`,
-  [order.id, order.key, order.createdAt, order.status, order.customer.name, order.customer.phone, order.customer.city, order.customer.address, order.customer.notes, order.kind, order.total, order.reserved]);
-  if (isNew) for (const [index, item] of order.items.entries()) {
-    await client.query("insert into farm.order_items (order_id,line_number,product_id,name,unit,quantity,price) values ($1,$2,$3,$4,$5,$6,$7)", [order.id, index, item.id, item.name, item.unit, item.quantity, item.price]);
-  }
+  const store = await readPostgresFarm();
+  return { products: store.products.filter(isAvailable), settings: store.settings };
 }
 export async function changePostgresFarm<T>(change: (store: FarmStore) => T | Promise<T>): Promise<T> {
-  return transaction(async client => {
-    // Every writer takes this row lock. Orders, stock and settings commit together across server processes.
-    await client.query("select value from farm.revision where id = 1 for update");
+  return transaction(async (client) => {
+    await client.query("select pg_advisory_xact_lock(7429184)");
     const store = await loadFarm(client);
-    const before = structuredClone(store);
     const result = await change(store);
-    const oldProducts = new Map(before.products.map((item, index) => [item.id, { item, index }]));
-    for (const [index, product] of store.products.entries()) {
-      const old = oldProducts.get(product.id);
-      if (!old || old.index !== index || JSON.stringify(old.item) !== JSON.stringify(product)) await saveProduct(client, product, index);
+    store.revision++;
+    await client.query("update farm.settings set minimum_bulk_kg=$1,eid=$2,receive_orders=$3,delivery=$4 where id=1",
+      [store.settings.minimumBulkKg, store.settings.eid, store.settings.receiveOrders, store.settings.delivery]);
+    await client.query("update farm.revision set value=$1 where id=1", [store.revision]);
+    const incomingIds = new Set(store.products.map(product => product.id));
+    if (incomingIds.size) await client.query("delete from farm.products where id not in (select unnest($1::text[]))", [Array.from(incomingIds)]);
+    else await client.query("delete from farm.products");
+    for (const [index, item] of store.products.entries()) {
+      await client.query(`insert into farm.products (id,name,category,image,unit,sale,price,description,preparation,stock,minimum,status,sort_order)
+        values ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13)
+        on conflict (id) do update set name=excluded.name,category=excluded.category,image=excluded.image,unit=excluded.unit,sale=excluded.sale,price=excluded.price,description=excluded.description,preparation=excluded.preparation,stock=excluded.stock,minimum=excluded.minimum,status=excluded.status,sort_order=excluded.sort_order`,
+      [item.id, item.name, item.category, item.image, item.unit, item.sale, item.price, item.description, item.preparation, item.stock, item.minimum, item.status, index]);
     }
-    if (JSON.stringify(before.settings) !== JSON.stringify(store.settings)) await client.query("update farm.settings set minimum_bulk_kg=$1,eid=$2,receive_orders=$3,delivery=$4 where id=1", [store.settings.minimumBulkKg, store.settings.eid, store.settings.receiveOrders, store.settings.delivery]);
-    const oldOrders = new Map(before.orders.map(order => [order.id, order]));
+    const orderIds = new Set(store.orders.map(order => order.id));
+    if (orderIds.size) await client.query("delete from farm.orders where id not in (select unnest($1::text[]))", [Array.from(orderIds)]);
+    else await client.query("delete from farm.orders");
     for (const order of store.orders) {
-      const old = oldOrders.get(order.id);
-      if (!old || JSON.stringify(old) !== JSON.stringify(order)) await saveOrder(client, order, !old);
+      await client.query(`insert into farm.orders (id,idempotency_key,created_at,status,customer_name,customer_phone,customer_city,customer_address,customer_notes,kind,total,reserved)
+        values ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12)
+        on conflict (id) do update set idempotency_key=excluded.idempotency_key,created_at=excluded.created_at,status=excluded.status,customer_name=excluded.customer_name,customer_phone=excluded.customer_phone,customer_city=excluded.customer_city,customer_address=excluded.customer_address,customer_notes=excluded.customer_notes,kind=excluded.kind,total=excluded.total,reserved=excluded.reserved`,
+      [order.id, order.key, new Date(order.createdAt), order.status, order.customer.name, order.customer.phone, order.customer.city, order.customer.address, order.customer.notes, order.kind, order.total, order.reserved]);
+      await client.query("delete from farm.order_items where order_id=$1", [order.id]);
+      for (const [index, item] of order.items.entries()) {
+        await client.query("insert into farm.order_items (order_id,line_number,product_id,name,unit,quantity,price) values ($1,$2,$3,$4,$5,$6,$7)",
+          [order.id, index, item.id, item.name, item.unit, item.quantity, item.price]);
+      }
     }
-    await client.query("update farm.revision set value=value+1 where id=1");
     return result;
   });
 }
