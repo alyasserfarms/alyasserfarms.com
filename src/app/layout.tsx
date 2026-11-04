@@ -7,6 +7,7 @@ import "./harvest-home.css";
 import "./living-farm.css";
 import "./farm-shell.css";
 import "./admin.css";
+import "./planning-lab.css";
 import { FarmProvider } from "@/components/farm-provider";
 import { publicFarm } from "@/lib/farm-repository";
 import { VisitRecorder } from "@/components/visit-recorder";
