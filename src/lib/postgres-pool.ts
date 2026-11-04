@@ -53,8 +53,8 @@ export function createFarmPool(max: number): Pool {
   return new Pool({
     connectionString: parsedUrl.toString(),
     ssl,
-    max,
+    max: 2, // Safe low limit for serverless workers and Supabase session pooler
     connectionTimeoutMillis: 10000,
-    idleTimeoutMillis: 30000,
+    idleTimeoutMillis: 10000,
   });
 }

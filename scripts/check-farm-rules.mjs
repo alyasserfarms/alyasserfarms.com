@@ -28,14 +28,31 @@ assert.throws(() => rules.cleanProduct({ ...product, price: -1 }));
 assert.throws(() => rules.createOrder(store, input(23, 'bulk')));
 const raw = input(24, 'bulk'); const order = rules.createOrder(store, raw);
 assert.equal(order.total, 2400); // Server prices, ignoring client-supplied price.
+const originalPrice = product.price;
+product.price = 115;
+const events = rules.collectPriceChanges([{ ...product, price: originalPrice }], [product]);
+assert.equal(events.length, 1);
+assert.equal(events[0].before, 100);
+assert.equal(events[0].after, 115);
+assert.equal(order.items[0].price, 100); // Earlier orders keep their captured price.
+product.price = originalPrice;
+assert.equal(rules.collectPriceChanges([product], [product]).length, 0);
 assert.equal(rules.createOrder(store, raw).id, order.id);
 assert.equal(store.orders.length, 1);
 assert.equal(product.stock, 30); // Submission alone does not reserve stock.
 assert.throws(() => rules.updateOrder(store, order.id, 'confirmed'));
-rules.updateOrder(store, order.id, 'reviewed'); rules.updateOrder(store, order.id, 'confirmed');
+rules.updateOrder(store, order.id, 'reviewed');
+assert.throws(() => rules.updateOrder(store, order.id, 'confirmed')); // Delivery must be priced first.
+rules.updateOrderDelivery(store, order.id, { fee: 75, date: '2026-11-05', agent: 'مسؤول التجربة', note: '' });
+assert.equal(order.delivery.fee, 75);
+assert.throws(() => rules.updateOrderDelivery(store, order.id, { fee: -1, date: '', agent: '', note: '' }));
+rules.updateOrder(store, order.id, 'confirmed');
 assert.equal(product.stock, 6);
+rules.updateOrder(store, order.id, 'preparing');
+rules.updateOrder(store, order.id, 'out_for_delivery');
 assert.throws(() => rules.createOrder(store, input(7)));
 rules.updateOrder(store, order.id, 'cancelled'); assert.equal(product.stock, 30);
+assert.throws(() => rules.updateOrderDelivery(store, order.id, { fee: 0 }));
 assert.throws(() => rules.updateOrder(store, order.id, 'confirmed'));
 product.status = 'hidden'; assert.equal(isAvailable(product), false);
 assert.throws(() => rules.createOrder(store, input(1)));
@@ -45,4 +62,4 @@ store.settings.receiveOrders = true;
 product.sale = 'head'; product.unit = 'رأس';
 assert.throws(() => rules.createOrder(store, input(24, 'bulk')));
 assert.equal(rules.createOrder(store, input(1)).items[0].unit, 'رأس');
-console.log('Farm rules passed: validation, visibility, server pricing, idempotency, wholesale scope, transitions, reservation and cancellation.');
+console.log('Farm rules passed: validation, visibility, price history, captured order prices, idempotency, wholesale scope, transitions, reservation and cancellation.');

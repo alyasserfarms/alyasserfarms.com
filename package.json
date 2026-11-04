@@ -9,7 +9,9 @@
     "lint": "eslint src",
     "typecheck": "tsc --noEmit",
     "db:check": "node scripts/migrate-farm.mjs",
-    "db:import": "node --env-file-if-exists=.env.local scripts/migrate-farm.mjs --apply"
+    "db:import": "node --env-file-if-exists=.env.local scripts/migrate-farm.mjs --apply",
+    "db:delivery": "node --env-file-if-exists=.env.local scripts/migrate-delivery.mjs",
+    "db:prices": "node --env-file-if-exists=.env.local scripts/migrate-prices.mjs"
   },
   "dependencies": {
     "@fontsource-variable/cairo": "^5.3.0",

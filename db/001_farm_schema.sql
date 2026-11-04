@@ -32,11 +32,22 @@ create table if not exists farm.products (
 );
 create index if not exists farm_products_visibility_idx on farm.products (status, sort_order);
 
+create table if not exists farm.price_changes (
+  id uuid primary key,
+  product_id text not null,
+  product_name text not null,
+  unit text not null,
+  old_price numeric(12,2) not null check (old_price > 0),
+  new_price numeric(12,2) not null check (new_price > 0),
+  occurred_at timestamptz not null default now()
+);
+create index if not exists farm_price_changes_recent_idx on farm.price_changes (occurred_at desc, id desc);
+
 create table if not exists farm.orders (
   id uuid primary key,
   idempotency_key uuid not null unique,
   created_at timestamptz not null,
-  status text not null check (status in ('new','reviewed','confirmed','preparing','delivered','cancelled')),
+  status text not null check (status in ('new','reviewed','confirmed','preparing','out_for_delivery','delivered','cancelled')),
   customer_name text not null,
   customer_phone text not null,
   customer_city text not null,
@@ -44,7 +55,11 @@ create table if not exists farm.orders (
   customer_notes text not null default '',
   kind text not null check (kind in ('retail','bulk')),
   total numeric(12,2) not null check (total >= 0),
-  reserved boolean not null default false
+  reserved boolean not null default false,
+  delivery_fee numeric(12,2) check (delivery_fee >= 0),
+  delivery_date date,
+  delivery_agent text not null default '',
+  delivery_note text not null default ''
 );
 create index if not exists farm_orders_created_idx on farm.orders (created_at desc);
 create index if not exists farm_orders_status_idx on farm.orders (status, created_at desc);

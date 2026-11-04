@@ -1,15 +1,17 @@
 import "server-only";
 import { type PoolClient } from "pg";
-import { isAvailable, type FarmOrder, type FarmProduct, type FarmSettings, type FarmStore, type PublicFarm } from "@/data/farm-types";
+import { isAvailable, type FarmOrder, type FarmProduct, type FarmSettings, type FarmStore, type PriceChange, type PublicFarm } from "@/data/farm-types";
 import { createFarmPool } from "./postgres-pool";
+import { collectPriceChanges } from "./farm-rules";
 
 const pool = createFarmPool(5);
 
 type Queryable = Pick<PoolClient, "query">;
 type ProductRow = { id: string; name: string; category: FarmProduct["category"]; image: string; unit: string; sale: FarmProduct["sale"]; price: string; description: string; preparation: string; stock: number; minimum: number; status: FarmProduct["status"] };
 type SettingsRow = { minimum_bulk_kg: number; eid: boolean; receive_orders: boolean; delivery: string };
-type OrderRow = { id: string; idempotency_key: string; created_at: Date; status: FarmOrder["status"]; customer_name: string; customer_phone: string; customer_city: string; customer_address: string; customer_notes: string; kind: FarmOrder["kind"]; total: string; reserved: boolean };
+type OrderRow = { id: string; idempotency_key: string; created_at: Date; status: FarmOrder["status"]; customer_name: string; customer_phone: string; customer_city: string; customer_address: string; customer_notes: string; kind: FarmOrder["kind"]; total: string; reserved: boolean; delivery_fee: string | null; delivery_date: string | null; delivery_agent: string; delivery_note: string };
 type OrderItemRow = { order_id: string; product_id: string; name: string; unit: string; quantity: number; price: string };
+type PriceRow = { id: string; product_id: string; product_name: string; unit: string; old_price: string; new_price: string; occurred_at: Date };
 
 function productFromRow(row: ProductRow): FarmProduct {
   return { id: row.id, name: row.name, category: row.category, image: row.image, unit: row.unit, sale: row.sale, price: Number(row.price), description: row.description, preparation: row.preparation, stock: row.stock, minimum: row.minimum, status: row.status };
@@ -24,6 +26,7 @@ async function loadFarm(client: Queryable): Promise<FarmStore> {
   const products = await client.query<ProductRow>("select * from farm.products order by sort_order, id");
   const orders = await client.query<OrderRow>("select * from farm.orders order by created_at desc, id desc");
   const lines = await client.query<OrderItemRow>("select * from farm.order_items order by order_id, line_number");
+  const prices = await client.query<PriceRow>("select id,product_id,product_name,unit,old_price,new_price,occurred_at from farm.price_changes order by occurred_at desc,id desc limit 100");
   const byOrder = new Map<string, FarmOrder["items"]>();
   for (const line of lines.rows) {
     const list = byOrder.get(line.order_id) ?? [];
@@ -34,7 +37,8 @@ async function loadFarm(client: Queryable): Promise<FarmStore> {
     revision: Number(revision.rows[0].value),
     settings: settingsFromRow(settings.rows[0]),
     products: products.rows.map(productFromRow),
-    orders: orders.rows.map(row => ({ id: row.id, key: row.idempotency_key, createdAt: row.created_at.toISOString(), status: row.status, customer: { name: row.customer_name, phone: row.customer_phone, city: row.customer_city, address: row.customer_address, notes: row.customer_notes }, items: byOrder.get(row.id) ?? [], total: Number(row.total), kind: row.kind, reserved: row.reserved })),
+    priceHistory: prices.rows.map((row): PriceChange => ({ id: row.id, productId: row.product_id, productName: row.product_name, unit: row.unit, before: Number(row.old_price), after: Number(row.new_price), occurredAt: row.occurred_at.toISOString() })),
+    orders: orders.rows.map(row => ({ id: row.id, key: row.idempotency_key, createdAt: row.created_at.toISOString(), status: row.status, customer: { name: row.customer_name, phone: row.customer_phone, city: row.customer_city, address: row.customer_address, notes: row.customer_notes }, items: byOrder.get(row.id) ?? [], total: Number(row.total), kind: row.kind, reserved: row.reserved, delivery: { fee: row.delivery_fee === null ? null : Number(row.delivery_fee), date: row.delivery_date ?? "", agent: row.delivery_agent, note: row.delivery_note } })),
   };
 }
 async function transaction<T>(work: (client: PoolClient) => Promise<T>, readOnly = false): Promise<T> {
@@ -58,7 +62,9 @@ export async function changePostgresFarm<T>(change: (store: FarmStore) => T | Pr
   return transaction(async (client) => {
     await client.query("select pg_advisory_xact_lock(7429184)");
     const store = await loadFarm(client);
+    const before = store.products.map(product => ({ ...product }));
     const result = await change(store);
+    const priceChanges = collectPriceChanges(before, store.products);
     store.revision++;
     await client.query("update farm.settings set minimum_bulk_kg=$1,eid=$2,receive_orders=$3,delivery=$4 where id=1",
       [store.settings.minimumBulkKg, store.settings.eid, store.settings.receiveOrders, store.settings.delivery]);
@@ -72,14 +78,15 @@ export async function changePostgresFarm<T>(change: (store: FarmStore) => T | Pr
         on conflict (id) do update set name=excluded.name,category=excluded.category,image=excluded.image,unit=excluded.unit,sale=excluded.sale,price=excluded.price,description=excluded.description,preparation=excluded.preparation,stock=excluded.stock,minimum=excluded.minimum,status=excluded.status,sort_order=excluded.sort_order`,
       [item.id, item.name, item.category, item.image, item.unit, item.sale, item.price, item.description, item.preparation, item.stock, item.minimum, item.status, index]);
     }
+    for (const event of priceChanges) await client.query("insert into farm.price_changes (id,product_id,product_name,unit,old_price,new_price,occurred_at) values ($1,$2,$3,$4,$5,$6,$7)", [event.id, event.productId, event.productName, event.unit, event.before, event.after, event.occurredAt]);
     const orderIds = new Set(store.orders.map(order => order.id));
     if (orderIds.size) await client.query("delete from farm.orders where id not in (select unnest($1::text[]))", [Array.from(orderIds)]);
     else await client.query("delete from farm.orders");
     for (const order of store.orders) {
-      await client.query(`insert into farm.orders (id,idempotency_key,created_at,status,customer_name,customer_phone,customer_city,customer_address,customer_notes,kind,total,reserved)
-        values ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12)
-        on conflict (id) do update set idempotency_key=excluded.idempotency_key,created_at=excluded.created_at,status=excluded.status,customer_name=excluded.customer_name,customer_phone=excluded.customer_phone,customer_city=excluded.customer_city,customer_address=excluded.customer_address,customer_notes=excluded.customer_notes,kind=excluded.kind,total=excluded.total,reserved=excluded.reserved`,
-      [order.id, order.key, new Date(order.createdAt), order.status, order.customer.name, order.customer.phone, order.customer.city, order.customer.address, order.customer.notes, order.kind, order.total, order.reserved]);
+      await client.query(`insert into farm.orders (id,idempotency_key,created_at,status,customer_name,customer_phone,customer_city,customer_address,customer_notes,kind,total,reserved,delivery_fee,delivery_date,delivery_agent,delivery_note)
+        values ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16)
+        on conflict (id) do update set idempotency_key=excluded.idempotency_key,created_at=excluded.created_at,status=excluded.status,customer_name=excluded.customer_name,customer_phone=excluded.customer_phone,customer_city=excluded.customer_city,customer_address=excluded.customer_address,customer_notes=excluded.customer_notes,kind=excluded.kind,total=excluded.total,reserved=excluded.reserved,delivery_fee=excluded.delivery_fee,delivery_date=excluded.delivery_date,delivery_agent=excluded.delivery_agent,delivery_note=excluded.delivery_note`,
+      [order.id, order.key, new Date(order.createdAt), order.status, order.customer.name, order.customer.phone, order.customer.city, order.customer.address, order.customer.notes, order.kind, order.total, order.reserved, order.delivery?.fee ?? null, order.delivery?.date || null, order.delivery?.agent ?? "", order.delivery?.note ?? ""]);
       await client.query("delete from farm.order_items where order_id=$1", [order.id]);
       for (const [index, item] of order.items.entries()) {
         await client.query("insert into farm.order_items (order_id,line_number,product_id,name,unit,quantity,price) values ($1,$2,$3,$4,$5,$6,$7)",
