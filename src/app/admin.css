@@ -404,3 +404,79 @@
   vertical-align: middle;
   margin-inline-end: 4px;
 }
+
+
+/* --- Order Quick Actions: WhatsApp & Print Slip --- */
+.admin-order-top-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.farm-admin .admin-print-btn {
+  min-height: 38px;
+  padding: 6px 14px;
+  font-size: 13px;
+  background: var(--admin-surface);
+  border: 1px solid var(--admin-rule);
+  color: var(--forest);
+  transition: all 0.2s ease;
+}
+.farm-admin .admin-print-btn:hover {
+  background: #e7eadf;
+  border-color: #cbd5c0;
+}
+.admin-section-header-inline {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+.admin-section-header-inline h3 {
+  margin-bottom: 0;
+}
+.admin-whatsapp-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border-radius: 8px;
+  background: #25d366;
+  color: #ffffff !important;
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none !important;
+  box-shadow: 0 2px 6px rgba(37, 211, 102, 0.25);
+  transition: transform 0.18s ease, background 0.18s ease;
+}
+.admin-whatsapp-btn:hover {
+  background: #20ba5a;
+  transform: translateY(-1px);
+}
+
+/* Print Invoice Stylesheet */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  .admin-order-detail, .admin-order-detail * {
+    visibility: visible;
+  }
+  .admin-order-detail {
+    position: absolute;
+    inset-inline-start: 0;
+    top: 0;
+    width: 100%;
+    max-width: 100% !important;
+    background: #ffffff !important;
+    color: #000000 !important;
+    padding: 20px !important;
+  }
+  .admin-header, .admin-nav, .admin-order-top-actions, .admin-whatsapp-btn, .admin-order-actions, .admin-order-steps {
+    display: none !important;
+  }
+  .admin-order-section, .admin-order-summary {
+    border: 1px solid #cccccc !important;
+    background: #ffffff !important;
+    box-shadow: none !important;
+  }
+}
