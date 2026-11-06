@@ -32,11 +32,11 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "مزارع آل ياسر | الخير له أصل — منتجات عضوية وطازجة",
+    default: "مزارع آل ياسر | الخير له أصل — متجر منتجات المزرعة",
     template: "%s | مزارع آل ياسر",
   },
   description:
-    "مزارع آل ياسر — متجر زراعي متكامل يقدم أجود أنواع اللحوم الطازجة، الدواجن، الخضروات، الفواكه الموسمية، الألبان ومنتجات المزرعة الطبيعية من أرضنا لمائدتكم مباشرة.",
+    "مزارع آل ياسر — متجر للحوم والدواجن والخضروات والفواكه والألبان ومنتجات المزرعة. تعرّف على المنتجات المتاحة واطلبها عبر الموقع.",
   keywords: [
     "مزارع آل ياسر",
     "الخير له أصل",
@@ -61,6 +61,21 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/",
   },
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon-48.png", sizes: "48x48", type: "image/png" },
+      { url: "/icon-96.png", sizes: "96x96", type: "image/png" },
+      { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
+      { url: "/icon-512.png", sizes: "512x512", type: "image/png" },
+    ],
+    apple: [
+      { url: "/apple-icon.png", sizes: "180x180", type: "image/png" },
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+    shortcut: "/favicon.ico",
+  },
+  manifest: "/manifest.webmanifest",
   robots: {
     index: true,
     follow: true,
@@ -105,7 +120,8 @@ const jsonLd = {
       name: "مزارع آل ياسر",
       alternateName: "AL Yasser Farms",
       url: siteUrl,
-      logo: `${siteUrl}/brand-optimized/01_شعارات_وأيقونات/01_الشعار_الأساسي_شفاف.webp`,
+      logo: `${siteUrl}/icon-512.png`,
+      image: `${siteUrl}/icon-512.png`,
       slogan: "الخير له أصل",
       description: "مزارع آل ياسر لإنتاج وتوزيع اللحوم والدواجن والخضروات والفواكه ومنتجات المزرعة الطبيعية.",
       contactPoint: {
