@@ -480,3 +480,88 @@
     box-shadow: none !important;
   }
 }
+
+/* Staff & Employee Management */
+.admin-staff-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 12px 0 20px;
+}
+.admin-staff-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 14px 16px;
+  background: var(--admin-surface, #fffcf5);
+  border: 1px solid var(--admin-line, #e2e8da);
+  border-radius: 12px;
+}
+.admin-staff-info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.admin-staff-name {
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--brand-primary, #213626);
+}
+.admin-staff-meta {
+  font-size: 13px;
+  color: #667566;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.admin-staff-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 700;
+}
+.badge-admin {
+  background: #e4efe0;
+  color: #1e4522;
+}
+.badge-orders {
+  background: #eef3fb;
+  color: #1b4b8a;
+}
+.badge-inactive {
+  background: #fbeee9;
+  color: #8c2b18;
+}
+.admin-staff-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.admin-btn-sm {
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  border: 1px solid var(--admin-line, #bfc7b4);
+  background: #ffffff;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+.admin-btn-sm:hover:not(:disabled) {
+  background: #f2f5ee;
+}
+.admin-btn-danger {
+  color: #a82415;
+  border-color: #f1cfc8;
+}
+.admin-btn-danger:hover:not(:disabled) {
+  background: #fdf2f0;
+}
+

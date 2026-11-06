@@ -4,7 +4,7 @@ import path from "node:path";
 import { randomUUID } from "node:crypto";
 import { products } from "@/data/content";
 import { commerceSettings } from "@/data/commerce-settings";
-import { isAvailable, type FarmStore, type PublicFarm } from "@/data/farm-types";
+import { isAvailable, type FarmStore, type PublicFarm, type FarmUser, type FarmUserRole } from "@/data/farm-types";
 import { collectPriceChanges } from "./farm-rules";
 
 // Local, single-process adapter. Replace with a transactional database before multi-instance hosting.
@@ -52,5 +52,51 @@ export async function getAdminPasswordHash(): Promise<string | null> {
 export async function setAdminPasswordHash(hash: string): Promise<void> {
   if (process.env.DATABASE_URL || process.env.POSTGRES_URL) {
     await (await import("./farm-postgres")).setAdminPasswordHash(hash);
+  }
+}
+
+export async function getUserByUsername(username: string) {
+  if (process.env.DATABASE_URL || process.env.POSTGRES_URL) {
+    return (await import("./farm-postgres")).getUserByUsername(username);
+  }
+  return null;
+}
+
+export async function getUserById(id: string) {
+  if (process.env.DATABASE_URL || process.env.POSTGRES_URL) {
+    return (await import("./farm-postgres")).getUserById(id);
+  }
+  return null;
+}
+
+export async function listFarmUsers(): Promise<FarmUser[]> {
+  if (process.env.DATABASE_URL || process.env.POSTGRES_URL) {
+    return (await import("./farm-postgres")).listFarmUsers();
+  }
+  return [];
+}
+
+export async function createFarmUser(username: string, name: string, passwordHash: string, role: FarmUserRole): Promise<FarmUser> {
+  if (process.env.DATABASE_URL || process.env.POSTGRES_URL) {
+    return (await import("./farm-postgres")).createFarmUser(username, name, passwordHash, role);
+  }
+  throw new Error("قاعدة البيانات غير متصلة.");
+}
+
+export async function updateFarmUserPassword(id: string, passwordHash: string): Promise<void> {
+  if (process.env.DATABASE_URL || process.env.POSTGRES_URL) {
+    return (await import("./farm-postgres")).updateFarmUserPassword(id, passwordHash);
+  }
+}
+
+export async function setFarmUserActive(id: string, active: boolean): Promise<void> {
+  if (process.env.DATABASE_URL || process.env.POSTGRES_URL) {
+    return (await import("./farm-postgres")).setFarmUserActive(id, active);
+  }
+}
+
+export async function deleteFarmUser(id: string): Promise<void> {
+  if (process.env.DATABASE_URL || process.env.POSTGRES_URL) {
+    return (await import("./farm-postgres")).deleteFarmUser(id);
   }
 }

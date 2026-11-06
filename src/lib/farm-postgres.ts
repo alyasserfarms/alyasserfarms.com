@@ -1,6 +1,6 @@
 import "server-only";
 import { type PoolClient } from "pg";
-import { isAvailable, type FarmOrder, type FarmProduct, type FarmSettings, type FarmStore, type PriceChange, type PublicFarm } from "@/data/farm-types";
+import { isAvailable, type FarmOrder, type FarmProduct, type FarmSettings, type FarmStore, type PriceChange, type PublicFarm, type FarmUser, type FarmUserRole } from "@/data/farm-types";
 import { createFarmPool } from "./postgres-pool";
 import { collectPriceChanges } from "./farm-rules";
 
@@ -97,10 +97,103 @@ export async function changePostgresFarm<T>(change: (store: FarmStore) => T | Pr
   });
 }
 
+type DbUserRow = {
+  id: string;
+  username: string;
+  name: string;
+  password_hash: string;
+  role: FarmUserRole;
+  active: boolean;
+  created_at: Date;
+};
+
+export async function getUserByUsername(username: string): Promise<DbUserRow | null> {
+  try {
+    return await transaction(async (client) => {
+      const res = await client.query<DbUserRow>(
+        "select id, username, name, password_hash, role, active, created_at from farm.users where lower(username) = lower($1)",
+        [username.trim()]
+      );
+      return res.rows[0] ?? null;
+    }, true);
+  } catch {
+    return null;
+  }
+}
+
+export async function getUserById(id: string): Promise<DbUserRow | null> {
+  try {
+    return await transaction(async (client) => {
+      const res = await client.query<DbUserRow>(
+        "select id, username, name, password_hash, role, active, created_at from farm.users where id = $1",
+        [id]
+      );
+      return res.rows[0] ?? null;
+    }, true);
+  } catch {
+    return null;
+  }
+}
+
+export async function listFarmUsers(): Promise<FarmUser[]> {
+  try {
+    return await transaction(async (client) => {
+      const res = await client.query<DbUserRow>(
+        "select id, username, name, password_hash, role, active, created_at from farm.users order by role asc, created_at asc"
+      );
+      return res.rows.map(r => ({
+        id: r.id,
+        username: r.username,
+        name: r.name,
+        role: r.role,
+        active: r.active,
+        createdAt: r.created_at.toISOString(),
+      }));
+    }, true);
+  } catch {
+    return [];
+  }
+}
+
+export async function createFarmUser(username: string, name: string, passwordHash: string, role: FarmUserRole): Promise<FarmUser> {
+  return await transaction(async (client) => {
+    const res = await client.query<DbUserRow>(
+      "insert into farm.users (username, name, password_hash, role) values ($1, $2, $3, $4) returning id, username, name, password_hash, role, active, created_at",
+      [username.trim(), name.trim(), passwordHash, role]
+    );
+    const r = res.rows[0];
+    return {
+      id: r.id,
+      username: r.username,
+      name: r.name,
+      role: r.role,
+      active: r.active,
+      createdAt: r.created_at.toISOString(),
+    };
+  });
+}
+
+export async function updateFarmUserPassword(id: string, passwordHash: string): Promise<void> {
+  await transaction(async (client) => {
+    await client.query("update farm.users set password_hash = $1, updated_at = now() where id = $2", [passwordHash, id]);
+  });
+}
+
+export async function setFarmUserActive(id: string, active: boolean): Promise<void> {
+  await transaction(async (client) => {
+    await client.query("update farm.users set active = $1, updated_at = now() where id = $2", [active, id]);
+  });
+}
+
+export async function deleteFarmUser(id: string): Promise<void> {
+  await transaction(async (client) => {
+    await client.query("delete from farm.users where id = $1", [id]);
+  });
+}
+
 export async function getAdminPasswordHash(): Promise<string | null> {
   try {
     return await transaction(async (client) => {
-      await client.query("alter table farm.settings add column if not exists admin_password_hash text");
       const res = await client.query<{ admin_password_hash: string | null }>(
         "select admin_password_hash from farm.settings where id = 1"
       );
@@ -113,7 +206,6 @@ export async function getAdminPasswordHash(): Promise<string | null> {
 
 export async function setAdminPasswordHash(hash: string): Promise<void> {
   await transaction(async (client) => {
-    await client.query("alter table farm.settings add column if not exists admin_password_hash text");
     await client.query("update farm.settings set admin_password_hash = $1 where id = 1", [hash]);
   });
 }
