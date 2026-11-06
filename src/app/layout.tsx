@@ -96,9 +96,11 @@ export const metadata: Metadata = {
     siteName: "مزارع آل ياسر | AL Yasser Farms",
     images: [
       {
-        url: "/brand-optimized/02_أغلفة_التواصل_الاجتماعي/06_غلاف_فيسبوك.webp",
+        url: `${siteUrl}/og-image.jpg`,
+        secureUrl: `${siteUrl}/og-image.jpg`,
         width: 1200,
         height: 630,
+        type: "image/jpeg",
         alt: "مزارع آل ياسر — الخير له أصل",
       },
     ],
@@ -107,7 +109,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "مزارع آل ياسر | الخير له أصل",
     description: "أجود اللحوم والدواجن والخضار والفواكه والألبان الطازجة مباشرة من المزرعة لمائدتكم.",
-    images: ["/brand-optimized/02_أغلفة_التواصل_الاجتماعي/06_غلاف_فيسبوك.webp"],
+    images: [`${siteUrl}/og-image.jpg`],
   },
 };
 
