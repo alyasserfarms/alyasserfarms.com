@@ -1,11 +1,19 @@
 import { isFullAdmin, sameOrigin, hashPassword, withinLimit } from "@/lib/admin-auth";
-import { listFarmUsers, createFarmUser, updateFarmUserPassword, setFarmUserActive, deleteFarmUser, getUserByUsername } from "@/lib/farm-repository";
-import type { FarmUserRole } from "@/data/farm-types";
+import {
+  listFarmUsers,
+  createFarmUser,
+  updateFarmUserPassword,
+  updateFarmUserRole,
+  setFarmUserActive,
+  deleteFarmUser,
+  getUserByUsername,
+} from "@/lib/farm-repository";
+import { roleLabels, type FarmUserRole } from "@/data/farm-types";
 
 export const dynamic = "force-dynamic";
 
-export async function GET(request: Request) {
-  if (!sameOrigin(request) || !(await isFullAdmin())) {
+export async function GET() {
+  if (!(await isFullAdmin())) {
     return Response.json({ error: "غير مصرح لك بإدارة الموظفين." }, { status: 403 });
   }
   const users = await listFarmUsers();
@@ -17,7 +25,7 @@ export async function POST(request: Request) {
     return Response.json({ error: "غير مصرح لك بإدارة الموظفين." }, { status: 403 });
   }
 
-  if (!withinLimit("staff_ops", 20, 60000)) {
+  if (!withinLimit("staff_ops", 30, 60000)) {
     return Response.json({ error: "محاولات كثيرة. انتظر دقيقة." }, { status: 429 });
   }
 
@@ -51,6 +59,14 @@ export async function POST(request: Request) {
       const pHash = hashPassword(password);
       const user = await createFarmUser(username, name, pHash, role);
       return Response.json({ ok: true, user, message: `تمت إضافة الموظف (${name}) بنجاح.` });
+    }
+
+    if (action === "update_role") {
+      const id = String(body.id ?? "");
+      const role = (body.role === "orders" ? "orders" : "admin") as FarmUserRole;
+      if (!id) return Response.json({ error: "معرّف الموظف مطلوب." }, { status: 400 });
+      await updateFarmUserRole(id, role);
+      return Response.json({ ok: true, message: `تم تحديث صلاحية الموظف إلى: ${roleLabels[role]}` });
     }
 
     if (action === "toggle_active") {

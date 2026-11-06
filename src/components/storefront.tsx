@@ -1,7 +1,7 @@
 "use client";
 import { useFarm } from "@/components/farm-provider";
 
-import { ArrowLeft, ArrowUpLeft, Check, Menu, Minus, Plus, Search, Phone, Globe, ShoppingBag, Trash2, X } from "lucide-react";
+import { ArrowLeft, ArrowUpLeft, Check, Lock, Menu, Minus, Plus, Search, Phone, Globe, ShoppingBag, Trash2, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState, type ReactNode } from "react";
@@ -60,7 +60,7 @@ export function Storefront({ logo, children, afterProducts, catalogue = true, sh
   function openProduct(product: Product) { setSelected(product); productRef.current?.showModal(); }
 
   return <>
-    {catalogue && <div className="reference-topbar"><div className="frame"><a href="#contact"><Phone size={14} aria-hidden="true" />تواصل معنا</a><span className="reference-locale"><Globe size={14} aria-hidden="true" /><span lang="en">AL Yasser Farms</span><span>العربية</span></span></div></div>}
+    {catalogue && <div className="reference-topbar"><div className="frame"><a href="#contact"><Phone size={14} aria-hidden="true" />تواصل معنا</a><Link href="/admin" className="reference-staff-toplink" style={{ display: "inline-flex", alignItems: "center", gap: "5px", color: "inherit", textDecoration: "none", fontSize: "12px", opacity: 0.85 }}><Lock size={12} aria-hidden="true" />دخول الموظفين</Link><span className="reference-locale"><Globe size={14} aria-hidden="true" /><span lang="en">AL Yasser Farms</span><span>العربية</span></span></div></div>}
     <header className={`site-header ${catalogue ? "reference-header" : ""}`}>
       <div className="header-inner frame">
         <BrandName logo={logo} />
@@ -95,7 +95,7 @@ export function Storefront({ logo, children, afterProducts, catalogue = true, sh
     </>}
     {afterProducts}
     </main>
-    <Modal dialogRef={menuRef} title="القائمة" className="menu-modal"><nav aria-label="قائمة الجوال">{navigationItems.map((item) => <Link key={item.href} href={item.href} onClick={() => menuRef.current?.close()}>{item.label}<ArrowUpLeft aria-hidden="true" /></Link>)}{!catalogue && <Link href="/delivery" onClick={() => menuRef.current?.close()}>الطلب والتوصيل<ArrowUpLeft aria-hidden="true" /></Link>}</nav><p>{brand.tagline}</p></Modal>
+    <Modal dialogRef={menuRef} title="القائمة" className="menu-modal"><nav aria-label="قائمة الجوال">{navigationItems.map((item) => <Link key={item.href} href={item.href} onClick={() => menuRef.current?.close()}>{item.label}<ArrowUpLeft aria-hidden="true" /></Link>)}{!catalogue && <Link href="/delivery" onClick={() => menuRef.current?.close()}>الطلب والتوصيل<ArrowUpLeft aria-hidden="true" /></Link>}<Link href="/admin" onClick={() => menuRef.current?.close()} style={{ display: "inline-flex", alignItems: "center", gap: "8px", fontWeight: "600", color: "var(--brand-primary, #213626)", marginTop: "10px", paddingTop: "10px", borderTop: "1px dashed var(--admin-line, #e2e8da)" }}><Lock size={15} aria-hidden="true" />دخول الموظفين والإدارة</Link></nav><p>{brand.tagline}</p></Modal>
     <Modal dialogRef={searchRef} title="عمّ تبحث؟"><label className="search-label" htmlFor="product-search">ابحث في المنتجات التجريبية</label><div className="search-input"><Search aria-hidden="true" size={20} /><input id="product-search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="خضروات، برتقال، حليب…" type="search" /></div><div className="search-results" aria-live="polite">{searchResults.length === 0 ? <p>لم نجد منتجًا بهذا الاسم. جرّب اسمًا آخر.</p> : searchResults.map((product) => <button type="button" key={product.id} onClick={() => { searchRef.current?.close(); if (pathname !== "/" || !showCatalogue) { router.push(`/products/${product.id}`); return; } setCategory(product.category); document.getElementById("products")?.scrollIntoView({ behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth" }); }}><Image src={`/media/${product.image}.jpg`} alt="" width={64} height={64} /><span>{product.name}<small>{product.unit}</small></span><ArrowUpLeft aria-hidden="true" size={18} /></button>)}</div></Modal>
     <Modal dialogRef={cartRef} title="سلة المعاينة" className="cart-modal">
       <p className="modal-description">جرّب الاختيار وتعديل الكميات. هذه السلة للمعاينة، ولا تنشئ طلبًا فعليًا.</p>

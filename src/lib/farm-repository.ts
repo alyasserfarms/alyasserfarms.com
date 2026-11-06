@@ -89,6 +89,12 @@ export async function updateFarmUserPassword(id: string, passwordHash: string): 
   }
 }
 
+export async function updateFarmUserRole(id: string, role: FarmUserRole): Promise<void> {
+  if (process.env.DATABASE_URL || process.env.POSTGRES_URL) {
+    return (await import("./farm-postgres")).updateFarmUserRole(id, role);
+  }
+}
+
 export async function setFarmUserActive(id: string, active: boolean): Promise<void> {
   if (process.env.DATABASE_URL || process.env.POSTGRES_URL) {
     return (await import("./farm-postgres")).setFarmUserActive(id, active);

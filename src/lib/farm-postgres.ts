@@ -179,6 +179,12 @@ export async function updateFarmUserPassword(id: string, passwordHash: string): 
   });
 }
 
+export async function updateFarmUserRole(id: string, role: FarmUserRole): Promise<void> {
+  await transaction(async (client) => {
+    await client.query("update farm.users set role = $1, updated_at = now() where id = $2", [role, id]);
+  });
+}
+
 export async function setFarmUserActive(id: string, active: boolean): Promise<void> {
   await transaction(async (client) => {
     await client.query("update farm.users set active = $1, updated_at = now() where id = $2", [active, id]);

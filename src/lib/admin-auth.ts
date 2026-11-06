@@ -183,8 +183,20 @@ export async function clearAdminSession(): Promise<void> {
 
 export function sameOrigin(request: Request): boolean {
   try {
-    const origin = new URL(request.headers.get("origin") ?? "");
-    return ["http:", "https:"].includes(origin.protocol) && origin.host === request.headers.get("host");
+    const host = request.headers.get("host");
+    const origin = request.headers.get("origin");
+    if (origin) {
+      const url = new URL(origin);
+      return ["http:", "https:"].includes(url.protocol) && url.host === host;
+    }
+    const referer = request.headers.get("referer");
+    if (referer) {
+      const url = new URL(referer);
+      return ["http:", "https:"].includes(url.protocol) && url.host === host;
+    }
+    const fetchSite = request.headers.get("sec-fetch-site");
+    if (fetchSite === "same-origin") return true;
+    return false;
   } catch {
     return false;
   }

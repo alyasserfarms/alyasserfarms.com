@@ -110,15 +110,18 @@ export function AdminPanel({ initial, logo, currentUser }: { initial: FarmStore;
     try {
       const data = await api("/api/admin/users", { cache: "no-store" });
       setStaff(data);
-    } catch {}
-    finally { setLoadingStaff(false); }
+    } catch (err) {
+      setStaffError((err as Error).message);
+    } finally {
+      setLoadingStaff(false);
+    }
   }
 
   useEffect(() => {
-    if (tab === "settings" && user.role === "admin") {
+    if (user.role === "admin") {
       loadStaff();
     }
-  }, [tab, user.role]);
+  }, [user.role]);
 
   async function handlePasswordChange(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -203,6 +206,50 @@ export function AdminPanel({ initial, logo, currentUser }: { initial: FarmStore;
         body: JSON.stringify({ action: "delete", id: targetId, username: targetUsername }),
       });
       setStaffMessage(res.message);
+      await loadStaff();
+    } catch (err) {
+      setStaffError((err as Error).message);
+    } finally {
+      setStaffBusy(false);
+    }
+  }
+
+  async function handleUpdateStaffRole(targetId: string, role: FarmUserRole) {
+    setStaffBusy(true);
+    setStaffError("");
+    setStaffMessage("");
+    try {
+      const res = await api("/api/admin/users", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ action: "update_role", id: targetId, role }),
+      });
+      setStaffMessage(res.message ?? "تم تحديث صلاحية الموظف بنجاح.");
+      await loadStaff();
+    } catch (err) {
+      setStaffError((err as Error).message);
+    } finally {
+      setStaffBusy(false);
+    }
+  }
+
+  async function handleResetStaffPassword(targetId: string, targetUsername: string) {
+    const newPassword = window.prompt(`أدخل كلمة المرور الجديدة للموظف (@${targetUsername}):`, "");
+    if (!newPassword) return;
+    if (newPassword.trim().length < 6) {
+      alert("كلمة المرور يجب ألا تقل عن 6 خانات.");
+      return;
+    }
+    setStaffBusy(true);
+    setStaffError("");
+    setStaffMessage("");
+    try {
+      const res = await api("/api/admin/users", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ action: "reset_password", id: targetId, newPassword: newPassword.trim() }),
+      });
+      setStaffMessage(res.message ?? "تم تعيين كلمة المرور الجديدة للموظف بنجاح.");
       await loadStaff();
     } catch (err) {
       setStaffError((err as Error).message);
@@ -612,8 +659,28 @@ export function AdminPanel({ initial, logo, currentUser }: { initial: FarmStore;
                             </div>
                           </div>
                           <div className="admin-staff-actions">
-                            {s.username !== "admin" && (
+                            {s.username !== "admin" ? (
                               <>
+                                <select
+                                  className="admin-select-sm"
+                                  value={s.role}
+                                  disabled={staffBusy}
+                                  onChange={e => handleUpdateStaffRole(s.id, e.target.value as FarmUserRole)}
+                                  title="تغيير صلاحية الموظف"
+                                >
+                                  <option value="orders">مسؤول طلبات</option>
+                                  <option value="admin">مدير كامل</option>
+                                </select>
+                                <button
+                                  type="button"
+                                  className="admin-btn-sm"
+                                  disabled={staffBusy}
+                                  onClick={() => handleResetStaffPassword(s.id, s.username)}
+                                  title="تعيين كلمة مرور جديدة للموظف"
+                                >
+                                  <KeyRound size={14} aria-hidden="true" />
+                                  كلمة المرور
+                                </button>
                                 <button
                                   type="button"
                                   className="admin-btn-sm"
@@ -634,6 +701,10 @@ export function AdminPanel({ initial, logo, currentUser }: { initial: FarmStore;
                                   حذف
                                 </button>
                               </>
+                            ) : (
+                              <span style={{ fontSize: "12px", color: "var(--brand-muted, #556b57)", fontWeight: 600 }}>
+                                الحساب الإداري الرئيسي
+                              </span>
                             )}
                           </div>
                         </div>
