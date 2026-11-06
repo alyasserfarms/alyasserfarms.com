@@ -15,17 +15,17 @@ export function seedFarm(): FarmStore {
   return { revision: 0, products: products.map(product => ({ ...product, status: "available", stock: 99, sale: "pack", minimum: 1, preparation: "" })), orders: [], priceHistory: [], settings: { minimumBulkKg: commerceSettings.minimumBulkKg, eid: true, receiveOrders: true, delivery: "تُراجع المنطقة والرسوم والموعد عند التواصل قبل تأكيد الطلب." } };
 }
 export async function readFarm(): Promise<FarmStore> {
-  if (process.env.DATABASE_URL) return (await import("./farm-postgres")).readPostgresFarm();
+  if (process.env.DATABASE_URL || process.env.POSTGRES_URL) return (await import("./farm-postgres")).readPostgresFarm();
   try { const store = JSON.parse(await readFile(filename, "utf8")) as FarmStore; return { ...store, priceHistory: store.priceHistory ?? [] }; }
   catch (error) { if ((error as NodeJS.ErrnoException).code === "ENOENT") return seedFarm(); throw error; }
 }
 export async function publicFarm(): Promise<PublicFarm> {
-  if (process.env.DATABASE_URL) return (await import("./farm-postgres")).publicPostgresFarm();
+  if (process.env.DATABASE_URL || process.env.POSTGRES_URL) return (await import("./farm-postgres")).publicPostgresFarm();
   const store = await readFarm();
   return { products: store.products.filter(isAvailable), settings: store.settings };
 }
 export async function changeFarm<T>(change: (store: FarmStore) => T | Promise<T>): Promise<T> {
-  if (process.env.DATABASE_URL) return (await import("./farm-postgres")).changePostgresFarm(change);
+  if (process.env.DATABASE_URL || process.env.POSTGRES_URL) return (await import("./farm-postgres")).changePostgresFarm(change);
   const operation = pending.then(async () => {
     const store = await readFarm();
     const before = store.products.map(product => ({ ...product }));
@@ -40,4 +40,17 @@ export async function changeFarm<T>(change: (store: FarmStore) => T | Promise<T>
   });
   pending = operation.catch(() => {});
   return operation;
+}
+
+export async function getAdminPasswordHash(): Promise<string | null> {
+  if (process.env.DATABASE_URL || process.env.POSTGRES_URL) {
+    return (await import("./farm-postgres")).getAdminPasswordHash();
+  }
+  return null;
+}
+
+export async function setAdminPasswordHash(hash: string): Promise<void> {
+  if (process.env.DATABASE_URL || process.env.POSTGRES_URL) {
+    await (await import("./farm-postgres")).setAdminPasswordHash(hash);
+  }
 }

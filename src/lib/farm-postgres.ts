@@ -96,3 +96,24 @@ export async function changePostgresFarm<T>(change: (store: FarmStore) => T | Pr
     return result;
   });
 }
+
+export async function getAdminPasswordHash(): Promise<string | null> {
+  try {
+    return await transaction(async (client) => {
+      await client.query("alter table farm.settings add column if not exists admin_password_hash text");
+      const res = await client.query<{ admin_password_hash: string | null }>(
+        "select admin_password_hash from farm.settings where id = 1"
+      );
+      return res.rows[0]?.admin_password_hash ?? null;
+    }, true);
+  } catch {
+    return null;
+  }
+}
+
+export async function setAdminPasswordHash(hash: string): Promise<void> {
+  await transaction(async (client) => {
+    await client.query("alter table farm.settings add column if not exists admin_password_hash text");
+    await client.query("update farm.settings set admin_password_hash = $1 where id = 1", [hash]);
+  });
+}
